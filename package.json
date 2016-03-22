@@ -1,0 +1,32 @@
+{
+  "name": "sos-fixit-angular",
+  "version": "1.0.0",
+  "description": "## User Stories:",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HannSO/sos-fixit-angular.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/HannSO/sos-fixit-angular/issues"
+  },
+  "homepage": "https://github.com/HannSO/sos-fixit-angular#readme",
+  "devDependencies": {
+    "jasmine-core": "^2.4.1",
+    "karma": "^0.13.22",
+    "karma-chrome-launcher": "^0.2.2",
+    "karma-jasmine": "^0.3.8",
+    "karma-phantomjs-launcher": "^1.0.0",
+    "phantomjs": "^2.1.3",
+    "phantomjs-prebuilt": "^2.1.6",
+    "protractor": "^3.2.1"
+  },
+  "dependencies": {
+    "http-server": "^0.9.0"
+  }
+}
