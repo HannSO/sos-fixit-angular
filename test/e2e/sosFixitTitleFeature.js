@@ -6,7 +6,7 @@ describe('SOS Fixit Title Page', function(){
 
   it('on page load', function(){
     expect(browser.getTitle()).toEqual('SOS Fixit');
-    expect(element(by.id("welcome")).getText()).toBe("Hello World");
+    expect(element(by.id('welcome')).getText()).toBe('Hello World');
   });
 
 });
