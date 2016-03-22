@@ -22,11 +22,11 @@ sosFixit.controller("searchController", ['$http', function($http){
 
   self.getUsersSkills = function(){
     self.loaded = false;
-    console.log("easohjdjks")
+    console.log("easohjdjks");
     $http.get('http://localhost:3000/skills/' + self.searchParam + '/users')
 
     .success(function(json){
-      console.log("successes")
+      console.log("successes");
       self.users = json;
       self.loaded = true;
     });
