@@ -8,23 +8,34 @@
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/angular-resource/angular-resource.js"></script>
     <script src="js/app.js"></script>
+    <script src="js/controllers/sosFixitSearchController.js"></script>
   </head>
 
-  <body id="sosFixitBody">
-
+  <body id="sosFixitBody" ng-Controller = "searchController as SearchCtrl" ng-init = "getSkillsList()">
+    <button ng-click="SearchCtrl.getSkillsList()">Load skills</button>
     <div>
       <h1 id="welcome">Hello World</h1>
     </div>
 
-    <div class="skillsSearchBar">
-      <input type="text" id="userSkils" ng-model="skills" placeholder="Enter required skills...">
-      <button id="skillSearchSubmit" ng-click="getUsersSkills()">Search Skills</button>
+    <div class="submitSkillstoSearch" >
+        <section ng-repeat ='skill in SearchCtrl.skills'>
+          <button ng-click = "SearchCtrl.saveSkills(skill)"> select {{skill.skill.name}} </button>
+        </section>
     </div>
 
-    <div
+    <div class="skillsSearchBar">
+      <!-- <input type="text" id="userSkils" ng-model="skills" placeholder="Enter required skills..."> -->
+      <button id="skillSearchSubmit" ng-click="SearchCtrl.getUsersSkills()">Search Skills</button>
+    </div>
+
+    <div ng-show="SearchCtrl.loaded" ng-repeat="user in SearchCtrl.users">
+      {{user.user.email}}
+    </div>
+
+
+
 
   </body>
-
 
 
 </html>

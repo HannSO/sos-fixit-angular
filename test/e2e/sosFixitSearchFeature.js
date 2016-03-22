@@ -7,6 +7,6 @@ describe('SOS Fixit Search', function() {
   it('allows you to search by skill', function() {
     var skills = element(by.model('skills')).sendKeys('Plumbing');
     element(by.id('skillSearchSubmit')).click();
-    expect(element(by.id('sosFixitBody')).getText()).toBe('Bob The Builder');
+    expect(element(by.id('bob')).getText()).toBe('Bob The Builder');
   });
 });
