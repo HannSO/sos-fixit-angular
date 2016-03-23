@@ -1,4 +1,4 @@
-sosFixit.controller("searchController", ['$http', function($http){
+sosFixit.controller("SearchController", ['$http', function($http){
   var self = this;
   self.users = [];
   self.searchParam = '';
