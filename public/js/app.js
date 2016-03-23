@@ -35,11 +35,11 @@ var sosFixit =
                 });
               }])
 
-            .config(['$authProvider', function($authProvider){
-            		$authProvider.configure({
-            			apiUrl: 'http://localhost:3000'
-            		});
-            	}])
+            // .config(['$authProvider', function($authProvider){
+            // 		$authProvider.configure({
+            // 			apiUrl: 'http://localhost:3000'
+            // 		});
+            // 	}])
 
 
             .run(['$rootScope', '$location', function($rootScope, $location) {
