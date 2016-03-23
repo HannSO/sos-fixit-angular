@@ -5,13 +5,10 @@ sosFixit.controller("searchController", ['$http', function($http){
   self.skills =[];
 
   self.getSkillsList = function() {
-    console.log('clicked load');
-
     $http.get('http://localhost:3000/skills')
 
     .success(function(json){
       self.skills = json;
-      console.log(json);
     }
   );
 };
@@ -22,11 +19,9 @@ sosFixit.controller("searchController", ['$http', function($http){
 
   self.getUsersSkills = function(){
     self.loaded = false;
-    console.log("easohjdjks");
     $http.get('http://localhost:3000/skills/' + self.searchParam + '/users')
 
     .success(function(json){
-      console.log("successes");
       self.users = json;
       self.loaded = true;
     });
