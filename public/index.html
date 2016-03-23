@@ -15,7 +15,7 @@
 
     <script src="../js/controllers/sosFixitSearchController.js"></script>
     <script src="../js/controllers/user_sessions.js"></script>
-    <script src="../js/controllers/user_registrations.js"></script>
+    <script src="./js/controllers/user_registrations.js"></script>
 
   </head>
 
@@ -29,7 +29,7 @@
     <div ng-view>
 
     </div>
-    
+
     <section ng-show="user.id" ng-Controller = "searchController as SearchCtrl" ng-init = "SearchCtrl.getSkillsList()">
 
       <div class="submitSkillstoSearch" >

@@ -11,7 +11,7 @@ var sosFixit =
                 // 'ngTouch',
                 'ipCookie'
             ])
-            .config(function ($routeProvider) {
+            .config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
               $routeProvider
                 .when('/', {
                   templateUrl: 'views/main.html',
@@ -33,10 +33,17 @@ var sosFixit =
                 .otherwise({
                   redirectTo: '/'
                 });
-              });
-            //
-            // .run(['$rootScope', '$location', function($rootScope, $location) {
-            //   $rootScope.$on('auth:login-success', function(){
-            //     $location.path('/');
-            // });
-  // }]);
+              }])
+
+            .config(['$authProvider', function($authProvider){
+            		$authProvider.configure({
+            			apiUrl: 'http://localhost:3000'
+            		});
+            	}])
+
+
+            .run(['$rootScope', '$location', function($rootScope, $location) {
+              $rootScope.$on('auth:login-success', function(){
+                $location.path('/');
+            });
+  }]);
