@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>SOS Fixit</title>
+    <script src="../../bower_components/jquery/dist/jquery.js"></script>
+    <script src="../../bower_components/angular/angular.js"></script>
+    <script src="../../bower_components/angular-resource/angular-resource.js"></script>
+    <script src="../../bower_components/angular-cookie/angular-cookie.js"></script>
+    <script src="../../bower_components/angular-cookie/angular-cookie.min.js"></script>
+    <script src="../../bower_components/angular-route/angular-route.js"></script>
+    <script src="../../bower_components/ng-token-auth/dist/ng-token-auth.js"></script>
+
+    <script src="../js/app.js"></script>
+
+    <script src="../js/controllers/sosFixitSearchController.js"></script>
+    <script src="../js/controllers/user_sessions.js"></script>
+    <script src="../js/controllers/user_registrations.js"></script>
+
+  </head>
+
+  <body id="sosFixitBody" ng-app ="SosFixit">
+
+
+    <li ng-show="user.id">
+      <a ng-click="signOut()" ng-href="/">Sign out</a>
+    </li>
+
+    <div ng-view>
+
+    </div>
+    
+    <section ng-show="user.id" ng-Controller = "searchController as SearchCtrl" ng-init = "SearchCtrl.getSkillsList()">
+
+      <div class="submitSkillstoSearch" >
+          <section ng-repeat ='skill in SearchCtrl.skills'>
+            <button ng-click = "SearchCtrl.saveSkills(skill)"> select {{skill.skill.name}} </button>
+          </section>
+      </div>
+
+      <div class="skillsSearchBar">
+        <button id="skillSearchSubmit" ng-click="SearchCtrl.getUsersSkills()">Search Skills</button>
+      </div>
+
+      <div class = "list-users" ng-show="SearchCtrl.loaded" ng-repeat="user in SearchCtrl.users">
+        <p id ="user_email"> {{user.user.email}} <p>
+      </div>
+
+    </section>
+
+  </body>
+
+
+</html>
