@@ -7,6 +7,7 @@ sosFixit.controller("SearchController", ['$http', function($http){
   self.getSkillsList = function() {
     $http.get('http://localhost:3000/skills').success(function(json){
       self.skills = json;
+
     }
   );
 };
