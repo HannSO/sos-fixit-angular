@@ -29,7 +29,7 @@ describe('SearchController', function(){
       httpBackend
       .when("GET", "http://localhost:3000/skills")
       .respond(
-        { skills: "Bike repair"}
+         "Bike repair"
       );
     }));
 
@@ -46,12 +46,13 @@ describe('SearchController', function(){
 
     var httpBackend;
 
-    ctrl.searchParam = 3;
+
 
     beforeEach(inject(function($httpBackend){
+      ctrl.searchParam = 3;
       httpBackend = $httpBackend;
       httpBackend
-      .when("GET", "http://localhost:3000/skills/" + ctrl.searchParam + "/users")
+      .when("GET", "http://localhost:3000/skills/")
       .respond(
         { users: 'John'}
       );
