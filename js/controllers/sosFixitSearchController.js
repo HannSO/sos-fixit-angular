@@ -17,10 +17,10 @@ sosFixit.controller("SearchController", ['$http', function($http){
 
   self.getUsersSkills = function(){
     self.loaded = false;
-    $http.get('http://localhost:3000/skills/' + self.searchParam + '/users')
+    $http.get('http://localhost:3000/skills/' + self.searchParam)
 
     .success(function(json){
-      self.users = json;
+      self.users = json.users;
       self.loaded = true;
     });
   };
