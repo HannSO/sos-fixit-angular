@@ -36,7 +36,7 @@ describe('SearchController', function(){
     it('sets ctrl.skills to be the skills returned by api', function(){
       ctrl.getSkillsList();
       httpBackend.flush();
-      expect(ctrl.skills).toEqual('Bike repair');
+      expect(ctrl.skills.skills).toEqual('Bike repair');
     });
 
 
