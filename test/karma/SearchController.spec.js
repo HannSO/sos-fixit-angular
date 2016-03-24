@@ -29,7 +29,7 @@ describe('SearchController', function(){
       httpBackend
       .when("GET", "http://localhost:3000/skills")
       .respond(
-        { skills: 'Bike repair'}
+        { skills: "Bike repair"}
       );
     }));
 
@@ -46,10 +46,12 @@ describe('SearchController', function(){
 
     var httpBackend;
 
+    ctrl.searchParam = 3;
+
     beforeEach(inject(function($httpBackend){
       httpBackend = $httpBackend;
       httpBackend
-      .when("GET", "http://localhost:3000/skills")
+      .when("GET", "http://localhost:3000/skills/" + ctrl.searchParam + "/users")
       .respond(
         { users: 'John'}
       );
@@ -58,7 +60,7 @@ describe('SearchController', function(){
     it('sets ctrl.user to be set to api response', function(){
       ctrl.getSkillsList();
       httpBackend.flush();
-      expect(ctrl.user).toEqual('Bike repair');
+      expect(ctrl.users).toEqual('John');
     });
 
 
