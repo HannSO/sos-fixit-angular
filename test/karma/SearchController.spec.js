@@ -29,7 +29,7 @@ describe('SearchController', function(){
       httpBackend
       .when("GET", "http://localhost:3000/skills")
       .respond(
-        { skills: "Bike repair"}
+         "Bike repair"
       );
     }));
 
