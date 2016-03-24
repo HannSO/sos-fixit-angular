@@ -1,5 +1,8 @@
 <h1>Home</h1>
 <p>This is the home page.</p>
+<p ng-show="user.id">
+  Welcome {{user.email}}
+</p>
 <li ng-hide="user.id">
   <a ng-href="/#/sign_in">Sign in</a>
 </li>

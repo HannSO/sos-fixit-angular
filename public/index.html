@@ -22,9 +22,9 @@
   <body id="sosFixitBody" ng-app ="SosFixit">
 
 
-    <li ng-show="user.id">
-      <a ng-click="signOut()">Sign out</a>
-    </li>
+    <p ng-show="user.id">
+      <a ng-click="signOut()" ng-href="/#/">Sign out</a>
+    </p>
 
     <div ng-view>
 
