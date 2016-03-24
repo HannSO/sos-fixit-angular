@@ -15,11 +15,15 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-      'bower_components/angular/angular.js',
-      'bower_components/angular-route/angular-route.js',
-      'bower_components/angular-resource/angular-resource.js',
-      'bower_components/angular-mocks/angular-mocks.js',
-      'js/**/*.js',
+      'public/bower_components/angular/angular.js',
+      'public/bower_components/angular-route/angular-route.js',
+      'public/bower_components/angular-resource/angular-resource.js',
+      'public/bower_components/angular-mocks/angular-mocks.js',
+      'public/bower_components/ng-token-auth/dist/ng-token-auth.js',
+      'public/bower_components/jquery/dist/jquery.js',
+      'public/bower_components/angular-cookie/angular-cookie.js',
+      'public/bower_components/angular-cookie/angular-cookie.min.js',
+      'public/js/**/*.js',
       'test/**/*.spec.js'
     ],
 
