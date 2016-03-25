@@ -3,7 +3,7 @@ sosFixit.controller("searchController", ['$http', function($http){
   self.users = [];
   self.searchParam = '';
   self.skills =[];
-
+  
   self.getSkillsList = function() {
     $http.get('http://localhost:3000/skills')
 

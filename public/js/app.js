@@ -4,12 +4,12 @@ var sosFixit =
             .module('SosFixit', [
                 'ngResource',
                 'ng-token-auth',
-                // 'ngCookies',
+                'ngCookies',
                 // 'ngAnimate',
-                'ngRoute',
+                'ngRoute'
                 // 'ngSanitize',
                 // 'ngTouch',
-                'ipCookie'
+                // 'ipCookie'
             ])
             .config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
               $routeProvider
@@ -26,6 +26,10 @@ var sosFixit =
                   controllers: 'UserRegistrationsCtrl',
                   controllerAs: 'userRegistrationsCtrl'
                 })
+                .when('/skills_search', {
+                  templateUrl: 'views/skills_search.html',
+                  controllers: 'sosFixitSearchController'
+                })
                 .when('/about', {
                   templateUrl: 'about.html',
                   controller: 'AboutCtrl'
@@ -41,9 +45,16 @@ var sosFixit =
             // 		});
             // 	}])
 
-
-            .run(['$rootScope', '$location', function($rootScope, $location) {
+            .run(['$rootScope', '$location', '$cookies', function($rootScope, $location, $cookies) {
               $rootScope.$on('auth:login-success', function(){
                 $location.path('/');
+                console.log('hi');
+                // $cookies.put('username', 'logged in');
+                // var username = $cookies.get('username');
+                // console.log(username);
+                // $rootScope.userName = username;
+               $rootScope.userName = localStorage.setItem('username', true);
             });
+
+
   }]);

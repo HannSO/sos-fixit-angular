@@ -3,4 +3,6 @@ angular.module('SosFixit')
     $scope.$on('auth:login-error', function(ev, reason){
       $scope.error= reason.errors[0];
     });
+    $scope.login = true;
+
   }]);

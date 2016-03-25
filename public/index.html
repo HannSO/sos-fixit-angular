@@ -6,9 +6,9 @@
     <script src="../../bower_components/jquery/dist/jquery.js"></script>
     <script src="../../bower_components/angular/angular.js"></script>
     <script src="../../bower_components/angular-resource/angular-resource.js"></script>
-    <script src="../../bower_components/angular-cookie/angular-cookie.js"></script>
-    <script src="../../bower_components/angular-cookie/angular-cookie.min.js"></script>
     <script src="../../bower_components/angular-route/angular-route.js"></script>
+    <script src="../../bower_components/angular-cookie/angular-cookie.js"></script>
+    <script src="../../bower_components/angular-cookies/angular-cookies.js"></script>
     <script src="../../bower_components/ng-token-auth/dist/ng-token-auth.js"></script>
     <script src="../../bower_components/angular-mocks/angular-mocks.js"></script>
 
@@ -23,7 +23,7 @@
   <body id="sosFixitBody" ng-app ="SosFixit">
 
 
-    <p ng-show="user.id">
+    <p ng-show="$rootScope.userName">
       <a ng-click="signOut()" ng-href="/#/">Sign out</a>
     </p>
 
@@ -32,6 +32,9 @@
     </div>
 
 
+    <p ng-show= "$rootScope.userName">
+      potato
+    </p>
     <section ng-show="user.id" ng-Controller = "searchController as SearchCtrl" ng-init = "SearchCtrl.getSkillsList()">
 
       <div class="submitSkillstoSearch" >

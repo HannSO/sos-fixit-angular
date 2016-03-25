@@ -22,8 +22,8 @@
         .then(function() {
           $auth.submitLogin({
             email: $scope.registrationForm.email,
-            password: $scope.registrationForm.password,
-            location: $scope.registrationForm.location
+            password: $scope.registrationForm.password
+            // location: $scope.registrationForm.location
           });
         });
     };
