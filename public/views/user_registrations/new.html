@@ -1,4 +1,4 @@
-<form ng-Controller = "UserRegistrationsCtrl as UserCtrl" ng-submit="handleRegBtnClick()" role="form" ng-init="registrationForm = {}">
+<form ng-Controller="UserRegistrationsCtrl as UserCtrl" ng-submit="handleRegBtnClick()" role="form" ng-init="registrationForm = {}">
 
   <div class="form-group">
     <label for="email">Email</label>
@@ -30,15 +30,34 @@
            class="form-control">
   </div>
 
+
   <div class="form-group">
-    <label for="location">Location</label>
-    <input type="text"
-           name="location"
-           id="location"
-           ng-model="registrationForm.location"
-           required="required"
+    <input type="hidden"
+           name="longitude"
+           id="longitude"
+           ng-model="registrationForm.longitude"
            class="form-control">
   </div>
+
+  <div class="form-group">
+    <input type="hidden"
+           name="latitude"
+           id="latitude"
+           ng-model="registrationForm.latitude"
+           class="form-control">
+  </div>
+
+  <script type="text/ng-template" id="searchbox.tpl.html">
+    <input type="text" placeholder="Search Box" required="required">
+  </script>
+
+  <ui-gmap-google-map center='map.center' zoom='map.zoom'>
+  <ui-gmap-search-box
+    template="searchbox.template"
+    events="searchbox.events"
+    position="BOTTOM_RIGHT">
+  </ui-gmap-search-box>
+  </ui-gmap-google-map>
 
   <button type="submit" class="btn btn-primary btn-lg">Register</button>
 

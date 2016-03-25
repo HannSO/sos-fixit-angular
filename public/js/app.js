@@ -9,9 +9,11 @@ var sosFixit =
                 'ngRoute',
                 // 'ngSanitize',
                 // 'ngTouch',
-                'ipCookie'
+                'ipCookie',
+                'uiGmapgoogle-maps',
+                'ngGeolocation'
             ])
-            .config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
+            .config(['$routeProvider', '$locationProvider', 'uiGmapGoogleMapApiProvider', function($routeProvider, $locationProvider, uiGmapGoogleMapApiProvider) {
               $routeProvider
                 .when('/', {
                   templateUrl: 'views/main.html',
@@ -32,6 +34,11 @@ var sosFixit =
                 })
                 .otherwise({
                   redirectTo: '/'
+                });
+                uiGmapGoogleMapApiProvider.configure({
+                  key: 'AIzaSyA6Fpwt9hF237J82XzJC73kjinH2jYZ6pU',
+                  v: '3.22',
+                  libraries: 'places'
                 });
               }])
 
