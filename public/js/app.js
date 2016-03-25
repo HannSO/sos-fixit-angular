@@ -4,14 +4,17 @@ var sosFixit =
             .module('SosFixit', [
                 'ngResource',
                 'ng-token-auth',
-                'ngCookies',
+                // 'ngCookies',
                 // 'ngAnimate',
-                'ngRoute'
+                'ngRoute',
                 // 'ngSanitize',
                 // 'ngTouch',
                 // 'ipCookie'
+                'ipCookie',
+                'uiGmapgoogle-maps',
+                'ngGeolocation'
             ])
-            .config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
+            .config(['$routeProvider', '$locationProvider', 'uiGmapGoogleMapApiProvider', function($routeProvider, $locationProvider, uiGmapGoogleMapApiProvider) {
               $routeProvider
                 .when('/', {
                   templateUrl: 'views/main.html',
@@ -37,6 +40,11 @@ var sosFixit =
                 .otherwise({
                   redirectTo: '/'
                 });
+                uiGmapGoogleMapApiProvider.configure({
+                  key: 'AIzaSyA6Fpwt9hF237J82XzJC73kjinH2jYZ6pU',
+                  v: '3.22',
+                  libraries: 'places'
+                });
               }])
 
             // .config(['$authProvider', function($authProvider){
@@ -45,15 +53,10 @@ var sosFixit =
             // 		});
             // 	}])
 
-            .run(['$rootScope', '$location', '$cookies', function($rootScope, $location, $cookies) {
+            .run(['$rootScope', '$location', function($rootScope, $location, $cookies) {
               $rootScope.$on('auth:login-success', function(){
                 $location.path('/');
-                console.log('hi');
-                // $cookies.put('username', 'logged in');
-                // var username = $cookies.get('username');
-                // console.log(username);
-                // $rootScope.userName = username;
-               $rootScope.userName = localStorage.setItem('username', true);
+                $rootScope.userName = localStorage.setItem('username', true);
             });
 
 
