@@ -16,10 +16,11 @@
 //   }]);
 
   angular.module('SosFixit')
-  .controller('UserRegistrationsCtrl', ['$scope', '$location', '$auth', function ($scope, $location, $auth) {
+  .controller('UserRegistrationsCtrl', ['$location', '$auth', function ($location, $auth) {
 
+    var self = this
 
-    $scope.map = { center: { latitude: 45, longitude: -73 }, zoom: 8 };
+    self.map = { center: { latitude: 45, longitude: -73 }, zoom: 8 };
     var events = {
       places_changed: function (searchBox) {
         console.log('nope')
@@ -28,9 +29,9 @@
           console.log('no place data :(');
           return;
         }
-        $scope.lat = place[0].geometry.location.lat();
-        $scope.lng = place[0].geometry.location.lng();
-        $scope.map = {
+        self.lat = place[0].geometry.location.lat();
+        self.lng = place[0].geometry.location.lng();
+        self.map = {
                 center:{
                     latitude: place[0].geometry.location.lat(),
                     longitude: place[0].geometry.location.lng()
@@ -39,16 +40,16 @@
         };
       }
     };
-    $scope.searchbox = { template:'searchbox.tpl.html', events:events};
+    self.searchbox = { template:'searchbox.tpl.html', events:events};
 
-    $scope.handleRegBtnClick = function() {
-      $scope.registrationForm.longitude = $scope.lng;
-      $scope.registrationForm.latitude = $scope.lat;
-      $auth.submitRegistration($scope.registrationForm)
+    self.handleRegBtnClick = function() {
+      self.registrationForm.longitude = self.lng;
+      self.registrationForm.latitude = self.lat;
+      $auth.submitRegistration(self.registrationForm)
         .then(function() {
           $auth.submitLogin({
-            email: $scope.registrationForm.email,
-            password: $scope.registrationForm.password
+            email: self.registrationForm.email,
+            password: self.registrationForm.password
           });
         });
     };

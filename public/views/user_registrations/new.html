@@ -1,11 +1,11 @@
-<form ng-Controller="UserRegistrationsCtrl as UserCtrl" ng-submit="handleRegBtnClick()" role="form" ng-init="registrationForm = {}">
+<form ng-Controller="UserRegistrationsCtrl as UserCtrl" ng-submit="UserCtrl.handleRegBtnClick()" role="form" ng-init="registrationForm = {}">
 
   <div class="form-group">
     <label for="email">Email</label>
     <input type="email"
            name="email"
            id="email"
-           ng-model="registrationForm.email"
+           ng-model="UserCtrl.registrationForm.email"
            required="required"
            class="form-control">
   </div>
@@ -15,7 +15,7 @@
     <input type="password"
        name="password"
        id="password"
-       ng-model="registrationForm.password"
+       ng-model="UserCtrl.registrationForm.password"
        required="required"
        class="form-control">
   </div>
@@ -25,7 +25,7 @@
     <input type="password"
            name="password_confirmation"
            id="password_confirmation"
-           ng-model="registrationForm.password_confirmation"
+           ng-model="UserCtrl.registrationForm.password_confirmation"
            required="required"
            class="form-control">
   </div>
@@ -35,7 +35,7 @@
     <input type="hidden"
            name="longitude"
            id="longitude"
-           ng-model="registrationForm.longitude"
+           ng-model="UserCtrl.registrationForm.longitude"
            class="form-control">
   </div>
 
@@ -43,7 +43,7 @@
     <input type="hidden"
            name="latitude"
            id="latitude"
-           ng-model="registrationForm.latitude"
+           ng-model="UserCtrl.registrationForm.latitude"
            class="form-control">
   </div>
 
@@ -51,10 +51,10 @@
     <input type="text" placeholder="Search Box" required="required">
   </script>
 
-  <ui-gmap-google-map center='map.center' zoom='map.zoom'>
+  <ui-gmap-google-map center='UserCtrl.map.center' zoom='UserCtrl.map.zoom'>
   <ui-gmap-search-box
-    template="searchbox.template"
-    events="searchbox.events"
+    template="UserCtrl.searchbox.template"
+    events="UserCtrl.searchbox.events"
     position="BOTTOM_RIGHT">
   </ui-gmap-search-box>
   </ui-gmap-google-map>
