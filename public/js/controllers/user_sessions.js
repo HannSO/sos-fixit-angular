@@ -8,4 +8,4 @@ angular.module('SosFixit')
     });
     self.login = true;
 
-  }]);
+  });

@@ -7,9 +7,6 @@ var sosFixit =
                 // 'ngCookies',
                 // 'ngAnimate',
                 'ngRoute',
-                // 'ngSanitize',
-                // 'ngTouch',
-                // 'ipCookie'
                 'ipCookie',
                 'uiGmapgoogle-maps',
                 'ngGeolocation'
@@ -18,7 +15,6 @@ var sosFixit =
               $routeProvider
                 .when('/', {
                   templateUrl: 'views/main.html',
-                  // controller: 'MainCtrl'
                 })
                 .when('/sign_in', {
                   templateUrl: 'views/user_sessions/new.html',
