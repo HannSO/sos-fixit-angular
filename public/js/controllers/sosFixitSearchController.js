@@ -1,39 +1,36 @@
-sosFixit.controller("searchController", ['$http', function($http){
+sosFixit.controller("searchController", ['skillsResourceFactory', function(skillsResourceFactory){
+
   var self = this;
+
   self.users = [];
   self.searchParam = '';
   self.skills =[];
 
-  self.getSkillsList = function() {
-    $http.get('http://localhost:3000/skills')
-
-    .success(function(json){
-      self.skills = json;
-    }
-  );
-};
+  (self.getSkillsList = function() {
+    skillsResourceFactory.getSkillsList()
+      .then(function(json) {//
+      for (var i = 0; i < json.data.length; i ++){
+        self.skills.push(json.data[i].skill);
+      }
+    });
+  });
 
   self.saveSkills = function(skill){
-    self.searchParam = skill.skill.id;
+    self.searchParam = skill.id;
+    self.users = [];
   };
 
-  self.getUsersSkills = function(){
-    self.loaded = false;
-    $http.get('http://localhost:3000/skills/' + self.searchParam)
+  (self.getUsersSkills = function() {
+    skillsResourceFactory.getUserList(self.searchParam)
+      .then(function(response) {
+        self.loaded = false;
+        var userSkillLength = response.data.skill.users.length;
+        var allSkillUsers = response.data.skill.users;
+        for (var i = 0; i < userSkillLength; i++){
+          self.users.push(allSkillUsers[i].user.email);
+        }
+        self.loaded = true;
+      });
+  });
 
-    .success(function(json){
-      self.users =[];
-
-      var userSkillLength = json.skill.users.length;
-      var allSkillUsers = json.skill.users;
-
-      for (var i = 0; i < userSkillLength; i++){
-
-      self.users.push(allSkillUsers[i].user.email);
-
-      }
-
-      self.loaded = true;
-    });
-  };
 }]);
