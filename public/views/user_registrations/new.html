@@ -51,10 +51,10 @@
     <input type="text" placeholder="Search Box" required="required">
   </script>
 
-  <ui-gmap-google-map center='UserCtrl.map.center' zoom='UserCtrl.map.zoom'>
+  <ui-gmap-google-map center='UserCtrl.locationPicker.map.center' zoom='UserCtrl.locationPicker.map.zoom'>
   <ui-gmap-search-box
-    template="UserCtrl.searchbox.template"
-    events="UserCtrl.searchbox.events"
+    template="UserCtrl.locationPicker.searchbox.template"
+    events="UserCtrl.locationPicker.searchbox.events"
     position="BOTTOM_RIGHT">
   </ui-gmap-search-box>
   </ui-gmap-google-map>

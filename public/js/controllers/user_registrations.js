@@ -16,34 +16,15 @@
 //   }]);
 
   angular.module('SosFixit')
-  .controller('UserRegistrationsCtrl', ['$location', '$auth', function ($location, $auth) {
+  .controller('UserRegistrationsCtrl', ['uiGmapGoogleMapApi', '$location', '$auth', 'registrationLocationFactory', function(uiGmapGoogleMapApi, $location, $auth, registrationLocationFactory) {
 
     var self = this;
 
-    self.map = { center: { latitude: 45, longitude: -73 }, zoom: 8 };
-    var events = {
-      places_changed: function (searchBox) {
-        var place = searchBox.getPlaces();
-        if (!place || place === 'undefined' || place.length === 0) {
-          console.log('no place data :(');
-          return;
-        }
-        self.lat = place[0].geometry.location.lat();
-        self.lng = place[0].geometry.location.lng();
-        self.map = {
-                center:{
-                    latitude: place[0].geometry.location.lat(),
-                    longitude: place[0].geometry.location.lng()
-                },
-            zoom:10
-        };
-      }
-    };
-    self.searchbox = { template:'searchbox.tpl.html', events:events};
+    self.locationPicker = new registrationLocationFactory();
 
     self.handleRegBtnClick = function() {
-      self.registrationForm.longitude = self.lng;
-      self.registrationForm.latitude = self.lat;
+      self.registrationForm.longitude = self.locationPicker.lng;
+      self.registrationForm.latitude = self.locationPicker.lat;
       $auth.submitRegistration(self.registrationForm)
         .then(function() {
           $auth.submitLogin({

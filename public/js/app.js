@@ -39,7 +39,7 @@ var sosFixit =
           uiGmapGoogleMapApiProvider.configure({
             key: 'AIzaSyA6Fpwt9hF237J82XzJC73kjinH2jYZ6pU',
             v: '3.22',
-            libraries: 'places'
+            libraries: 'places,geometry'
           });
         }])
 
