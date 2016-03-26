@@ -2,20 +2,18 @@ sosFixit.controller("searchController", ['$rootScope','uiGmapGoogleMapApi','skil
 
   var self = this;
 
-  console.log($rootScope.$scope)
-
   self.users = [];
   self.searchParam = '';
   self.skills =[];
 
-  (self.getSkillsList = function() {
+  self.getSkillsList = function() {
     skillsResourceFactory.getSkillsList()
-      .then(function(json) {//
+      .then(function(json) {
       for (var i = 0; i < json.data.length; i ++){
         self.skills.push(json.data[i].skill);
       }
     });
-  });
+  };
 
   self.saveSkills = function(skill){
     self.searchParam = skill.id;
@@ -30,6 +28,7 @@ sosFixit.controller("searchController", ['$rootScope','uiGmapGoogleMapApi','skil
 
         self.loaded = false;
 
+        var currentUserLocation = new google.maps.LatLng($rootScope.user.latitude,$rootScope.user.longitude);
         var userSkillLength = response.data.skill.users.length;
         var allSkillUsers = response.data.skill.users;
 
@@ -38,7 +37,7 @@ sosFixit.controller("searchController", ['$rootScope','uiGmapGoogleMapApi','skil
             userLat = allSkillUsers[i].user.latitude;
             userLng = allSkillUsers[i].user.longitude;
             userLocation = new google.maps.LatLng(userLat, userLng);
-            dist = google.maps.geometry.spherical.computeDistanceBetween(new google.maps.LatLng(51.5117, 0.1233),userLocation);
+            dist = google.maps.geometry.spherical.computeDistanceBetween(currentUserLocation,userLocation);
             distToMiles = (dist*0.000621371192).toFixed(1);
 
           self.users.push(
