@@ -28,14 +28,14 @@ describe('SOS Fixit homepage', function() {
 
   describe('Selection of links on page', function() {
 
-    it('Takes you to the sign in page', function() {
+    it('Loads the "new.html" view from "user_sessions"', function() {
       element(by.linkText('Sign in')).click();
-      expect(browser.getCurrentUrl()).toBe('http://localhost:8080/#/sign_in');
+      expect(browser.getCurrentUrl()).toContain('/sign_in');
     });
 
-    it('Takes you to the Register page', function() {
+    it('Loads the "new.html" view from "user_registrations"', function() {
       element(by.linkText('Register')).click();
-      expect(browser.getCurrentUrl()).toBe('http://localhost:8080/#/register');
+      expect(browser.getCurrentUrl()).toContain('/register');
     });
   });
 
