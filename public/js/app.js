@@ -15,6 +15,7 @@ var sosFixit =
         $routeProvider
           .when('/', {
             templateUrl: 'views/main.html',
+            controllers: 'searchController'
           })
           .when('/sign_in', {
             templateUrl: 'views/user_sessions/new.html',
@@ -25,9 +26,9 @@ var sosFixit =
             controllers: 'UserRegistrationsCtrl',
             controllerAs: 'userRegistrationsCtrl'
           })
-          .when('/skills_search', {
-            templateUrl: 'views/skills_search.html',
-            controllers: 'sosFixitSearchController'
+          .when('/search_results', {
+            templateUrl: 'views/user_skills_list/search_results.html',
+            controllers: 'listController'
           })
           .when('/about', {
             templateUrl: 'about.html',

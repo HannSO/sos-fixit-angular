@@ -21,9 +21,10 @@
     <script src="../js/controllers/sosFixitSearchController.js"></script>
     <script src="../js/controllers/user_sessions.js"></script>
     <script src="./js/controllers/user_registrations.js"></script>
-    <script src="./js/controllers/user_registrations.js"></script>
+    <script src="./js/controllers/sosFixitListUsersController.js"></script>
     <script src="./js/factories/skillsResourceFactory.js"></script>
     <script src="./js/factories/registrationLocationFactory.js"></script>
+    <script src="./js/services/skillsListService.js"></script>
 
     <link rel="stylesheet" type="text/css" href="css/style.css">
 
@@ -51,12 +52,8 @@
           </section>
       </div>
 
-      <div class="skillsSearchBar">
-        <button id="skillSearchSubmit" ng-click="SearchCtrl.getUsersSkills()">Search Skills</button>
-      </div>
-
-      <div class = "list-users" ng-show="SearchCtrl.loaded" ng-repeat="user in SearchCtrl.users track by $index">
-        <p id ="user_email"> {{user}} <p>
+      <div class="skillsSearchBar" ng-hide="loaded">
+        <a href ="/#/search_results"><button id="skillSearchSubmit" ng-click="SearchCtrl.getUsersSkills()">Search Skills</button></a>
       </div>
 
     </section>
