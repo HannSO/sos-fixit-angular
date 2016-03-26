@@ -1,4 +1,4 @@
-sosFixit.controller("searchController", ['$rootScope','uiGmapGoogleMapApi','skillsResourceFactory', 'uiGmapIsReady', function($rootScope, uiGmapGoogleMapApi, skillsResourceFactory, uiGmapIsReady){
+sosFixit.controller("searchController", ['$rootScope','uiGmapGoogleMapApi','skillsResourceFactory', 'uiGmapIsReady', 'userDistanceCalcFactory', function($rootScope, uiGmapGoogleMapApi, skillsResourceFactory, uiGmapIsReady, userDistanceCalcFactory){
 
   var self = this;
 
@@ -37,8 +37,7 @@ sosFixit.controller("searchController", ['$rootScope','uiGmapGoogleMapApi','skil
             userLat = allSkillUsers[i].user.latitude;
             userLng = allSkillUsers[i].user.longitude;
             userLocation = new google.maps.LatLng(userLat, userLng);
-            dist = google.maps.geometry.spherical.computeDistanceBetween(currentUserLocation,userLocation);
-            distToMiles = (dist*0.000621371192).toFixed(1);
+            userDistanceCalcFactory.userDistance(currentUserLocation, userLocation);
 
           self.users.push(
             {"name": allSkillUsers[i].user.name,
