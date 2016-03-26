@@ -1,6 +1,8 @@
-sosFixit.controller("searchController", ['uiGmapGoogleMapApi','skillsResourceFactory', 'uiGmapIsReady', function(uiGmapGoogleMapApi, skillsResourceFactory, uiGmapIsReady){
+sosFixit.controller("searchController", ['$rootScope','uiGmapGoogleMapApi','skillsResourceFactory', 'uiGmapIsReady', function($rootScope, uiGmapGoogleMapApi, skillsResourceFactory, uiGmapIsReady){
 
   var self = this;
+
+  console.log($rootScope.$scope)
 
   self.users = [];
   self.searchParam = '';
