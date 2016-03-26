@@ -18,11 +18,8 @@ sosFixit.controller("searchController", ['skillsResourceFactory', 'skillsListSer
 
   self.saveSkills = function(skill){
     self.searchParam = skill.id;
-    console.log(skill);
     skillsListService.setData(self.searchParam);
     self.users = [];
-    console.log(self.searchParam);
-    console.log(skillsListService.getData());
   };
 
   // (self.getUsersSkills = function() {

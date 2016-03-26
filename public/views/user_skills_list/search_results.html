@@ -1,9 +1,9 @@
+<ul ng-controller="listController as ListCtrl" ng-init="ListCtrl.getUsersSkills()">
+  <li class="users-list" ng-repeat="user in ListCtrl.users">
 
-
-  <ul ng-controller="listController as ListCtrl" ng-init="ListCtrl.getUsersSkills()">
-    <li class="users-list" ng-repeat="user in ListCtrl.users">
-      <p class="user-name">
-        {{user}}
-      </p>
-    </li>
-  </ul>
+    <p class="user-name">
+      {{user}}
+    </p>
+    
+  </li>
+</ul>
