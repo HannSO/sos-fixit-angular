@@ -1,4 +1,4 @@
-sosFixit.controller("searchController", ['skillsResourceFactory', function(skillsResourceFactory){
+sosFixit.controller("searchController", ['uiGmapGoogleMapApi','skillsResourceFactory', 'uiGmapIsReady', function(uiGmapGoogleMapApi, skillsResourceFactory, uiGmapIsReady){
 
   var self = this;
 
@@ -20,17 +20,37 @@ sosFixit.controller("searchController", ['skillsResourceFactory', function(skill
     self.users = [];
   };
 
-  (self.getUsersSkills = function() {
+  self.getUsersSkills = function() {
+
     skillsResourceFactory.getUserList(self.searchParam)
+
       .then(function(response) {
+
         self.loaded = false;
+
         var userSkillLength = response.data.skill.users.length;
         var allSkillUsers = response.data.skill.users;
+
         for (var i = 0; i < userSkillLength; i++){
-          self.users.push(allSkillUsers[i].user.email);
+
+            userLat = allSkillUsers[i].user.latitude;
+            userLng = allSkillUsers[i].user.longitude;
+            userLocation = new google.maps.LatLng(userLat, userLng);
+            dist = google.maps.geometry.spherical.computeDistanceBetween(new google.maps.LatLng(51.5117, 0.1233),userLocation);
+            distToMiles = (dist*0.000621371192).toFixed(1);
+
+          self.users.push(
+            {"name": allSkillUsers[i].user.name,
+            "email": allSkillUsers[i].user.email,
+            "distance": distToMiles
+            }
+          );
+
         }
+
         self.loaded = true;
+
       });
-  });
+  };
 
 }]);

@@ -56,7 +56,10 @@
       </div>
 
       <div class = "list-users" ng-show="SearchCtrl.loaded" ng-repeat="user in SearchCtrl.users track by $index">
-        <p id ="user_email"> {{user}} <p>
+        <p id="user_email"> {{user.email}} <p>
+        <p id="user_name"> {{user.name}} <p>
+        <p id="user_distance"> {{user.distance}} miles <p>
+
       </div>
 
     </section>

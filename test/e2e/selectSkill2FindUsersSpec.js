@@ -16,8 +16,6 @@ describe('SOS Fixit search skills feature', function() {
 
     describe('on submiting an empty search', function() {
 
-
-
       it('doesn\'t display a list of users', function() {
         expect(element(by.id('listUsersWithSelectedSkills')).isPresent()).toBe(true);
         expect(element(by.id('listUsersWithSelectedSkills')).isDisplayed()).toBe(false);
