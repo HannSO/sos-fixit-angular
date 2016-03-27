@@ -1,3 +1,6 @@
+var DatabaseCleaner = require('database-cleaner');
+var databaseCleaner = new DatabaseCleaner('postgresql');
+
 describe('SOS Fixit Sign In partial', function() {
 
   var email;
@@ -30,9 +33,11 @@ describe('SOS Fixit Sign In partial', function() {
       registerUserHelper.registerUser();
     });
 
-    // afterEach(function() {
-    //   bin/rake db:reset;
-    // });
+    afterEach(function() {
+      var config = { postgresql: { strategy: 'deletion', skipTables: [] } };
+
+      databaseCleaner.clean('postgresql', config);
+    });
 
     it('Should have created a new user and signed them in', function() {
       expect(browser.getCurrentUrl()).toBe('http://localhost:8080/#/');
