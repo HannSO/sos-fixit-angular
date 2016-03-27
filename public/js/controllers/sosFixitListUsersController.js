@@ -13,9 +13,6 @@ sosFixit.controller("listController", ['skillsResourceFactory', 'skillsListServi
         for (var i = 0; i < userSkillLength; i++){
           self.users.push(allSkillUsers[i].user.email);
         }
-        // skillsListService.setData(self.users);
-        // self.users = skillsListService.getData();
-        console.log(self.users);
         self.loaded = true;
 
     });

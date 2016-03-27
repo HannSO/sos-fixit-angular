@@ -5,7 +5,6 @@ sosFixit.controller("searchController", ['skillsResourceFactory', 'skillsListSer
   self.users = [];
   self.searchParam = '';
   self.skills =[];
-  // self.loaded = false;
 
   (self.getSkillsList = function() {
     skillsResourceFactory.getSkillsList()
@@ -21,21 +20,5 @@ sosFixit.controller("searchController", ['skillsResourceFactory', 'skillsListSer
     skillsListService.setData(self.searchParam);
     self.users = [];
   };
-
-  // (self.getUsersSkills = function() {
-  //   skillsResourceFactory.getUserList(self.searchParam)
-  //     .then(function(response) {
-  //       var userSkillLength = response.data.skill.users.length;
-  //       var allSkillUsers = response.data.skill.users;
-  //       for (var i = 0; i < userSkillLength; i++){
-  //         self.users.push(allSkillUsers[i].user.email);
-  //       }
-  //       // skillsListService.setData(self.users);
-  //       // self.users = skillsListService.getData();
-  //       self.loaded = true;
-  //
-  //   });
-  // });
-  // });
 
 }]);
