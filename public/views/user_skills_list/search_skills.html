@@ -1,0 +1,13 @@
+<section ng-show="user.id" ng-Controller = "searchController as SearchCtrl" ng-init = "SearchCtrl.getSkillsList()">
+
+  <div class="submitSkillstoSearch" >
+      <section ng-repeat ='skill in SearchCtrl.skills'>
+        <button ng-click = "SearchCtrl.saveSkills(skill)"> select {{skill.name}} </button>
+      </section>
+  </div>
+
+  <div class="skillsSearchBar" ng-hide="loaded">
+    <a href ="/#/search_results"><button id="skillSearchSubmit" ng-click="SearchCtrl.getUsersSkills()">Search Skills</button></a>
+  </div>
+
+</section>

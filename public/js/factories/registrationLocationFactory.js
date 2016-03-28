@@ -2,7 +2,6 @@ sosFixit.factory('registrationLocationFactory', ['uiGmapGoogleMapApi', function(
 
   var locationPicker = function() {
 
-
     var self = this;
 
     uiGmapGoogleMapApi.then(function(maps) {

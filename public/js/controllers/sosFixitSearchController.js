@@ -1,4 +1,4 @@
-sosFixit.controller("searchController", ['$rootScope','uiGmapGoogleMapApi','skillsResourceFactory', 'uiGmapIsReady', 'userDistanceCalcFactory', function($rootScope, uiGmapGoogleMapApi, skillsResourceFactory, uiGmapIsReady, userDistanceCalcFactory){
+sosFixit.controller("searchController", ['$rootScope','uiGmapGoogleMapApi','skillsResourceFactory', 'skillsListService', 'uiGmapIsReady', 'userDistanceCalcFactory', function($rootScope, uiGmapGoogleMapApi, skillsResourceFactory, skillsListService, uiGmapIsReady, userDistanceCalcFactory){
 
   var self = this;
 
@@ -17,6 +17,7 @@ sosFixit.controller("searchController", ['$rootScope','uiGmapGoogleMapApi','skil
 
   self.saveSkills = function(skill){
     self.searchParam = skill.id;
+    skillsListService.setData(self.searchParam);
     self.users = [];
   };
 
