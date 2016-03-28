@@ -1,4 +1,4 @@
-sosFixit.controller("searchController", ['skillsResourceFactory', function(skillsResourceFactory){
+sosFixit.controller("searchController", ['skillsResourceFactory', 'skillsListService', function(skillsResourceFactory, skillsListService){
 
   var self = this;
 
@@ -17,20 +17,8 @@ sosFixit.controller("searchController", ['skillsResourceFactory', function(skill
 
   self.saveSkills = function(skill){
     self.searchParam = skill.id;
+    skillsListService.setData(self.searchParam);
     self.users = [];
   };
-
-  (self.getUsersSkills = function() {
-    skillsResourceFactory.getUserList(self.searchParam)
-      .then(function(response) {
-        self.loaded = false;
-        var userSkillLength = response.data.skill.users.length;
-        var allSkillUsers = response.data.skill.users;
-        for (var i = 0; i < userSkillLength; i++){
-          self.users.push(allSkillUsers[i].user.email);
-        }
-        self.loaded = true;
-      });
-  });
 
 }]);

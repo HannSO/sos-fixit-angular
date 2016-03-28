@@ -15,6 +15,7 @@ var sosFixit =
         $routeProvider
           .when('/', {
             templateUrl: 'views/main.html',
+            controllers: 'searchController'
           })
           .when('/sign_in', {
             templateUrl: 'views/user_sessions/new.html',
@@ -25,9 +26,13 @@ var sosFixit =
             controllers: 'UserRegistrationsCtrl',
             controllerAs: 'userRegistrationsCtrl'
           })
-          .when('/skills_search', {
-            templateUrl: 'views/skills_search.html',
-            controllers: 'sosFixitSearchController'
+          .when('/search_skills', {
+            templateUrl: 'views/user_skills_list/search_skills.html',
+            controllers: 'searchController'
+          })
+          .when('/search_results', {
+            templateUrl: 'views/user_skills_list/search_results.html',
+            controllers: 'listController'
           })
           .when('/about', {
             templateUrl: 'about.html',
@@ -52,6 +57,14 @@ var sosFixit =
       .run(['$rootScope', '$location', function($rootScope, $location, $cookies) {
         $rootScope.$on('auth:login-success', function(){
           $location.path('/');
-          $rootScope.userName = localStorage.setItem('username', true);
-      });
-  }]);
+          alert('Welcome, you have successfully logged in');
+        });
+        $rootScope.$on('auth:login-error', function(event, reason){
+          alert(reason.errors[0]);
+        });
+        $rootScope.$on('auth:logout-success', function(ev) {
+          alert('You have successfully logged out, goodbye');
+        });
+
+
+      }]);
