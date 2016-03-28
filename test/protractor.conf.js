@@ -17,6 +17,6 @@ exports.config = {
    jasmineNodeOpts: {
      print: function() {},
      showColors: true,
-     defaultTimeoutInterval: 30000
+     defaultTimeoutInterval: 50000
    }
 };
