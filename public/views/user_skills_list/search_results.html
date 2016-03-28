@@ -1,9 +1,13 @@
+<p ng-show="user.id">
+  <a ng-href="/#/">Take me home!</a>
+</p>
+
 <ul ng-controller="listController as ListCtrl" ng-init="ListCtrl.getUsersSkills()">
-  <li class="users-list" ng-repeat="user in ListCtrl.users">
+  <li class="users-list" ng-repeat="user in ListCtrl.users track by $index">
 
     <p class="user-name">
       {{user}}
     </p>
-    
+
   </li>
 </ul>

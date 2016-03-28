@@ -34,6 +34,10 @@ var sosFixit =
             templateUrl: 'views/user_skills_list/search_results.html',
             controllers: 'listController'
           })
+          .when('/add_skills',{
+            templateUrl: 'views/add_user_skills.html',
+            controllers: 'userSkillsController'
+          })
           .when('/about', {
             templateUrl: 'about.html',
             controller: 'AboutCtrl'
