@@ -1,5 +1,5 @@
 <ul ng-controller="listController as ListCtrl" ng-init="ListCtrl.getUsersSkills()">
-  <li class="users-list" ng-repeat="user in ListCtrl.users">
+  <li class="users-list" ng-repeat="user in ListCtrl.users | orderBy : user.distance">
 
     <p class="user-email">
       {{user.email}}
@@ -11,7 +11,7 @@
       {{user.location}}
     </p>
     <p class="user-distance">
-      {{user.distance}} miles
+      {{user.distance}} miles from you
     </p>
 
   </li>

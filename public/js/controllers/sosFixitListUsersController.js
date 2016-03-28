@@ -12,7 +12,7 @@ sosFixit.controller("listController", ['$rootScope','uiGmapGoogleMapApi', 'uiGma
 
     skillsResourceFactory.getUserList(skillsListService.getData())
       .then(function(response) {
-
+        var currentUserID = $rootScope.user.id;
         var currentUserLocation = new google.maps.LatLng($rootScope.user.latitude,$rootScope.user.longitude);
         var userSkillLength = response.data.skill.users.length;
         var allSkillUsers = response.data.skill.users;
@@ -22,14 +22,14 @@ sosFixit.controller("listController", ['$rootScope','uiGmapGoogleMapApi', 'uiGma
           userLng = allSkillUsers[i].user.longitude;
           userLocation = new google.maps.LatLng(userLat, userLng);
           userDistanceCalcFactory.userDistance(currentUserLocation, userLocation);
-
-          self.users.push(
-            {"email": allSkillUsers[i].user.email,
+          if (allSkillUsers[i].user.id != currentUserID) {
+          self.users.push({
+            "email": allSkillUsers[i].user.email,
             "name": allSkillUsers[i].user.name,
             "location": allSkillUsers[i].user.location,
             "distance": distToMiles
-            }
-          );
+            });
+          };
         }
 
         self.loaded = true;
