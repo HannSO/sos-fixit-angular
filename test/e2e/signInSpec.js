@@ -1,3 +1,6 @@
+var DatabaseCleaner = require('database-cleaner');
+var databaseCleaner = new DatabaseCleaner('postgresql');
+
 describe('SOS Fixit Sign In partial', function() {
 
   var email;
