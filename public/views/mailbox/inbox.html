@@ -1,0 +1,19 @@
+<div ng-controller="mailboxController as mailCtrl" ng-init="mailCtrl.getMailbox()">
+
+   HELLO
+
+   <section ng-repeat='conv in mailCtrl.conversations'>
+     <button ng-click="mailCtrl.getMessages(conv)"> {{conv.subject}} </button>
+   </section>
+
+   <section ng-repeat="message in mailCtrl.messages">
+     <div class="message">
+       {{ message.subject }}
+       {{ message.body }}
+       <div class="meta">
+         sent by {{ message.user.name }} on {{ message.created_at | dateToISO | date:'medium' }}
+       </div>
+     </div>
+   </section>
+
+</div>
