@@ -13,6 +13,7 @@
     self.locationPicker = new registrationLocationFactory();
 
     self.handleRegBtnClick = function() {
+      self.registrationForm.location = self.locationPicker.location;
       self.registrationForm.longitude = self.locationPicker.lng;
       self.registrationForm.latitude = self.locationPicker.lat;
       $auth.submitRegistration(self.registrationForm)
