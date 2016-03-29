@@ -21,6 +21,8 @@ angular.module('ng-token-auth', ['ipCookie'])
         validateOnPageLoad:      true
         omniauthWindowType:      'sameWindow'
         storage:                 'cookies'
+        secureCookies:           false
+        forceValidateToken:      false
 
         tokenFormat:
           "access-token": "{{ token }}"
@@ -93,7 +95,8 @@ angular.module('ng-token-auth', ['ipCookie'])
         '$timeout'
         '$rootScope'
         '$interpolate'
-        ($http, $q, $location, ipCookie, $window, $timeout, $rootScope, $interpolate) =>
+        '$interval'
+        ($http, $q, $location, ipCookie, $window, $timeout, $rootScope, $interpolate, $interval) =>
           header:            null
           dfd:               null
           user:              {}
@@ -407,7 +410,7 @@ angular.module('ng-token-auth', ['ipCookie'])
 
           # popups are difficult to test. mock this method in testing.
           createPopup: (url) ->
-            $window.open(url, '_blank')
+            $window.open(url, '_blank', 'closebuttoncaption=Cancel')
 
 
           # this needs to happen after a reflow so that the promise
@@ -468,7 +471,7 @@ angular.module('ng-token-auth', ['ipCookie'])
                 # determine querystring params accounting for possible angular parsing issues
                 location_parse = @parseLocation(window.location.search)
                 params = if Object.keys(search).length==0 then location_parse else search
-
+                
                 # auth_token matches what is sent with postMessage, but supporting token for
                 # backwards compatability
                 token = params.auth_token || params.token
@@ -520,7 +523,12 @@ angular.module('ng-token-auth', ['ipCookie'])
                 else if @retrieveData('currentConfigName')
                   configName = @retrieveData('currentConfigName')
 
-                unless isEmpty(@retrieveData('auth_headers'))
+                # cookie might not be set, but forcing token validation has
+                # been enabled
+                if @getConfig().forceValidateToken
+                  @validateToken({config: configName})
+
+                else if !isEmpty(@retrieveData('auth_headers'))
                   # if token has expired, do not verify token with API
                   if @tokenHasExpired()
                     $rootScope.$broadcast('auth:session-expired')
@@ -578,7 +586,7 @@ angular.module('ng-token-auth', ['ipCookie'])
 
                   @rejectDfd({
                     reason: 'unauthorized'
-                    errors: data.errors
+                    errors: if data? then data.errors else ['Unspecified error']
                   })
                 )
             else
@@ -614,7 +622,7 @@ angular.module('ng-token-auth', ['ipCookie'])
             # remove any assumptions about current configuration
             @deleteData('currentConfigName')
 
-            $timeout.cancel @timer if @timer?
+            $interval.cancel @timer if @timer?
 
             # kill cookies, otherwise session will resume on page reload
             # setting this value to null will force the validateToken method
@@ -682,17 +690,24 @@ angular.module('ng-token-auth', ['ipCookie'])
                 when 'localStorage'
                   $window.localStorage.setItem(key, JSON.stringify(val))
                 else
-                  ipCookie(key, val, {path: '/', expires: 9999, expirationUnit: 'days'})
+                  ipCookie(key, val, {path: '/', expires: 9999, expirationUnit: 'days', secure: @getConfig(configName).secureCookies})
 
           # abstract persistent data retrieval
           retrieveData: (key) ->
-            if @getConfig().storage instanceof Object
-              @getConfig().storage.retrieveData(key)
-            else
-              switch @getConfig().storage
-                when 'localStorage'
-                  JSON.parse($window.localStorage.getItem(key))
-                else ipCookie(key)
+            try
+              if @getConfig().storage instanceof Object
+                @getConfig().storage.retrieveData(key)
+              else
+                switch @getConfig().storage
+                  when 'localStorage'
+                    JSON.parse($window.localStorage.getItem(key))
+                  else ipCookie(key)
+            catch e
+              # gracefully handle if JSON parsing
+              if e instanceof SyntaxError
+                undefined
+              else
+                throw e
 
           # abstract persistent data removal
           deleteData: (key) ->
@@ -713,11 +728,11 @@ angular.module('ng-token-auth', ['ipCookie'])
             now    = new Date().getTime()
 
             if expiry > now
-              $timeout.cancel @timer if @timer?
+              $interval.cancel @timer if @timer?
 
-              @timer = $timeout (=>
+              @timer = $interval (=>
                 @validateUser {config: @getSavedConfig()}
-              ), parseInt (expiry - now)
+              ), (parseInt (expiry - now)), 1
 
             result
 
@@ -778,21 +793,29 @@ angular.module('ng-token-auth', ['ipCookie'])
           # 3. default (first available config)
           getSavedConfig: ->
             c   = undefined
-            key = 'currentConfigName'
+            key = 'currentConfigName'            
 
-            # accessing $window.localStorage will
-            # throw an error if localStorage is disabled
-            hasLocalStorage = false
-            try
-              hasLocalStorage = !!$window.localStorage
-            catch error
-
-            if hasLocalStorage
+            if @hasLocalStorage()
               c ?= JSON.parse($window.localStorage.getItem(key))
 
             c ?= ipCookie(key)
 
             return c || defaultConfigName
+
+          hasLocalStorage: ->
+            if !@_hasLocalStorage?
+
+              @_hasLocalStorage = false
+              # trying to call setItem will
+              # throw an error if localStorage is disabled
+              try
+                $window.localStorage.setItem('ng-token-auth-test', 'ng-token-auth-test');
+                $window.localStorage.removeItem('ng-token-auth-test');
+                @_hasLocalStorage = true
+              catch error
+
+            return @_hasLocalStorage
+
 
       ]
     }
