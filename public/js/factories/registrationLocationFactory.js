@@ -17,6 +17,7 @@ sosFixit.factory('registrationLocationFactory', ['uiGmapGoogleMapApi', function(
           console.log('no place data :(');
           return;
         }
+        self.location= place[0].name;
         self.lat = place[0].geometry.location.lat();
         self.lng = place[0].geometry.location.lng();
         self.map = {
