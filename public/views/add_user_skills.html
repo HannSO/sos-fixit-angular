@@ -5,10 +5,10 @@
 <section ng-show="user.id">
 
   <div class="submitSkillstoSearch" ng-Controller = "addSkillsController as addCtrl" ng-init = "addCtrl.getSkillsList()">
-      <section ng-repeat ='skill in addCtrl.skills'>
-        <input type = "checkbox" ng-model = "addCtrl.skill"> select {{skill.name}} </input>
-      </section>
-      <button ng-click = "addCtrl.submit"> Submit! <submit>
+      <label ng-repeat ='skill in addCtrl.skills'>
+        <input type = "checkbox" ng-click = "addCtrl.addSkills(skill)" ng-model = "skill.added" > select {{skill.name}} </input>
+      </label>
+      <button ng-click = "addCtrl.submit()"> Submit! <submit>
   </div>
 
   <!-- <div class="skillsSearchBar" ng-hide="loaded">
