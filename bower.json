@@ -20,7 +20,7 @@
     "bootstrap": "^3.3.6",
     "angular": "^1.5.2",
     "angular-resource": "^1.5.2",
-    "ng-token-auth": "^0.0.28",
+    "ng-token-auth": "^0.0.29-beta1",
     "angular-cookie": "^4.1.0"
   },
   "devDependencies": {

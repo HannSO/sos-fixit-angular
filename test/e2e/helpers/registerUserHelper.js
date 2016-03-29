@@ -13,7 +13,6 @@ var registerUserHelper = function() {
     element(by.model('registrationForm.password_confirmation')).sendKeys(testPassword);
     element(by.css('[type="submit"]')).click();
   };
-
 };
 
 module.exports = new registerUserHelper();
