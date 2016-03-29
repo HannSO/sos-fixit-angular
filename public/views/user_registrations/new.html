@@ -1,11 +1,11 @@
-<form ng-Controller = "UserRegistrationsCtrl as UserCtrl" ng-submit="handleRegBtnClick()" role="form" ng-init="registrationForm = {}">
+<form ng-Controller="UserRegistrationsCtrl as UserCtrl" ng-submit="UserCtrl.handleRegBtnClick()" role="form" ng-init="registrationForm = {}">
 
   <div class="form-group">
     <label for="email">Email</label>
     <input type="email"
            name="email"
            id="email"
-           ng-model="registrationForm.email"
+           ng-model="UserCtrl.registrationForm.email"
            required="required"
            class="form-control">
   </div>
@@ -15,7 +15,7 @@
     <input type="password"
        name="password"
        id="password"
-       ng-model="registrationForm.password"
+       ng-model="UserCtrl.registrationForm.password"
        required="required"
        class="form-control">
   </div>
@@ -25,15 +25,44 @@
     <input type="password"
            name="password_confirmation"
            id="password_confirmation"
-           ng-model="registrationForm.password_confirmation"
+           ng-model="UserCtrl.registrationForm.password_confirmation"
            required="required"
            class="form-control">
   </div>
 
+
+  <div class="form-group">
+    <input type="hidden"
+           name="longitude"
+           id="longitude"
+           ng-model="UserCtrl.registrationForm.longitude"
+           class="form-control">
+  </div>
+
+  <div class="form-group">
+    <input type="hidden"
+           name="latitude"
+           id="latitude"
+           ng-model="UserCtrl.registrationForm.latitude"
+           class="form-control">
+  </div>
+
+  <script type="text/ng-template" id="searchbox.tpl.html">
+    <input type="text" placeholder="Search Box" required="required">
+  </script>
+
+  <ui-gmap-google-map center='UserCtrl.locationPicker.map.center' zoom='UserCtrl.locationPicker.map.zoom'>
+  <ui-gmap-search-box
+    template="UserCtrl.locationPicker.searchbox.template"
+    events="UserCtrl.locationPicker.searchbox.events"
+    position="BOTTOM_RIGHT">
+  </ui-gmap-search-box>
+  </ui-gmap-google-map>
+
   <button type="submit" class="btn btn-primary btn-lg">Register</button>
 
-  <!-- <div class="alert alert-danger" role="alert" ng-show="error">
+  <div class="alert alert-danger" role="alert" ng-show="error">
     {{error}}
-  </div> -->
+  </div>
 
 </form>

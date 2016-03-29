@@ -31,53 +31,55 @@ describe('searchController', function(){
 
   });
 
-  describe('#getSkillsList', function(){
 
-    var httpBackend;
-
-    beforeEach(inject(function($httpBackend){
-      httpBackend = $httpBackend;
-      httpBackend
-      .whenGET("http://localhost:3000/skills")
-      .respond(
-        {skills:"Bike repair"}
-      );
-    }));
-
-    it('sets ctrl.skills to be the skills returned by api', function(){
-      // state.expectTransitionTo('/');
-      ctrl.getSkillsList();
-      httpBackend.flush();
-      expect(ctrl.skills.skills).toEqual('Bike repair');
-    });
-
-
-  });
-
-  describe('#getUserSkills', function(){
-
-    var httpBackend;
-
-
-
-    beforeEach(inject(function($httpBackend){
-      ctrl.searchParam = 3;
-      httpBackend = $httpBackend;
-      httpBackend
-      .when("GET", "http://localhost:3000/skills/")
-      .respond(
-        { users: 'John'}
-      );
-    }));
-
-    it('sets ctrl.user to be set to api response', function(){
-      ctrl.getSkillsList();
-      httpBackend.flush();
-      expect(ctrl.users).toEqual('John');
-    });
-
-
-  });
+    // move to protractor
+  // describe('#getSkillsList', function(){
+  //
+  //   var httpBackend;
+  //
+  //   beforeEach(inject(function($httpBackend){
+  //     httpBackend = $httpBackend;
+  //     httpBackend
+  //     .whenGET("http://localhost:3000/skills")
+  //     .respond(
+  //       {skills:"Bike repair"}
+  //     );
+  //   }));
+  //
+  //   it('sets ctrl.skills to be the skills returned by api', function(){
+  //     // state.expectTransitionTo('/');
+  //     ctrl.getSkillsList();
+  //     httpBackend.flush();
+  //     expect(ctrl.skills.skills).toEqual('Bike repair');
+  //   });
+  //
+  //
+  // });
+  //
+  // describe('#getUserSkills', function(){
+  //
+  //   var httpBackend;
+  //
+  //
+  //
+  //   beforeEach(inject(function($httpBackend){
+  //     ctrl.searchParam = 3;
+  //     httpBackend = $httpBackend;
+  //     httpBackend
+  //     .when("GET", "http://localhost:3000/skills/")
+  //     .respond(
+  //       { users: 'John'}
+  //     );
+  //   }));
+  //
+  //   it('sets ctrl.user to be set to api response', function(){
+  //     ctrl.getSkillsList();
+  //     httpBackend.flush();
+  //     expect(ctrl.users).toEqual('John');
+  //   });
+  //
+  //
+  // });
 
 
 });

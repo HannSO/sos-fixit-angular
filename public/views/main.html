@@ -3,7 +3,12 @@
 <p id='welcomeUser' ng-show="user.id">
   Welcome {{user.email}}
 </p>
-<li id='signInLink' ng-hide="user.id">
+
+<p ng-show="user.id">
+  <a ng-href="/#/search_skills">SOLVE MY PROBLEMS!</a>
+</p>
+
+<li ng-hide="user.id">
   <a ng-href="/#/sign_in">Sign in</a>
 </li>
 <li id='registerLink' ng-hide="user.id">

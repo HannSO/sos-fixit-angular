@@ -21,7 +21,10 @@
     "angular": "^1.5.2",
     "angular-resource": "^1.5.2",
     "ng-token-auth": "^0.0.29-beta1",
-    "angular-cookie": "^4.1.0"
+    "angular-cookie": "^4.1.0",
+    "angular-cookies": "^1.5.2",
+    "angular-google-maps": "^2.3.2",
+    "ngGeolocation": "^0.0.8"
   },
   "devDependencies": {
     "angular-mocks": "^1.5.2",

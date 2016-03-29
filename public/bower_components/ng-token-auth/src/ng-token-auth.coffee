@@ -468,7 +468,7 @@ angular.module('ng-token-auth', ['ipCookie'])
                 # determine querystring params accounting for possible angular parsing issues
                 location_parse = @parseLocation(window.location.search)
                 params = if Object.keys(search).length==0 then location_parse else search
-                
+
                 # auth_token matches what is sent with postMessage, but supporting token for
                 # backwards compatability
                 token = params.auth_token || params.token
