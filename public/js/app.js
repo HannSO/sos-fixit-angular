@@ -46,6 +46,12 @@ var sosFixit =
             templateUrl: 'views/mailbox/inbox.html',
             controller: 'mailboxController'
           })
+
+          .when('/send-message',{
+            templateUrl: 'views/sending_messages/send_messages.html',
+            controller: 'sendingMessagesController'
+          })
+
           .otherwise({
             redirectTo: '/'
           });

@@ -5,9 +5,11 @@
 <ul ng-controller="listController as ListCtrl" ng-init="ListCtrl.getUsersSkills()">
   <li class="users-list" ng-repeat="user in ListCtrl.users track by $index">
 
-    <p class="user-name">
-      {{user}}
+    <p class="user-email">
+      {{user.email}}
     </p>
+
+    <a ng-href="/#/send-message" ng-click = "ListCtrl.saveUserId(user.id)">  <button> Send {{user.name}} a message!</button> </a>
 
   </li>
 </ul>

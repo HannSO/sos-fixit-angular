@@ -19,6 +19,8 @@ sosFixit.controller('mailboxController', ['mailboxFactory', 'mailboxService', fu
     self.messages = [];
     self.searchParam = conversation.id;
     mailboxService.setData(self.searchParam);
+    console.log(self.searchParam);
+    console.log(mailboxFactory.getMessages(self.searchParam));
     mailboxFactory.getMessages(self.searchParam)
     .then(function(json) {
       console.log(json.data);
@@ -30,4 +32,23 @@ sosFixit.controller('mailboxController', ['mailboxFactory', 'mailboxService', fu
       }
     });
   };
+
+  // self.sendNewMessage = function (conservation){
+  //
+  //   // $http.post("http://localhost:3000/messages/", {recipients: recipient, {message: {body: body, subject: subject}});
+  // };
+  //
+  // Routes
+  //
+  // post new message:
+  //
+  //
+  // (post)reply to existing message:
+  // http//localhost:3000/:id/reply
+
+
+
+  // self.sendMessages = function(conversation){
+  //
+  // };
 }]);

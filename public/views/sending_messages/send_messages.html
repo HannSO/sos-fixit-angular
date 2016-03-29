@@ -1,0 +1,5 @@
+<form ng-controller = "sendingMessagesController as SendCtrl" >
+  <input type="text" ng-model="SendCtrl.messageSubject"> Subject:</input>
+  <input type="text" ng-model="SendCtrl.messageBody">Your message:</input>
+  <button ng-click="SendCtrl.sendMessage()"> Send your message </button>
+</form>
