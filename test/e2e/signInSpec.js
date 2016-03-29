@@ -6,13 +6,10 @@ describe('SOS Fixit Sign In partial', function() {
   var email;
   var password;
   var registerUserHelper = require('./helpers/registerUserHelper.js');
+  var signInUserHelper = require('./helpers/signInUserHelper.js');
 
   beforeEach(function() {
-    email = 'joe_wroe@icloud.com';
-    password = 'password';
     browser.get('/#/sign_in');
-    element(by.id('email')).sendKeys(email);
-    element(by.id('password')).sendKeys(password);
   });
 
   describe('On page load of "user_sessions/new.html"', function() {
@@ -29,18 +26,27 @@ describe('SOS Fixit Sign In partial', function() {
 
   describe('Logging in', function() {
 
-    beforeEach(function() {
+    // beforeEach(function() {
+    //   registerUserHelper.registerUser();
+    // });
+
+    it('Should register a new user', function() {
       registerUserHelper.registerUser();
-    });
-
-    afterEach(function() {
-      var config = { postgresql: { strategy: 'deletion', skipTables: [] } };
-
-      databaseCleaner.clean('postgresql', config);
-    });
-
-    it('Should have created a new user and signed them in', function() {
+      browser.ignoreSynchronization = true;
+      browser.waitForAngular();
+      browser.sleep(500);
       expect(browser.getCurrentUrl()).toBe('http://localhost:8080/#/');
+    });
+
+    describe('Signing that user in', function() {
+
+      it('Should have created a new user and be able to sign them in', function() {
+        signInUserHelper.signInUser();
+        browser.ignoreSynchronization = true;
+        browser.waitForAngular();
+        browser.sleep(500);
+        expect(browser.getCurrentUrl()).toBe('http://localhost:8080/#/');
+      });
     });
   });
 });
