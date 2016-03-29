@@ -26,10 +26,9 @@ self.skills =[];
 
   self.submit = function(){
     console.log(self.addedSkills);
-    var skill = "potato" ;
     var currentUser = $rootScope.user.id ;
     var userEditPath = "http://localhost:3000/users/" + currentUser;
-    var path = $http.patch(userEditPath,{user: currentUser, skills: skill});
+    var path = $http.patch(userEditPath,{user: currentUser, skills: self.addedSkills});
     console.log(path);
   };
 }]);
