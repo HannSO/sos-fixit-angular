@@ -16,6 +16,7 @@ sosFixit.controller('mailboxController', ['mailboxFactory', 'mailboxService', fu
   });
 
   self.getMessages = function(conversation){
+    console.log("displaying messages");
     self.messages = [];
     self.searchParam = conversation.id;
     mailboxService.setData(self.searchParam);

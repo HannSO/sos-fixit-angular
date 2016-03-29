@@ -4,16 +4,13 @@ sosFixit.controller('sendingMessagesController', ['sendingMessageService', '$htt
  self.messageSubject = '';
 
   self.sendMessage = function() {
-    console.log("SENDING MESSAGE");
     var postPath = "http://localhost:3000/messages";
-    console.log(postPath);
     var recipientId = sendingMessageService.getData();
     sendingMessageService.resetData();
-    console.log(recipientId);
     var json = {recipient: recipientId ,message: {body: self.messageBody, subject: self.messageSubject}};
-
-    $http.post(postPath, json );
-    console.log($http.post(postPath, json));
+    $http.post(postPath, json);
+    // self.messageBody = '';
+    // self.messageSubject ='';
   };
 
 }]);
