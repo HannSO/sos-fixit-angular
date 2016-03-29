@@ -49,7 +49,8 @@ var sosFixit =
 
           .when('/send-message',{
             templateUrl: 'views/sending_messages/send_messages.html',
-            controller: 'sendingMessagesController'
+            controller: 'sendingMessagesController',
+            // controllerAs: 'SendCtrl'
           })
 
           .otherwise({

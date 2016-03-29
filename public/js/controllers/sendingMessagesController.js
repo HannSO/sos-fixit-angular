@@ -1,10 +1,11 @@
-sosFixit.controller('sendingMessagesController', ['sendingMessageService', '$http',  function(sendingMessageService, $http){
+sosFixit.controller('sendingMessagesController', ['sendingMessageService', '$http',  function(sendingMessageService, $http) {
+  var self = this;
  self.messageBody = '';
  self.messageSubject = '';
 
-  (self.sendMessage = function() {
+  self.sendMessage = function() {
     console.log("SENDING MESSAGE");
-    var postPath = "http://localhost/3000/messages";
+    var postPath = "http://localhost:3000/messages";
     console.log(postPath);
     var recipientId = sendingMessageService.getData();
     sendingMessageService.resetData();
@@ -13,6 +14,6 @@ sosFixit.controller('sendingMessagesController', ['sendingMessageService', '$htt
 
     $http.post(postPath, json );
     console.log($http.post(postPath, json));
-  });
+  };
 
 }]);
