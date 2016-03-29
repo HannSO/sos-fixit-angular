@@ -26,27 +26,19 @@ describe('SOS Fixit Sign In partial', function() {
 
   describe('Logging in', function() {
 
-    // beforeEach(function() {
-    //   registerUserHelper.registerUser();
-    // });
-
-    it('Should register a new user', function() {
+    beforeEach(function() {
       registerUserHelper.registerUser();
       browser.ignoreSynchronization = true;
       browser.waitForAngular();
       browser.sleep(500);
-      expect(browser.getCurrentUrl()).toBe('http://localhost:8080/#/');
     });
 
-    describe('Signing that user in', function() {
-
-      it('Should have created a new user and be able to sign them in', function() {
-        signInUserHelper.signInUser();
-        browser.ignoreSynchronization = true;
-        browser.waitForAngular();
-        browser.sleep(500);
-        expect(browser.getCurrentUrl()).toBe('http://localhost:8080/#/');
-      });
+    it('Should have created a new user and be able to sign them in', function() {
+      signInUserHelper.signInUser();
+      browser.ignoreSynchronization = true;
+      browser.waitForAngular();
+      browser.sleep(500);
+      expect(browser.getCurrentUrl()).toBe('http://localhost:8080/#/');
     });
   });
 });
