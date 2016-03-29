@@ -42,6 +42,10 @@ var sosFixit =
             templateUrl: 'about.html',
             controller: 'AboutCtrl'
           })
+          .when('/inbox', {
+            templateUrl: 'views/mailbox/inbox.html',
+            controller: 'mailboxController'
+          })
           .otherwise({
             redirectTo: '/'
           });
@@ -70,5 +74,11 @@ var sosFixit =
           alert('You have successfully logged out, goodbye');
         });
 
-
       }]);
+
+      sosFixit.filter('dateToISO', function() {
+        return function(input) {
+          input = new Date(input).toISOString();
+          return input;
+        };
+      });

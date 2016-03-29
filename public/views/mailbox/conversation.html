@@ -1,0 +1,9 @@
+<ul ng-controller="listMessages as ListMsg" ng-init="ListMsg.getMessages()">
+  <li class="message-list" ng-repeat="message in ListMsg.messages">
+
+    <p class="message">
+      {{message}}
+    </p>
+
+  </li>
+</ul>
