@@ -8,9 +8,17 @@
   <a ng-href="/#/search_skills">SOLVE MY PROBLEMS!</a>
 </p>
 
+<p ng-show="user.id">
+  <a ng-href="/#/add_skills">Add my skills!</a>
+</p>
+
 <li ng-hide="user.id">
   <a ng-href="/#/sign_in">Sign in</a>
 </li>
 <li id='registerLink' ng-hide="user.id">
   <a ng-href="/#/register">Register</a>
 </li>
+
+<p ng-show="user.id">
+  <a ng-href="/#/inbox">Go to my messages!</a>
+</p>

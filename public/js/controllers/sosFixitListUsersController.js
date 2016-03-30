@@ -29,7 +29,7 @@ sosFixit.controller("listController", ['$rootScope','uiGmapGoogleMapApi', 'uiGma
             "location": allSkillUsers[i].user.location,
             "distance": distToMiles
             });
-          };
+          }
         }
 
         self.loaded = true;
@@ -39,4 +39,9 @@ sosFixit.controller("listController", ['$rootScope','uiGmapGoogleMapApi', 'uiGma
 
   });
 
+  self.saveUserId = function(userId) {
+    console.log("ng-click works a bit");
+    sendingMessageService.setData(userId);
+    console.log(userId);
+  };
 }]);
