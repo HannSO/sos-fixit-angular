@@ -1,5 +1,5 @@
 <div ng-controller="sendingMessagesController as SendCtrl" >
-  <input type="text" ng-model="SendCtrl.messageSubject" placeholder="Enter subject"> Subject:</input>
-  <input  type="text" ng-model="SendCtrl.messageBody" placeholder="Enter message">Your message:</input>
+  <label>Subject:</label><input type="text" ng-model="SendCtrl.messageSubject" placeholder="Enter subject">
+  <label>Your Message:</label><input  type="text" ng-model="SendCtrl.messageBody" placeholder="Enter message">
   <button ng-click="SendCtrl.sendMessage()"> Send your message </button>
 </div>

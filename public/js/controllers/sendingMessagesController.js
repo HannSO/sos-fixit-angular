@@ -9,8 +9,9 @@ sosFixit.controller('sendingMessagesController', ['sendingMessageService', '$htt
     sendingMessageService.resetData();
     var json = {recipient: recipientId ,message: {body: self.messageBody, subject: self.messageSubject}};
     $http.post(postPath, json);
-    // self.messageBody = '';
-    // self.messageSubject ='';
+    self.messageBody = '';
+    self.messageSubject ='';
   };
 
 }]);
+``

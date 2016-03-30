@@ -8,12 +8,19 @@
 
    <section ng-repeat="message in mailCtrl.messages">
      <div class="message">
-       {{ message.subject }}
-       {{ message.body }}
+       <p>
+         Subject: {{ message.subject }}
+       </p>
+       <p>
+         Message: {{ message.body }}
+
+       </p>
        <div class="meta">
          sent by {{ message.user.name }} on {{ message.created_at | dateToISO | date:'medium' }}
-       </div>
+       </div>:
+       <a ng-href="/#/message-reply" ng-click="mailCtrl.setConversationId()" ><button >Reply to message</button></a>
      </div>
    </section>
+
 
 </div>
