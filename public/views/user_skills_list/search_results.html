@@ -1,24 +1,35 @@
-<p ng-show="user.id">
-  <a ng-href="/#/">Take me home!</a>
-</p>
 
-<ul ng-controller="listController as ListCtrl" ng-init="ListCtrl.getUsersSkills()">
-  <li class="users-list" ng-repeat="user in ListCtrl.users | orderBy :'distance'">
+<section id="search-results" class="section">
 
-    <p class="user-email">
-      {{user.email}}
-    </p>
-    <p class="user-name">
-      {{user.name}}
-    </p>
-    <p class="user-location">
-      {{user.location}}
-    </p>
-    <p class="user-distance">
-      {{user.distance}} miles from you
-    </p>
 
-    <a ng-href="/#/send-message" ng-click = "ListCtrl.saveUserId(user.id)">  <button> Send {{user.name}} a message!</button> </a>
+  <div class="row">
+    <div class="small-12 medium-10 medium-centered columns">
+      <div ng-controller="listController as ListCtrl" ng-init="ListCtrl.getUsersSkills()">
 
-  </li>
-</ul>
+        <h2>Good news! There are {{ ListCtrl.users.length }} people near you who might be able to help:</h2>
+
+        <div class="users-list" ng-repeat="user in ListCtrl.users | orderBy :'distance'">
+
+          <div class="user-name">
+            {{user.name}}
+          </div>
+          <div class="user-location">
+            {{user.location}}
+          </div>
+          <div class="user-distance">
+            {{user.distance}} miles from you
+          </div>
+
+          <a class="mega-button" ng-href="/#/send-message" ng-click = "ListCtrl.saveUserId(user.id)">Send {{user.name}} a message!</a>
+
+        </div>
+
+      </div>
+
+    </div>
+    <!-- /.small-12 medium-10 medium-centered columns -->
+  </div>
+  <!-- /.row -->
+
+
+</section>

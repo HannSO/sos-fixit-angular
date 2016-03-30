@@ -1,5 +1,25 @@
-<div ng-controller="sendingMessagesController as SendCtrl" >
-  <label>Subject:</label><input type="text" ng-model="SendCtrl.messageSubject" placeholder="Enter subject">
-  <label>Your Message:</label><input  type="text" ng-model="SendCtrl.messageBody" placeholder="Enter message">
-  <button ng-click="SendCtrl.sendMessage()"> Send your message </button>
-</div>
+
+<section id="send-message" class="section message">
+
+  <div class="row">
+    <div class="small-12 medium-8 medium-centered columns">
+
+    </div>
+    <!-- /.small-12 medium-8 medium-centered columns -->
+  </div>
+  <!-- /.row -->
+
+  <div class="row">
+    <div class="small-12 medium-8 medium-centered columns">
+
+    <div ng-controller="sendingMessagesController as SendCtrl" >
+      <h2>Send a message to {{ SendCtrl.recipientId }}</h2>
+      <label>Subject:</label><input type="text" ng-model="SendCtrl.messageSubject" placeholder="Enter subject">
+      <label>Your Message:</label><input  type="text" ng-model="SendCtrl.messageBody" placeholder="Enter message">
+      <button ng-click="SendCtrl.sendMessage()"> Send your message </button>
+    </div>
+
+  </div>
+
+  </div><!-- /.row -->
+</section><!-- /#send-message.message -->

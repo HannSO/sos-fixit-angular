@@ -9,7 +9,7 @@ var sosFixit =
           'ngRoute',
           'ipCookie',
           'uiGmapgoogle-maps',
-          'ngGeolocation'
+          'ngGeolocation',
       ])
       .config(['$routeProvider', '$locationProvider', 'uiGmapGoogleMapApiProvider', function($routeProvider, $locationProvider, uiGmapGoogleMapApiProvider) {
         $routeProvider

@@ -4,6 +4,11 @@ $colour_one: #FFE181;
 
 .angular-google-map-container { height: 400px; }
 
+#content {
+  min-height: 80vh;
+  display: flex;
+}
+
 @mixin mega-button {
   border: 2px solid #fff;
   border-radius: 5px;
@@ -23,8 +28,9 @@ footer#colophon {
   background: #222;
 }
 
-
-
+.section {
+  text-align: center;
+}
 
 @import 'partials/header';
 @import 'partials/homepage';

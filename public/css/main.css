@@ -1,6 +1,10 @@
 .angular-google-map-container {
   height: 400px; }
 
+#content {
+  min-height: 80vh;
+  display: flex; }
+
 a.mega-button, button.mega-button {
   border: 2px solid #fff;
   border-radius: 5px;
@@ -13,6 +17,9 @@ a.mega-button, button.mega-button {
 footer#colophon {
   padding: 3em 0;
   background: #222; }
+
+.section {
+  text-align: center; }
 
 header#masthead {
   background-color: #FFE181;
@@ -31,18 +38,22 @@ header#masthead {
       display: inline-block; }
 
 .section {
-  padding: 4em 0 6em; }
+  padding: 4em 0 6em;
+  align-items: stretch;
+  width: 100%; }
 
 section#intro.section {
   position: relative;
   padding: 6em 0 8em;
   background: url("../images/tools copy.jpg") no-repeat top center;
   background-size: cover;
-  text-align: center; }
+  text-align: center;
+  width: 100%; }
   section#intro.section #intro-content {
     position: relative;
     display: block;
     width: 100%;
+    height: 100%;
     z-index: 2; }
     section#intro.section #intro-content h1, section#intro.section #intro-content h2 {
       margin-bottom: 1.5em;
@@ -68,6 +79,12 @@ section#intro.section {
       background: #fff;
       color: #666;
       font-weight: bold; }
+  section#intro.section #sign-in-intro {
+    position: relative;
+    display: block;
+    min-height: 100%;
+    width: 100%;
+    z-index: 2; }
   section#intro.section:after {
     content: "";
     position: absolute;
