@@ -1,0 +1,24 @@
+
+header#masthead {
+  background-color: $colour_one;
+  padding: 1em 0;
+  border-bottom: 3px solid #fff;
+
+  #site-title {
+    float: left;
+    width: 25%;
+    h2 a {
+      color: #555;
+    }
+  }
+
+  nav#main-nav {
+    float: right;
+    width: 75%;
+    text-align: right;
+    div {
+      display: inline-block;
+    }
+  }
+
+}

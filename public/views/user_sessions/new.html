@@ -1,28 +1,48 @@
-<form ng-submit="submitLogin(loginForm)" role="form" ng-init="loginForm = {}">
+<section id="form" class="section">
 
-    <div class="form-group">
-      <label for="email">Email</label>
-      <input type="email"
-             name="email"
-             id="email"
-             ng-model="loginForm.email"
-             required="required"
-             class="form-control">
+  <div class="row">
+    <div class="small-12 medium-8 medium-centered columns">
+      <h2>Sign In</h2>
+    </div>
+    <!-- /.small-12 medium-8 medium-centered columns -->
+  </div>
+  <!-- /.row -->
+
+  <div class="row">
+
+    <div class="small-12 medium-8 medium-centered columns">
+
+      <form ng-submit="submitLogin(loginForm)" role="form" ng-init="loginForm = {}">
+
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email"
+                   name="email"
+                   id="email"
+                   ng-model="loginForm.email"
+                   required="required"
+                   class="form-control">
+          </div>
+
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password"
+                   name="password"
+                   id="password"
+                   ng-model="loginForm.password"
+                   required="required"
+                   class="form-control">
+          </div>
+
+          <button type="submit" class="mega-button">Sign in</button>
+
+          <div class="alert alert-danger" role="alert" ng-show="error">
+            {{error}}
+          </div>
+      </form>
+
     </div>
 
-    <div class="form-group">
-      <label for="password">Password</label>
-      <input type="password"
-             name="password"
-             id="password"
-             ng-model="loginForm.password"
-             required="required"
-             class="form-control">
-    </div>
+  </div>
 
-    <button type="submit" class="btn btn-primary btn-lg">Sign in</button>
-
-    <div class="alert alert-danger" role="alert" ng-show="error">
-      {{error}}
-    </div>
-</form>
+</section>

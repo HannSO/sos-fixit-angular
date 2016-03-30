@@ -1,0 +1,30 @@
+section#form.section {
+  text-align: center;
+  h2 {
+    margin-bottom: 1em;
+    padding-bottom: 1em;
+    position: relative;
+    display: inline-block;
+    &:after {
+      position: absolute;
+      content: "";
+      height: 2px;
+      width: 50%;
+      left: 25%;
+      bottom: 0;
+      background: #555;
+    }
+  }
+  .ui-gmap-google_map.angular-google-map {
+    div.angular-google-map {
+      div.angular-google-map-container {
+        div.gm-style {
+          input.ng-scope {
+          display: none !important;
+          text-align: center;
+          }
+        }
+      }
+    }
+  }
+}

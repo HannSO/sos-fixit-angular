@@ -4,11 +4,11 @@ sosFixit.factory('registrationLocationFactory', ['uiGmapGoogleMapApi', function(
 
     var self = this;
 
-    uiGmapGoogleMapApi.then(function(maps) {
-      console.log(google.maps.geometry.spherical.computeDistanceBetween(new google.maps.LatLng(25.774, -80.190),new google.maps.LatLng(18.466, -66.118)));
-    });
-
-    self.map = { center: { latitude: 51.5285, longitude: 0.0847 }, zoom: 12 };
+    self.map = {
+      center: { latitude: 51.5285, longitude: 0.0847 },
+      zoom: 12,
+      options: { streetViewControl: false, mapTypeControl: false }
+     };
 
     var events = {
       places_changed: function (searchBox) {

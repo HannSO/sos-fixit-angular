@@ -27,24 +27,53 @@
     <script src="./js/factories/userDistanceCalcFactory.js"></script>
     <script src="./js/services/skillsListService.js"></script>
 
-    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <script src="https://use.typekit.net/tqk1faz.js"></script>
+    <script>try{Typekit.load({ async: true });}catch(e){}</script>
+
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel="stylesheet" type="text/css" href="css/foundation.css">
+
 
     <!-- <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false&v=3&libraries=geometry"></script> -->
-
 
   </head>
 
   <body id="sosFixitBody" ng-app ="SosFixit">
 
 
-    <p ng-show="user.id">
-      <a ng-click="signOut()" ng-href="/#/">Sign out</a>
-    </p>
+    <header id="masthead">
+      <div class="row">
+        <div class="small-12 columns">
+          <div id="site-title">
+            <h2><a ng-href="/#/">FixItSos</a></h2>
+          </div>
+          <nav id="main-nav">
+            <div id="user-actions">
+              <div id="signInLink" ng-hide="user.id">
+                <a ng-href="/#/sign_in">Sign in</a>
+              </div>
+              <div id="signOutLink" ng-show="user.id">
+                <a ng-click="signOut()" ng-href="/#/">Sign out</a>
+              </div>
+              <div id='registerLink' ng-hide="user.id">
+                <a ng-href="/#/register">Register</a>
+              </div>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </header>
 
-    <div ng-view>
+    <div ng-view autoscroll>
 
     </div>
 
+    <footer id="colophon">
+      <div class="row">
+        <div class="small-12 columns">
+        </div>
+      </div>
+    </footer>
 
   </body>
 

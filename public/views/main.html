@@ -1,16 +1,42 @@
-<h1>Home</h1>
-<p>This is the home page.</p>
-<p id='welcomeUser' ng-show="user.id">
-  Welcome {{user.email}}
-</p>
 
-<p ng-show="user.id">
-  <a ng-href="/#/search_skills">SOLVE MY PROBLEMS!</a>
-</p>
+<section id="welcome" class="section" ng-show="user.id">
+  <div class="row">
+    <div class="small-12 medium-10 medium-centered columns">
+      <div id='welcomeUser'>
+        <h3>Welcome {{user.email}}</h3>
+      </div>
+      <div>
+        <a ng-href="/#/search_skills">SOLVE MY PROBLEMS!</a>
+      </div>
+    </div>
+  </div>
+</section>
 
-<li ng-hide="user.id">
-  <a ng-href="/#/sign_in">Sign in</a>
-</li>
-<li id='registerLink' ng-hide="user.id">
-  <a ng-href="/#/register">Register</a>
-</li>
+<section id="intro" class="section" ng-hide="user.id">
+  <div id="intro-content">
+    <div class="row">
+      <div class="small-12 columns">
+        <h1>Get help from your community to solve life's little problems</h1>
+      </div>
+      <div class="small-12 medium-4 medium-offset-1 columns">
+        <h3>Dripping Tap? Bicycle Puncture? Broken Window?</h3>
+        <p>FixItSos helps you find people near you who are happy to help fix things.</p>
+      </div>
+        <div class="small-12 medium-4 medium-offset-2 end columns">
+          <h3>Got some awesome DIY skills?</h3>
+          <p>We'll help you find people who might need your help too!</p>
+        </div>
+    </div>
+    <div class="row">
+      <div class="small-12 columns">
+        <div class="actions">
+          <h2>Get Started:</h2>
+        </div>
+      </div>
+      <div class="small-12 columns">
+        <a class="mega-button" ng-href="/#/sign_in">Sign in</a>
+        <a class="mega-button" ng-href="/#/register">Register</a>
+      </div>
+    </div>
+  </div>
+</section>
