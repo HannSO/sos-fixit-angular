@@ -5,8 +5,9 @@ var databaseCleaner = new DatabaseCleaner('postgresql');
 
 describe('SOS Fixit Sign In partial', function() {
 
-  var registerUserHelper = require('./helpers/registerUserHelper.js');
-  var signInUserHelper = require('./helpers/signInUserHelper.js');
+  var registerUserHelper    = require('./helpers/registerUserHelper.js');
+  var signInUserHelper      = require('./helpers/signInUserHelper.js');
+  var synchronizationHelper = require('./helpers/synchronizationHelper.js');
 
   beforeEach(function() {
     browser.get('/#/sign_in');
@@ -28,16 +29,13 @@ describe('SOS Fixit Sign In partial', function() {
 
     beforeEach(function() {
       registerUserHelper.registerUser();
-      browser.ignoreSynchronization = true;
-      browser.waitForAngular();
-      browser.sleep(500);
+      synchronizationHelper.skipSync();
+
     });
 
     it('Should have created a new user and be able to sign them in', function() {
       signInUserHelper.signInUser();
-      browser.ignoreSynchronization = true;
-      browser.waitForAngular();
-      browser.sleep(500);
+      synchronizationHelper.skipSync();
       expect(browser.getCurrentUrl()).toBe('http://localhost:8080/#/');
     });
   });

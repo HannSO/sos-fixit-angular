@@ -1,16 +1,22 @@
+var emailField;
+var passwordField;
+var submitButton;
 var testEmail;
 var testPassword;
 
 var signInUserHelper = function() {
 
-  testEmail    = 'test@test.com';
-  testPassword = 'testpassword';
+  emailField    = element(by.css('[type="email"]'));
+  passwordField = element(by.css('[type="password"]'));
+  submitButton  = element(by.css('[type="submit"]'));
+  testEmail     = 'test@test.com';
+  testPassword  = 'testpassword';
 
   this.signInUser = function() {
     browser.get('/#/sign_in');
-    element(by.css('[type="email"]')).sendKeys(testEmail);
-    element(by.css('[type="password"]')).sendKeys(testPassword);
-    element(by.css('[type="submit"]')).click();
+    emailField.sendKeys(testEmail);
+    passwordField.sendKeys(testPassword);
+    submitButton.click();
   };
 };
 

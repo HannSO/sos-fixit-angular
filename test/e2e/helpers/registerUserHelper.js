@@ -17,7 +17,7 @@ var registerUserHelper = function() {
   testEmail                 = 'test@test.com';
   testPassword              = 'testpassword';
   testLocation              = 'london';
-  waitForProtractor         = browser.sleep(500);
+  waitForProtractor         = browser.sleep(600);
 
   this.registerUser = function() {
     browser.get('/#/register');
