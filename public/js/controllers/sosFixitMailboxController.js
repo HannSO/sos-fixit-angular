@@ -1,10 +1,24 @@
-sosFixit.controller('mailboxController', ['mailboxFactory', 'mailboxService','replyingMessageService', function(mailboxFactory, mailboxService, replyingMessageService){
+sosFixit.controller('mailboxController', ['mailboxFactory', 'mailboxService','replyingMessageService', '$rootScope', function(mailboxFactory, mailboxService, replyingMessageService, $rootScope){
 
   var self = this;
 
   self.messages = [];
   self.conversations = [];
   self.searchParam = '';
+  self.myMessage = false;
+
+  self.isMyMessage = function(senderId) {
+
+    currentUser = $rootScope.user.id;
+    console.log(currentUser);
+    console.log(senderId);
+    if (currentUser === senderId) {
+      return true;
+    } else {
+      return false;
+    }
+
+  };
 
   (self.getMailbox = function() {
     mailboxFactory.getConversations()
