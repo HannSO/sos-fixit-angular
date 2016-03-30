@@ -6,9 +6,9 @@
       alert("Registration failed: please check the details you have entered");
     });
 
-    $scope.$on('auth:registration-email-success', function(event, user) {
-      alert("Welcome " + user.email +", you have successfully registered");
-    });
+    // $scope.$on('auth:registration-email-success', function(event, user) {
+    //   alert("Welcome " + user.email +", you have successfully registered");
+    // });
 
     self.locationPicker = new registrationLocationFactory();
 

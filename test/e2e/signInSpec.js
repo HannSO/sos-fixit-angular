@@ -12,7 +12,7 @@ describe('SOS Fixit Sign In partial', function() {
     browser.get('/#/sign_in');
   });
 
-  describe('On page load of "user_sessions/new.html"', function() {
+  xdescribe('On page load of "user_sessions/new.html"', function() {
 
     it('Should provide fields to enter an e-mail and password', function() {
       expect(element(by.css('[type="email"]')).isDisplayed()).toBe(true);

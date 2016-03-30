@@ -1,4 +1,4 @@
-describe('SOS Fixit homepage', function() {
+xdescribe('SOS Fixit homepage', function() {
 
   beforeEach(function() {
     browser.get('/#');

@@ -57,7 +57,7 @@ var sosFixit =
       .run(['$rootScope', '$location', function($rootScope, $location, $cookies) {
         $rootScope.$on('auth:login-success', function(){
           $location.path('/');
-          alert('Welcome, you have successfully logged in');
+          // alert('Welcome, you have successfully logged in');
         });
         $rootScope.$on('auth:login-error', function(event, reason){
           alert(reason.errors[0]);
