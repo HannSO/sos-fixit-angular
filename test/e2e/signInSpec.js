@@ -1,10 +1,10 @@
 var DatabaseCleaner = require('database-cleaner');
 var databaseCleaner = new DatabaseCleaner('postgresql');
 
+
+
 describe('SOS Fixit Sign In partial', function() {
 
-  var email;
-  var password;
   var registerUserHelper = require('./helpers/registerUserHelper.js');
   var signInUserHelper = require('./helpers/signInUserHelper.js');
 

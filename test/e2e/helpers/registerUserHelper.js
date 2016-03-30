@@ -1,24 +1,33 @@
 var emailField;
-var testEmail;
 var passwordField;
 var passwordConfirmationField;
-var testPassword;
 var locationPicker;
+var submitButton;
+var testEmail;
+var testPassword;
+var testLocation;
 
 var registerUserHelper = function() {
 
-  locationPicker = element(by.css('[placeholder="Search Box"]'));
-  testEmail      = 'test@test.com';
-  testPassword   = 'testpassword';
-  testLocation   = 'london';
+  emailField                = element(by.css('[type="email"]'));
+  passwordField             = element(by.model('UserCtrl.registrationForm.password'));
+  passwordConfirmationField = element(by.model('UserCtrl.registrationForm.password_confirmation'));
+  locationPicker            = element(by.css('[placeholder="Search Box"]'));
+  submitButton              = element(by.css('[type="submit"]'));
+  testEmail                 = 'test@test.com';
+  testPassword              = 'testpassword';
+  testLocation              = 'london';
+  waitForProtractor         = browser.sleep(500);
 
   this.registerUser = function() {
     browser.get('/#/register');
-    element(by.css('[type="email"]')).sendKeys(testEmail);
-    element(by.model('UserCtrl.registrationForm.password')).sendKeys(testPassword);
-    element(by.model('UserCtrl.registrationForm.password_confirmation')).sendKeys(testPassword);
+    emailField.sendKeys(testEmail);
+    passwordField.sendKeys(testPassword);
+    passwordConfirmationField.sendKeys(testPassword);
     locationPicker.sendKeys(testLocation);
-    element(by.css('[type="submit"]')).click();
+    waitForProtractor;
+    submitButton.click();
+    waitForProtractor;
   };
 };
 
