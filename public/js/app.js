@@ -34,10 +34,31 @@ var sosFixit =
             templateUrl: 'views/user_skills_list/search_results.html',
             controllers: 'listController'
           })
+          .when('/add_skills',{
+            templateUrl: 'views/add_user_skills.html',
+            controllers: 'userSkillsController'
+          })
           .when('/about', {
             templateUrl: 'about.html',
             controller: 'AboutCtrl'
           })
+          .when('/inbox', {
+            templateUrl: 'views/mailbox/inbox.html',
+            controller: 'mailboxController'
+          })
+
+          .when('/send-message',{
+            templateUrl: 'views/sending_messages/send_messages.html',
+            controller: 'sendingMessagesController'
+            // controllerAs: 'SendCtrl'
+          })
+          .when('/message-reply',{
+            templateUrl: 'views/sending_messages/reply_messages.html',
+            controller: 'replyingMessagesController'
+            // controllerAs: 'SendCtrl'
+          })
+
+
           .otherwise({
             redirectTo: '/'
           });
@@ -66,5 +87,11 @@ var sosFixit =
           alert('You have successfully logged out, goodbye');
         });
 
-
       }]);
+
+      sosFixit.filter('dateToISO', function() {
+        return function(input) {
+          input = new Date(input).toISOString();
+          return input;
+        };
+      });

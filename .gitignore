@@ -1,3 +1,4 @@
+bower_components
 public/bower_components/*
 !public/bower_components/ng-token-auth
 node_modules

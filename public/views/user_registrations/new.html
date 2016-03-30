@@ -15,6 +15,16 @@
       <form ng-Controller="UserRegistrationsCtrl as UserCtrl" ng-submit="UserCtrl.handleRegBtnClick()" role="form" ng-init="registrationForm = {}">
 
         <div class="form-group">
+          <label for="name">Name</label>
+          <input type="name"
+                 name="name"
+                 id="name"
+                 ng-model="UserCtrl.registrationForm.name"
+                 required="required"
+                 class="form-control">
+        </div>
+
+        <div class="form-group">
           <label for="email">Email</label>
           <input type="email"
                  name="email"
