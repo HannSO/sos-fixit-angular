@@ -14,4 +14,3 @@ sosFixit.controller('sendingMessagesController', ['sendingMessageService', '$htt
   };
 
 }]);
-``
