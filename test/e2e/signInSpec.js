@@ -12,7 +12,7 @@ describe('SOS Fixit Sign In partial', function() {
     browser.get('/#/sign_in');
   });
 
-  describe('On page load of "user_sessions/new.html"', function() {
+  describe('On page load', function() {
 
     it('Should provide fields to enter an e-mail and password', function() {
       expect(emailField.isDisplayed()).toBe(true);
@@ -24,14 +24,14 @@ describe('SOS Fixit Sign In partial', function() {
     });
   });
 
-  describe('Logging in', function() {
+  describe('Log in', function() {
 
     beforeEach(function() {
       registerUserHelper.registerUser();
       synchronizationHelper.skipSync();
     });
 
-    it('Should have created a new user and be able to sign them in', function() {
+    it('should be able to sign a user in', function() {
       signInUserHelper.signInUser();
       synchronizationHelper.skipSync();
       expect(browser.getCurrentUrl()).toBe('http://localhost:8080/#/');

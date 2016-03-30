@@ -3,7 +3,7 @@ var registerUserHelper = function() {
   var emailField                = element(by.css('[type="email"]'));
   var passwordField             = element(by.model('UserCtrl.registrationForm.password'));
   var passwordConfirmationField = element(by.model('UserCtrl.registrationForm.password_confirmation'));
-  var locationPicker            = element(by.css('[placeholder="Search Box"]'));
+  var locationPicker            = element(by.css('[placeholder="Location Search"]'));
   var submitButton              = element(by.css('[type="submit"]'));
   var testEmail                 = 'test@test.com';
   var testPassword              = 'testpassword';
