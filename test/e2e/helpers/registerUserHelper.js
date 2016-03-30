@@ -1,23 +1,14 @@
-var emailField;
-var passwordField;
-var passwordConfirmationField;
-var locationPicker;
-var submitButton;
-var testEmail;
-var testPassword;
-var testLocation;
-
 var registerUserHelper = function() {
 
-  emailField                = element(by.css('[type="email"]'));
-  passwordField             = element(by.model('UserCtrl.registrationForm.password'));
-  passwordConfirmationField = element(by.model('UserCtrl.registrationForm.password_confirmation'));
-  locationPicker            = element(by.css('[placeholder="Search Box"]'));
-  submitButton              = element(by.css('[type="submit"]'));
-  testEmail                 = 'test@test.com';
-  testPassword              = 'testpassword';
-  testLocation              = 'london';
-  waitForProtractor         = browser.sleep(600);
+  var emailField                = element(by.css('[type="email"]'));
+  var passwordField             = element(by.model('UserCtrl.registrationForm.password'));
+  var passwordConfirmationField = element(by.model('UserCtrl.registrationForm.password_confirmation'));
+  var locationPicker            = element(by.css('[placeholder="Search Box"]'));
+  var submitButton              = element(by.css('[type="submit"]'));
+  var testEmail                 = 'test@test.com';
+  var testPassword              = 'testpassword';
+  var testLocation              = 'london';
+  var waitForProtractor         = browser.sleep(600);
 
   this.registerUser = function() {
     browser.get('/#/register');

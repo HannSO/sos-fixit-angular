@@ -30,7 +30,6 @@ describe('SOS Fixit Sign In partial', function() {
     beforeEach(function() {
       registerUserHelper.registerUser();
       synchronizationHelper.skipSync();
-
     });
 
     it('Should have created a new user and be able to sign them in', function() {
