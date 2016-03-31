@@ -38,6 +38,9 @@ a.mega-button, button.mega-button {
   display: block;
   width: 100%; }
 
+p, h1, h2, h3, h4, ul, li {
+  color: #555; }
+
 header#masthead {
   background-color: #FFE181;
   padding: 1em 0;
@@ -50,11 +53,19 @@ header#masthead {
   header#masthead nav#main-nav {
     float: right;
     width: 75%;
+    margin-top: 0.5em;
     text-align: right; }
     header#masthead nav#main-nav div {
       display: inline-block; }
       header#masthead nav#main-nav div a {
         font-size: 0.75em; }
+    header#masthead nav#main-nav #user-info {
+      display: inline-block;
+      margin-right: 1em;
+      font-family: "brandon-grotesque";
+      color: #777; }
+      header#masthead nav#main-nav #user-info p {
+        font-size: 1em; }
 
 .section {
   padding: 4em 0 6em;

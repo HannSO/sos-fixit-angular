@@ -109,7 +109,7 @@ $include-html-global-classes: $include-html-classes;
 // $jumbo       : #888888;
 // $monsoon     : #777777;
 // $steel       : #666666;
-// $charcoal    : #555555;
+   $charcoal: #555555;
 // $tuatara     : #444444;
 // $oil         : #333333;
 // $jet         : #222222;
@@ -125,7 +125,7 @@ $include-html-global-classes: $include-html-classes;
 
 // We use these to control various global styles
 // $body-bg: $white;
-// $body-font-color: $jet;
+  $body-font-color: $charcoal;
 // $body-font-family: $font-family-sans-serif;
 // $body-font-weight: $font-weight-normal;
 // $body-font-style: normal;
@@ -213,7 +213,7 @@ $include-html-global-classes: $include-html-classes;
    $header-font-family: "brandon-grotesque";
 // $header-font-weight: $font-weight-normal;
 // $header-font-style: normal;
-// $header-font-color: $jet;
+   $header-font-color: $charcoal;
 // $header-line-height: 1.4;
 // $header-top-margin: .2rem;
 // $header-bottom-margin: .5rem;

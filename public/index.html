@@ -53,17 +53,20 @@
       <div class="row">
         <div class="small-12 columns">
           <div id="site-title">
-            <h2><a ng-href="/#/">FixItSos</a></h2>
+            <h2><a ng-href="/#/">CommunityFixer.</a></h2>
           </div>
           <nav id="main-nav">
+            <div id="user-info">
+              <p>Signed in as {{user.name}}</p>
+            </div>
             <div id="user-actions">
-              <div id="signInLink" ng-hide="user.id">
+              <div class="user-link" id="signInLink" ng-hide="user.id">
                 <a class="mega-button" ng-href="/#/sign_in">Sign in</a>
               </div>
-              <div id="signOutLink" ng-show="user.id">
+              <div class="user-link" id="signOutLink" ng-show="user.id">
                 <a class="mega-button" ng-click="signOut()" ng-href="/#/">Sign out</a>
               </div>
-              <div id='registerLink' ng-hide="user.id">
+              <div class="user-link" id='registerLink' ng-hide="user.id">
                 <a class="mega-button" ng-href="/#/register">Register</a>
               </div>
             </div>

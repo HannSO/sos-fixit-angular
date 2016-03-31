@@ -15,11 +15,22 @@ header#masthead {
   nav#main-nav {
     float: right;
     width: 75%;
+    margin-top: 0.5em;
     text-align: right;
     div {
       display: inline-block;
       a {
         font-size: 0.75em;
+      }
+    }
+    #user-info {
+      display: inline-block;
+      margin-right: 1em;
+      font-family: "brandon-grotesque";
+      // text-transform: uppercase;
+      color: $colour_three;
+      p {
+        font-size: 1em;
       }
     }
   }
