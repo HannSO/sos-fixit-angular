@@ -32,7 +32,7 @@ sosFixit.factory('registrationLocationFactory', ['uiGmapGoogleMapApi', function(
           coords: {
             latitude: place[0].geometry.location.lat(),
             longitude: place[0].geometry.location.lng()
-          }
+          },
           options: {
             icon: '../../../images/pin.png'
           }
