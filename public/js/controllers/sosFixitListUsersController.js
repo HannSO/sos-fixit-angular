@@ -32,7 +32,8 @@ sosFixit.controller("listController", ['$rootScope','uiGmapGoogleMapApi', 'uiGma
             "email": allSkillUsers[i].user.email,
             "name": allSkillUsers[i].user.name,
             "location": allSkillUsers[i].user.location,
-            "distance": distToMiles
+            "distance": distToMiles,
+            "id": allSkillUsers[i].user.id
             });
           }
         }
