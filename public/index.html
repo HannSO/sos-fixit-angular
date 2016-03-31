@@ -56,7 +56,6 @@
   </head>
 
   <body id="sosFixitBody" ng-app ="SosFixit">
-<<<<<<< HEAD
     <header id="masthead">
       <div class="row">
         <div class="small-12 columns">
@@ -77,6 +76,9 @@
               <div class="user-link" id='registerLink' ng-hide="user.id">
                 <a class="mega-button" ng-href="/#/register">Register</a>
               </div>
+              <div class="user-link" id='profileLink' ng-hide="user.id">
+                <a class="mega-button" ng-href='/#/user_profile' ng-click="profileCtrl.saveCurrentUser()">  Your profile!</a>
+              </div>
             </div>
           </nav>
         </div>
@@ -84,21 +86,6 @@
     </header>
 
     <div ng-view autoscroll id="content">
-=======
-
-
-    <p ng-show="user.id">
-      <a ng-click="signOut()" ng-href="/#/">Sign out</a>
-    </p>
-
-
-    <section ng-controller="indexLinkToProfileController as profileCtrl" ng-show="user.id">
-      <a ng-href='/#/user_profile'> <button ng-click="profileCtrl.saveCurrentUser()">  Your profile! </button></a>
-    </section>
-
-    <div ng-view>
->>>>>>> development
-
     </div>
 
     <footer id="colophon">
