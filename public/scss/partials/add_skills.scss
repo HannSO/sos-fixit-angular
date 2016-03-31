@@ -1,0 +1,30 @@
+
+section#add-skills.section {
+  h2 {
+    margin-bottom: 1.5em;
+  }
+  .submitSkillstoSearch {
+    display: block;
+    text-align: center;
+    .select-skill-container {
+      display: inline-block;
+      margin: 0.5em;
+      position: relative;
+      width: auto;
+      clear: both;
+      float: none;
+      .checkbox-container {
+        @include mega-button;
+        background-color: $colour_two;
+        color: $colour_one;
+        display: block;
+        input {
+          margin: 0 0 0 0 !important;
+        }
+      }
+    }
+    .submit-container {
+      margin-top: 2em;
+    }
+  }
+}

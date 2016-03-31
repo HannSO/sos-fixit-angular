@@ -1,24 +1,35 @@
 /*
-Error: Undefined variable: "$colour_two".
-        on line 15 of public/scss/partials/forms.scss
+Error: Undefined variable: "$colour_three".
+        on line 22 of public/scss/partials/messaging.scss
 
-10:       content: "";
-11:       height: 2px;
-12:       width: 50%;
-13:       left: 25%;
-14:       bottom: 0;
-15:       background: $colour_two;
-16:     }
-17:   }
-18:   .ui-gmap-google_map.angular-google-map {
-19:     div.angular-google-map {
-20:       div.angular-google-map-container {
+17:       font-size: 1.2em;
+18:     }
+19:     .meta {
+20:       p {
+21:         font-size: 1em;
+22:         color: $colour_three;
+23:       }
+24:     }
+25:     &:after {
+26:       position: absolute;
+27:       bottom: 0;
 
 Backtrace:
-public/scss/partials/forms.scss:15
+public/scss/partials/messaging.scss:22
 /Users/seanhawkridge/.rvm/gems/ruby-2.1.5/gems/sass-3.4.21/lib/sass/script/tree/variable.rb:49:in `_perform'
 /Users/seanhawkridge/.rvm/gems/ruby-2.1.5/gems/sass-3.4.21/lib/sass/script/tree/node.rb:50:in `perform'
 /Users/seanhawkridge/.rvm/gems/ruby-2.1.5/gems/sass-3.4.21/lib/sass/tree/visitors/perform.rb:395:in `visit_prop'
+/Users/seanhawkridge/.rvm/gems/ruby-2.1.5/gems/sass-3.4.21/lib/sass/tree/visitors/base.rb:36:in `visit'
+/Users/seanhawkridge/.rvm/gems/ruby-2.1.5/gems/sass-3.4.21/lib/sass/tree/visitors/perform.rb:158:in `block in visit'
+/Users/seanhawkridge/.rvm/gems/ruby-2.1.5/gems/sass-3.4.21/lib/sass/stack.rb:79:in `block in with_base'
+/Users/seanhawkridge/.rvm/gems/ruby-2.1.5/gems/sass-3.4.21/lib/sass/stack.rb:115:in `with_frame'
+/Users/seanhawkridge/.rvm/gems/ruby-2.1.5/gems/sass-3.4.21/lib/sass/stack.rb:79:in `with_base'
+/Users/seanhawkridge/.rvm/gems/ruby-2.1.5/gems/sass-3.4.21/lib/sass/tree/visitors/perform.rb:158:in `visit'
+/Users/seanhawkridge/.rvm/gems/ruby-2.1.5/gems/sass-3.4.21/lib/sass/tree/visitors/perform.rb:431:in `block (2 levels) in visit_rule'
+/Users/seanhawkridge/.rvm/gems/ruby-2.1.5/gems/sass-3.4.21/lib/sass/tree/visitors/perform.rb:431:in `map'
+/Users/seanhawkridge/.rvm/gems/ruby-2.1.5/gems/sass-3.4.21/lib/sass/tree/visitors/perform.rb:431:in `block in visit_rule'
+/Users/seanhawkridge/.rvm/gems/ruby-2.1.5/gems/sass-3.4.21/lib/sass/tree/visitors/perform.rb:179:in `with_environment'
+/Users/seanhawkridge/.rvm/gems/ruby-2.1.5/gems/sass-3.4.21/lib/sass/tree/visitors/perform.rb:429:in `visit_rule'
 /Users/seanhawkridge/.rvm/gems/ruby-2.1.5/gems/sass-3.4.21/lib/sass/tree/visitors/base.rb:36:in `visit'
 /Users/seanhawkridge/.rvm/gems/ruby-2.1.5/gems/sass-3.4.21/lib/sass/tree/visitors/perform.rb:158:in `block in visit'
 /Users/seanhawkridge/.rvm/gems/ruby-2.1.5/gems/sass-3.4.21/lib/sass/stack.rb:79:in `block in with_base'
@@ -90,4 +101,4 @@ public/scss/partials/forms.scss:15
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Error: Undefined variable: \"$colour_two\".\A         on line 15 of public/scss/partials/forms.scss\A \A 10:       content: \"\";\A 11:       height: 2px;\A 12:       width: 50%;\A 13:       left: 25%;\A 14:       bottom: 0;\A 15:       background: $colour_two;\A 16:     }\A 17:   }\A 18:   .ui-gmap-google_map.angular-google-map {\A 19:     div.angular-google-map {\A 20:       div.angular-google-map-container {"; }
+  content: "Error: Undefined variable: \"$colour_three\".\A         on line 22 of public/scss/partials/messaging.scss\A \A 17:       font-size: 1.2em;\A 18:     }\A 19:     .meta {\A 20:       p {\A 21:         font-size: 1em;\A 22:         color: $colour_three;\A 23:       }\A 24:     }\A 25:     &:after {\A 26:       position: absolute;\A 27:       bottom: 0;"; }

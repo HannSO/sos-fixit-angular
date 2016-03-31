@@ -1,0 +1,38 @@
+#content {
+  min-height: 80vh;
+  display: flex; }
+
+.button-container {
+  display: inline-block;
+  position: relative;
+  height: auto;
+  clear: both;
+  overflow: visible;
+  margin: 1em 0.5em; }
+
+a.mega-button, button.mega-button {
+  border: 2px solid #fff;
+  border-radius: 5px;
+  padding: 1em;
+  text-transform: uppercase;
+  font-family: "brandon-grotesque";
+  background: #FFE181;
+  position: relative;
+  display: inline-block;
+  font-weight: 400;
+  transition: all 300ms ease;
+  color: #555; }
+  a.mega-button:hover, a.mega-button:focus, button.mega-button:hover, button.mega-button:focus {
+    outline: none;
+    background: #555;
+    color: #fff; }
+
+.submit-button {
+  margin-top: 2em; }
+
+.section {
+  text-align: center;
+  display: block;
+  width: 100%; }
+
+/*# sourceMappingURL=global.css.map */

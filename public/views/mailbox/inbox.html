@@ -1,33 +1,59 @@
-<div ng-controller="mailboxController as mailCtrl" ng-init="mailCtrl.getMailbox()">
-  
-   <section ng-repeat='conv in mailCtrl.conversations'>
-     <button ng-click="mailCtrl.getMessages(conv)"> {{conv.subject}} </button>
-   </section>
 
-   <section ng-repeat="message in mailCtrl.messages">
-     <div class="meta">
-       {{ message.user.name }}:
-     </div>
-     <div class="message">
-       <p>
-         Subject:
-          {{ message.subject }}
-       </p>
-       <p>
-         Message:
-          {{ message.body }}
 
-       </p>
+<section id="inbox" class="section">
 
-       <div class="meta">
+  <div class="row">
+    <div class="small-12 medium-8 medium-centered columns">
+      <h2>Your current conversations</h2>
+    </div>
+    <!-- /.small-12 medium-8 medium-centered columns -->
+  </div>
+  <!-- /.row -->
 
-        {{ message.created_at | dateToISO | date:'medium' }}
+
+  <div class="row">
+
+  <div ng-controller="mailboxController as mailCtrl" ng-init="mailCtrl.getMailbox()">
+
+    <div class="small-12 medium-4 columns">
+
+      <div class="conversations">
+
+         <div ng-repeat='conv in mailCtrl.conversations'>
+           <button class="mega-button" ng-click="mailCtrl.getMessages(conv)"> {{conv.subject}} </button>
+         </div>
+
       </div>
 
+    </div>
 
-       <a ng-hide="mailCtrl.isMyMessage(message.user.id)" ng-href="/#/message-reply" ng-click="mailCtrl.setConversationId()" ><button >Reply to message</button></a>
+    <div class="small-12 medium-8 columns">
+
+      <div class="messages">
+
+       <div ng-repeat="message in mailCtrl.messages">
+
+         <div class="message-content">
+
+            <p>{{ message.body }}</p>
+
+            <div class="meta">
+              <p>Sent by {{ message.user.name }} on {{ message.created_at | dateToISO | date:'medium' }}</p>
+            </div>
+
+            <a class="mega-button" ng-hide="mailCtrl.isMyMessage(message.user.id)" ng-href="/#/message-reply" ng-click="mailCtrl.setConversationId()">Reply to message</a>
+
+         </div>
+
+       </div>
+
      </div>
-   </section>
+
+   </div>
 
 
-</div>
+  </div>
+
+  </div>
+
+</section>

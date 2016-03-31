@@ -1,0 +1,11 @@
+section.search h2 {
+  margin-bottom: 1.5em; }
+section.search .users-list {
+  display: block;
+  overflow: visible;
+  margin: 2em 0; }
+  section.search .users-list a.mega-button {
+    margin-top: 1em;
+    display: inline-block; }
+
+/*# sourceMappingURL=search.css.map */

@@ -8,7 +8,7 @@ header#masthead {
     float: left;
     width: 25%;
     h2 a {
-      color: #555;
+      color: $colour_two;
     }
   }
 
@@ -18,6 +18,9 @@ header#masthead {
     text-align: right;
     div {
       display: inline-block;
+      a {
+        font-size: 0.75em;
+      }
     }
   }
 

@@ -46,9 +46,6 @@ section#intro.section {
     }
     a.mega-button {
       margin: 0 1em;
-      background: #fff;
-      color: #666;
-      font-weight: bold;
     }
 
   }
@@ -58,6 +55,15 @@ section#intro.section {
     min-height: 100%;
     width: 100%;
     z-index: 2;
+    #welcomeUser {
+      margin-bottom: 4em;
+      h2 {
+        color: #fff;
+      }
+    }
+    a {
+      margin: 0 1em;
+    }
   }
   &:after {
     content: "";

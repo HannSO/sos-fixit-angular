@@ -1,9 +1,14 @@
-.angular-google-map-container {
-  height: 400px; }
-
 #content {
   min-height: 80vh;
   display: flex; }
+
+.button-container {
+  display: inline-block;
+  position: relative;
+  height: auto;
+  clear: both;
+  overflow: visible;
+  margin: 1em 0.5em; }
 
 a.mega-button, button.mega-button {
   border: 2px solid #fff;
@@ -12,14 +17,23 @@ a.mega-button, button.mega-button {
   text-transform: uppercase;
   font-family: "brandon-grotesque";
   background: #FFE181;
-  color: #fff; }
+  position: relative;
+  display: inline-block;
+  font-weight: 400;
+  transition: all 300ms ease;
+  color: #555; }
+  a.mega-button:hover, a.mega-button:focus, button.mega-button:hover, button.mega-button:focus {
+    outline: none;
+    background: #555;
+    color: #fff; }
 
-footer#colophon {
-  padding: 3em 0;
-  background: #222; }
+.submit-button {
+  margin-top: 2em; }
 
 .section {
-  text-align: center; }
+  text-align: center;
+  display: block;
+  width: 100%; }
 
 header#masthead {
   background-color: #FFE181;
@@ -36,6 +50,8 @@ header#masthead {
     text-align: right; }
     header#masthead nav#main-nav div {
       display: inline-block; }
+      header#masthead nav#main-nav div a {
+        font-size: 0.75em; }
 
 .section {
   padding: 4em 0 6em;
@@ -75,16 +91,19 @@ section#intro.section {
     section#intro.section #intro-content .actions h2 {
       margin: 1em 0; }
     section#intro.section #intro-content a.mega-button {
-      margin: 0 1em;
-      background: #fff;
-      color: #666;
-      font-weight: bold; }
+      margin: 0 1em; }
   section#intro.section #sign-in-intro {
     position: relative;
     display: block;
     min-height: 100%;
     width: 100%;
     z-index: 2; }
+    section#intro.section #sign-in-intro #welcomeUser {
+      margin-bottom: 4em; }
+      section#intro.section #sign-in-intro #welcomeUser h2 {
+        color: #fff; }
+    section#intro.section #sign-in-intro a {
+      margin: 0 1em; }
   section#intro.section:after {
     content: "";
     position: absolute;
@@ -111,8 +130,88 @@ section#form.section {
       left: 25%;
       bottom: 0;
       background: #555; }
-  section#form.section .ui-gmap-google_map.angular-google-map div.angular-google-map div.angular-google-map-container div.gm-style input.ng-scope {
-    display: none !important;
-    text-align: center; }
+  section#form.section .ui-gmap-google_map.angular-google-map div.angular-google-map div.angular-google-map-container {
+    height: 300px; }
+    section#form.section .ui-gmap-google_map.angular-google-map div.angular-google-map div.angular-google-map-container div.gm-style input.ng-scope {
+      display: none !important;
+      text-align: center; }
+
+section.search h2 {
+  margin-bottom: 1.5em; }
+section.search .users-list {
+  display: block;
+  overflow: visible;
+  margin: 2em 0; }
+  section.search .users-list a.mega-button {
+    margin-top: 1em;
+    display: inline-block; }
+
+section#add-skills.section h2 {
+  margin-bottom: 1.5em; }
+section#add-skills.section .submitSkillstoSearch {
+  display: block;
+  text-align: center; }
+  section#add-skills.section .submitSkillstoSearch .select-skill-container {
+    display: inline-block;
+    margin: 0.5em;
+    position: relative;
+    width: auto;
+    clear: both;
+    float: none; }
+    section#add-skills.section .submitSkillstoSearch .select-skill-container .checkbox-container {
+      border: 2px solid #fff;
+      border-radius: 5px;
+      padding: 1em;
+      text-transform: uppercase;
+      font-family: "brandon-grotesque";
+      background: #FFE181;
+      position: relative;
+      display: inline-block;
+      font-weight: 400;
+      transition: all 300ms ease;
+      color: #555;
+      background-color: #555;
+      color: #FFE181;
+      display: block; }
+      section#add-skills.section .submitSkillstoSearch .select-skill-container .checkbox-container:hover, section#add-skills.section .submitSkillstoSearch .select-skill-container .checkbox-container:focus {
+        outline: none;
+        background: #555;
+        color: #fff; }
+      section#add-skills.section .submitSkillstoSearch .select-skill-container .checkbox-container input {
+        margin: 0 0 0 0 !important; }
+  section#add-skills.section .submitSkillstoSearch .submit-container {
+    margin-top: 2em; }
+
+section#inbox.section h2 {
+  margin-bottom: 1.5em; }
+section#inbox.section .conversations {
+  text-align: right; }
+section#inbox.section .message-content {
+  text-align: left;
+  margin: 0 0 2em 2em;
+  padding-bottom: 1.5em;
+  display: block;
+  position: relative; }
+  section#inbox.section .message-content p {
+    font-size: 1.2em; }
+  section#inbox.section .message-content .meta p {
+    font-size: 1em;
+    color: #777; }
+  section#inbox.section .message-content:after {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 30%;
+    height: 2px;
+    content: "";
+    background: #555; }
+
+section#send-message h2 {
+  margin: 0 0 1.5em 0; }
+
+footer#colophon {
+  padding: 3em 0;
+  background: #555;
+  border-top: 2px solid #fff; }
 
 /*# sourceMappingURL=main.css.map */

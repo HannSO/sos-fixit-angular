@@ -1,18 +1,27 @@
-<p ng-show="user.id">
-  <a ng-href="/#/">Take me home!</a>
-</p>
 
-<section ng-show="user.id">
+<section ng-show="user.id" id="add-skills" class="section">
 
-  <div class="submitSkillstoSearch" ng-Controller = "addSkillsController as addCtrl" ng-init = "addCtrl.getSkillsList()">
-      <label ng-repeat ='skill in addCtrl.skills'>
-        <input type = "checkbox" ng-click = "addCtrl.addSkills(skill)" ng-model = "skill.added" > select {{skill.name}} </input>
-      </label>
-      <button ng-click = "addCtrl.submit()"> Submit! <submit>
+  <div class="row">
+    <div class="small-12 columns">
+      <h2>Got some skills?</h2>
+    </div>
   </div>
 
-  <!-- <div class="skillsSearchBar" ng-hide="loaded">
-    <button id="skillSearchSubmit" ng-click="SearchCtrl.getUsersSkills()">Search Skills</button></a>
-  </div> -->
+  <div class="row">
+    <div class="small-12 medium-8 medium-centered columns">
+
+      <div class="submitSkillstoSearch" ng-Controller="addSkillsController as addCtrl" ng-init="addCtrl.getSkillsList()">
+          <div class="select-skill-container" ng-repeat='skill in addCtrl.skills'>
+            <div class="checkbox-container">
+                  <input type="checkbox" ng-click="addCtrl.addSkills(skill)" ng-model="skill.added" > {{skill.name}} </input>
+            </div>
+            </div>
+            <div class="submit-container">
+              <button class="mega-button" ng-click="addCtrl.submit()"> Submit <submit>
+            </div>
+      </div>
+
+    </div>
+  </div>
 
 </section>

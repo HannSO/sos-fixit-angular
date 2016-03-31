@@ -16,7 +16,7 @@
     <script src='bower_components/angular-simple-logger/dist/angular-simple-logger.min.js'></script>
     <script src='bower_components/angular-google-maps/dist/angular-google-maps.min.js'></script>
     <script src='bower_components/ngGeolocation/ngGeolocation.min.js'></script>
-    
+
     <script src="../js/app.js"></script>
     <script src="../js/controllers/sosFixitSearchController.js"></script>
     <script src="../js/controllers/replyingMessagesController.js"></script>
@@ -58,13 +58,13 @@
           <nav id="main-nav">
             <div id="user-actions">
               <div id="signInLink" ng-hide="user.id">
-                <a ng-href="/#/sign_in">Sign in</a>
+                <a class="mega-button" ng-href="/#/sign_in">Sign in</a>
               </div>
               <div id="signOutLink" ng-show="user.id">
-                <a ng-click="signOut()" ng-href="/#/">Sign out</a>
+                <a class="mega-button" ng-click="signOut()" ng-href="/#/">Sign out</a>
               </div>
               <div id='registerLink' ng-hide="user.id">
-                <a ng-href="/#/register">Register</a>
+                <a class="mega-button" ng-href="/#/register">Register</a>
               </div>
             </div>
           </nav>

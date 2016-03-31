@@ -12,12 +12,13 @@ section#form.section {
       width: 50%;
       left: 25%;
       bottom: 0;
-      background: #555;
+      background: $colour_two;
     }
   }
   .ui-gmap-google_map.angular-google-map {
     div.angular-google-map {
       div.angular-google-map-container {
+        height: 300px;
         div.gm-style {
           input.ng-scope {
           display: none !important;

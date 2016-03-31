@@ -1,0 +1,53 @@
+
+
+$colour_one: #FFE181;
+$colour_two: #555;
+$colour_three: #777;
+
+
+#content {
+  min-height: 80vh;
+  display: flex;
+}
+
+@mixin mega-button {
+  border: 2px solid #fff;
+  border-radius: 5px;
+  padding: 1em;
+  text-transform: uppercase;
+  font-family: "brandon-grotesque";
+  background: $colour_one;
+  position: relative;
+  display: inline-block;
+  font-weight: 400;
+  transition: all 300ms ease;
+  color: $colour_two;
+  &:hover, &:focus {
+    outline: none;
+    background: $colour_two;
+    color: #fff;
+  }
+}
+
+.button-container {
+  display: inline-block;
+  position: relative;
+  height: auto;
+  clear: both;
+  overflow: visible;
+  margin: 1em 0.5em;
+}
+
+a.mega-button, button.mega-button {
+  @include mega-button;
+}
+
+.submit-button {
+  margin-top: 2em;
+}
+
+.section {
+  text-align: center;
+  display: block;
+  width: 100%;
+}
