@@ -6,7 +6,7 @@ angular.module('ng-token-auth', ['ipCookie']).provider('$auth', function() {
   var configs, defaultConfigName;
   configs = {
     "default": {
-      apiUrl: 'http://localhost:3000/',
+      apiUrl: 'http://localhost:3000',
       signOutUrl: '/auth/sign_out',
       emailSignInPath: '/auth/sign_in',
       emailRegistrationPath: '/auth',
