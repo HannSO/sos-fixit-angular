@@ -17,7 +17,7 @@
     <script src='bower_components/angular-google-maps/dist/angular-google-maps.min.js'></script>
     <script src='bower_components/ngGeolocation/ngGeolocation.min.js'></script>
 
-
+ <!-- Controllers: -->
     <script src="../js/app.js"></script>
     <script src="../js/controllers/sosFixitSearchController.js"></script>
     <script src="../js/controllers/replyingMessagesController.js"></script>
@@ -26,15 +26,25 @@
     <script src="./js/controllers/user_registrations.js"></script>
     <script src="./js/controllers/sosFixitListUsersController.js"></script>
     <script src="./js/controllers/sosFixitMailboxController.js"></script>
+    <script src="./js/controllers/userProfileController.js"></script>
+    <script src="./js/controllers/sendingMessagesController.js"></script>
+
+<!-- Factories: -->
     <script src="./js/factories/skillsResourceFactory.js"></script>
     <script src="./js/factories/mailboxFactory.js"></script>
-    <script src="./js/services/mailboxService.js"></script>
     <script src="./js/factories/registrationLocationFactory.js"></script>
     <script src="./js/factories/userDistanceCalcFactory.js"></script>
-    <script src="./js/services/skillsListService.js"></script>
-    <script src="./js/controllers/sendingMessagesController.js"></script>
-    <script src="./js/services/sendingMessageService.js"></script>
+    <script src="./js/factories/alertMessageFactory.js"></script>
+    <script src="./js/factories/userInfoFactory.js"></script>
+
+
+<!-- Services: -->
+    <script src="./js/services/savingUserIdService.js"></script>
     <script src="./js/services/replyingMessageService.js"></script>
+    <script src="./js/services/mailboxService.js"></script>
+    <script src="./js/services/skillsListService.js"></script>
+    <script src="./js/services/registrationLocationService.js"></script>
+    <script src="./js/services/savingUserService.js"></script>
 
     <link rel="stylesheet" type="text/css" href="css/style.css">
 
@@ -54,6 +64,9 @@
 
     </div>
 
+    <!-- <div ng-show="">
+      {{ message }}
+    </div> -->
 
   </body>
 

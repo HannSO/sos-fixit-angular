@@ -1,13 +1,25 @@
 <div ng-controller="mailboxController as mailCtrl" ng-init="mailCtrl.getMailbox()">
-  
+
    <section ng-repeat='conv in mailCtrl.conversations'>
      <button ng-click="mailCtrl.getMessages(conv)"> {{conv.subject}} </button>
    </section>
+
+   <div>
+     <section class='job-request' ng-show ="mailCtrl.isCurrentUserRequesting" >
+       <button ng-click = "mailCtrl.createJob()"> Request Job </button>
+       <input type="text"> Time: </input>
+     </section>
+
+     <section class='job-response' ng-hide ="mailCtrl.isCurrentuserRequesting">
+       <button> Accept Job! </button>
+       <button> Decline Job </button>
+     </section>
 
    <section ng-repeat="message in mailCtrl.messages">
      <div class="meta">
        {{ message.user.name }}:
      </div>
+
      <div class="message">
        <p>
          Subject:
@@ -19,15 +31,24 @@
 
        </p>
 
-       <div class="meta">
+      <div class="meta">
 
         {{ message.created_at | dateToISO | date:'medium' }}
       </div>
 
 
-       <a ng-hide="mailCtrl.isMyMessage(message.user.id)" ng-href="/#/message-reply" ng-click="mailCtrl.setConversationId()" ><button >Reply to message</button></a>
      </div>
+
+
+     <a ng-hide="mailCtrl.isMyMessage(message.user.id)" ng-href="/#/message-reply"> <button ng-click="mailCtrl.setConversationId()">Reply to message</button></a>
+
+
    </section>
+ </div>
+
+
+
+
 
 
 </div>
