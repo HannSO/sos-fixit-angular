@@ -6,13 +6,13 @@ sosFixit.controller('sendingMessagesController', ['savingUserIdService', '$http'
 
   self.sendMessage = function() {
     var postPath = "http://localhost:3000/messages";
-    // savingUserIdService.resetData();
     self.recipientId = savingUserIdService.getData();
+    savingUserIdService.resetData();
+
     console.log("inside send message");
     console.log(self.recipientId);
     var json = {recipient: self.recipientId, message: {body: self.messageBody, subject: self.messageSubject}};
     $http.post(postPath, json);
-    console.log($http.post(postPath, json));
     self.messageBody = '';
     self.messageSubject ='';
   };

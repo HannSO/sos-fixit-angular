@@ -37,9 +37,7 @@ sosFixit.controller("listController", ['$rootScope','uiGmapGoogleMapApi', 'uiGma
             });
           }
         }
-
         self.loaded = true;
-
     });
   });
 
