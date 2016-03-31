@@ -1,4 +1,4 @@
 <div ng-controller="replyingMessagesController as replyCtrl" >
   <label>Your Reply:</label><input  type="text" ng-model = "replyCtrl.replyBody" placeholder="Enter message">
-  <button ng-click="replyCtrl.sendReply()"> Send your message </button>
+  <a ng-href="/#/inbox"> <button ng-click="replyCtrl.sendReply()"> Send your message </button> </a>
 </div>

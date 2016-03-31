@@ -1,3 +1,4 @@
+
 sosFixit.controller('userProfileController', ['userInfoResourceFactory','savingUserService','savingUserIdService', '$http',
 function(userInfoResourceFactory, savingUserService, savingUserIdService, $http) {
 

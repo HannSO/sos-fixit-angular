@@ -2,8 +2,6 @@
 
    <section ng-repeat='conv in mailCtrl.conversations'>
      <button ng-click="mailCtrl.getMessages(conv)"> {{conv.subject}} </button>
-
-
    </section>
 
    <div>
@@ -21,6 +19,7 @@
      <div class="meta">
        {{ message.user.name }}:
      </div>
+
      <div class="message">
        <p>
          Subject:
@@ -32,16 +31,16 @@
 
        </p>
 
-       <div class="meta">
+      <div class="meta">
 
         {{ message.created_at | dateToISO | date:'medium' }}
       </div>
 
 
-       <a ng-hide="mailCtrl.isMyMessage(message.user.id)" ng-href="/#/message-reply" ng-click="mailCtrl.setConversationId()" ><button >Reply to message</button></a>
      </div>
 
 
+     <a ng-hide="mailCtrl.isMyMessage(message.user.id)" ng-href="/#/message-reply"> <button ng-click="mailCtrl.setConversationId()">Reply to message</button></a>
 
 
    </section>

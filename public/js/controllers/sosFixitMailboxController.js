@@ -4,7 +4,7 @@ sosFixit.controller('mailboxController', ['mailboxFactory', 'mailboxService','re
 
   self.messages = [];
   self.conversations = [];
-  self.conversationId = '';
+  self.conversationId = 'hello';
   self.myMessage = false;
   self.true = false;
   self.isCurrentUserRequesting = false;
@@ -15,8 +15,6 @@ sosFixit.controller('mailboxController', ['mailboxFactory', 'mailboxService','re
   self.isMyMessage = function(senderId) {
 
     currentUser = $rootScope.user.id;
-    console.log(currentUser);
-    console.log(senderId);
     if (currentUser === senderId) {
       return true;
     } else {
@@ -27,10 +25,10 @@ sosFixit.controller('mailboxController', ['mailboxFactory', 'mailboxService','re
 
   (self.getMailbox = function() {
     mailboxFactory.getConversations()
-      .then(function(json) {
-        for (var i = 0; i < json.data.length; i ++){
-          self.conversations.push(json.data[i].mailboxer_conversation);
-        }
+    .then(function(json) {
+      for (var i = 0; i < json.data.length; i ++){
+        self.conversations.push(json.data[i].mailboxer_conversation);
+      }
     });
   });
 
@@ -39,14 +37,13 @@ sosFixit.controller('mailboxController', ['mailboxFactory', 'mailboxService','re
     self.messages = [];
     self.conversationId= conversation.id;
     mailboxService.setData(self.conversationId);
+    console.log(mailboxService.getData(self.conversationId));
     mailboxFactory.getMessages(self.conversationId)
     .then(function(json) {
-      console.log(json);
       self.didTheyinitiateTheConversation(json);
-
+      console.log(self.isCurrentUserRequesting);
 
       for (var i = 0; i < json.data.conversation.mailboxer_receipts.length; i ++){
-        console.log(json);
         if (json.data.conversation.mailboxer_receipts[i].mailboxer_receipt.mailbox_type == 'inbox') {
           self.messages.push(json.data.conversation.mailboxer_receipts[i].mailboxer_receipt.message);
         }
@@ -57,14 +54,13 @@ sosFixit.controller('mailboxController', ['mailboxFactory', 'mailboxService','re
 
   self.didTheyinitiateTheConversation = function(json){
     var object = json;
-    console.log(json);
-     var firstSenderId = json.data.conversation.mailboxer_receipts[0].mailboxer_receipt.message.user.id;
-     console.log(firstSenderId);
-     if ($rootScope.user.id === firstSenderId) {
-       self.isCurrentUserRequesting = true;
-      } else {
+    var firstSenderId = json.data.conversation.mailboxer_receipts[0].mailboxer_receipt.message.user.id;
+    // console.log(firstSenderId);
+    if ($rootScope.user.id === firstSenderId) {
+      self.isCurrentUserRequesting = true;
+    } else {
       self.isCurrentUserRequesting= false;
-      }
+    }
   };
 
   self.createJob = function() {
@@ -88,13 +84,15 @@ sosFixit.controller('mailboxController', ['mailboxFactory', 'mailboxService','re
         }
       }
 
-    var jobCreatePath = 'http://localhost:3000/jobs';
-    $http.post(jobCreatePath, {recipient_id: currentUser, fixerId: self.fixerId});
-  });
-
-  self.setConversationId = function(){
-    replyingMessageService.setData(self.conversationId);
-    console.log(replyingMessageService.getData());
+      var jobCreatePath = 'http://localhost:3000/jobs';
+      $http.post(jobCreatePath, {recipient_id: currentUser, fixerId: self.fixerId});
+    });
   };
-};
+
+  self.setConversationId = function() {
+    console.log("callingmethod");
+    mailboxService.getData();
+    console.log(mailboxService.getData());
+  };
+
 }]);

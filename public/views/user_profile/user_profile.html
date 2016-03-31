@@ -1,27 +1,27 @@
-<section ng-controller ="userProfileController as userCtrl"  >
-  <div>
-    <h1> {{userCtrl.userObject.name}} </h1>
-    <h5> Location: {{userCtrl.userObject.location}}</h5>
-    <h5> Contact: {{userCtrl.userObject.email}}</h5>
-    <h3> {{userCtrl.userObject.name}} has undertaken {{userCtrl.jobsCount}} jobs! </h3>
-    <h3> {{userCtrl.userObject.name}} has received {{userCtrl.receivedJobsCount}} jobs. </h3>
-    <!-- <div> {{userCtrl.userObject.name}} has the following skills:
-    <section ng-repeat 'skill in userCtrl.userSkills'>
-      {{skill.name}}
-    <section>
-    </div> -->
-    <h3> Skills: </h3>
-    <section ng-repeat="skill in userCtrl.userSkills">
-      <p> {{skill.skill.name}} </p>
-    </section>
 
-    <h3>Job history: </h3>
-      <section ng-repeat="job in userCtrl.userJobs">
-      <p> This job was for: {{job.job.recipient_username}} </p>
-      <p> Thank you message: {{job.job.review}} </p>
-      <p> Rating: {{job.job.rating}} </p>
-      </section>
-  </div>
+<section ng-controller ="userProfileController as userCtrl">
+  <h1> {{userCtrl.userObject.name}} </h1>
+  <h5> Location: {{userCtrl.userObject.location}}</h5>
+  <h5> Contact: {{userCtrl.userObject.email}}</h5>
+  <h3> {{userCtrl.userObject.name}} has undertaken {{userCtrl.jobsCount}} jobs! </h3>
+  <h3> {{userCtrl.userObject.name}} has received {{userCtrl.receivedJobsCount}} jobs. </h3>
 
+  <h3> Skills: </h3>
+  <section ng-repeat="skill in userCtrl.userSkills">
+    <p> {{skill.skill.name}} </p>
+  </section>
 
+  <h3>Job history: </h3>
+  <section ng-repeat="job in userCtrl.userJobs">
+    <p> This job was for: {{job.job.recipient_username}} </p>
+    <p> Thank you message: {{job.job.review}} </p>
+    <p> Rating: {{job.job.rating}} </p>
+  </section>
+
+  <section ng-controller ="userProfileController as userCtrl" ng-init="userCtrl.getUserObject()">
+    <div>
+      <h1> User name: {{userCtrl.userObject.name}}</h1>
+      <h1> User email: </h1>
+    </div>
+  </section>
 </section>
