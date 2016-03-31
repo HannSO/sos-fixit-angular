@@ -54,7 +54,9 @@ section#intro.section {
         border-radius: 100%;
         border: solid 2px #fff;
         overflow: hidden;
-        margin-bottom: 1em; }
+        margin-bottom: 1em;
+        background: url("../images/profiledefault.png") no-repeat center center;
+        background-size: cover; }
     section#intro.section #sign-in-intro a {
       margin: 0 1em; }
   section#intro.section:after {
