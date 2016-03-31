@@ -1,4 +1,4 @@
-sosFixit.factory('sendingMessageService', function () {
+sosFixit.factory('savingUserIdService', function () {
     var userId = "";
 
     return {

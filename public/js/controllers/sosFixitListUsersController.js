@@ -12,6 +12,8 @@ sosFixit.controller("listController", ['$rootScope','uiGmapGoogleMapApi', 'uiGma
 
     uiGmapGoogleMapApi.then(function(maps) {
 
+      console.log(skillsListService.getData());
+
 
     skillsResourceFactory.getUserList(skillsListService.getData())
       .then(function(response) {

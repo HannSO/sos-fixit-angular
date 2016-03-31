@@ -58,10 +58,16 @@ var sosFixit =
             // controllerAs: 'SendCtrl'
           })
 
+          .when('/user_profile', {
+            templateUrl: 'views/user_profile/user_profile.html',
+            controller: 'userProfileController'
+
+          })
 
           .otherwise({
             redirectTo: '/'
           });
+
           uiGmapGoogleMapApiProvider.configure({
             key: 'AIzaSyA6Fpwt9hF237J82XzJC73kjinH2jYZ6pU',
             v: '3.22',
