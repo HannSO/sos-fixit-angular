@@ -116,6 +116,14 @@ section#intro.section {
       margin-bottom: 4em; }
       section#intro.section #sign-in-intro #welcomeUser h2 {
         color: #fff; }
+      section#intro.section #sign-in-intro #welcomeUser .image-container {
+        display: inline-block;
+        height: 120px;
+        width: 120px;
+        border-radius: 100%;
+        border: solid 2px #fff;
+        overflow: hidden;
+        margin-bottom: 1em; }
     section#intro.section #sign-in-intro a {
       margin: 0 1em; }
   section#intro.section:after {
@@ -155,10 +163,22 @@ section.search h2 {
 section.search .users-list {
   display: block;
   overflow: visible;
-  margin: 2em 0; }
+  margin: 2em 0;
+  text-align: center; }
+  section.search .users-list .user {
+    margin-bottom: 4em; }
   section.search .users-list a.mega-button {
     margin-top: 1em;
     display: inline-block; }
+  section.search .users-list .image-container {
+    display: inline-block;
+    height: 150px;
+    width: 150px;
+    border-radius: 100%;
+    overflow: hidden; }
+    section.search .users-list .image-container img {
+      height: 100%;
+      width: auto; }
 
 section#add-skills.section h2 {
   margin-bottom: 1.5em; }

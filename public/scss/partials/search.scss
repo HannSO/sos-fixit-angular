@@ -9,9 +9,24 @@ section.search {
   display: block;
   overflow: visible;
   margin: 2em 0;
+  text-align: center;
+  .user {
+    margin-bottom: 4em;
+  }
   a.mega-button {
   margin-top: 1em;
   display: inline-block;
+  }
+  .image-container {
+    display: inline-block;
+    height: 150px;
+    width: 150px;
+    border-radius: 100%;
+    overflow: hidden;
+    img {
+      height: 100%;
+      width: auto;
+    }
   }
 }
 

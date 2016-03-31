@@ -47,6 +47,14 @@ section#intro.section {
       margin-bottom: 4em; }
       section#intro.section #sign-in-intro #welcomeUser h2 {
         color: #fff; }
+      section#intro.section #sign-in-intro #welcomeUser .image-container {
+        display: inline-block;
+        height: 120px;
+        width: 120px;
+        border-radius: 100%;
+        border: solid 2px #fff;
+        overflow: hidden;
+        margin-bottom: 1em; }
     section#intro.section #sign-in-intro a {
       margin: 0 1em; }
   section#intro.section:after {
