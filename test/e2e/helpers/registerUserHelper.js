@@ -7,7 +7,7 @@ var registerUserHelper = function() {
   var submitButton              = element(by.css('[type="submit"]'));
   var testEmail                 = 'test@test.com';
   var testPassword              = 'testpassword';
-  var testLocation              = 'london';
+  var testLocation              = 'London';
   var waitForProtractor         = browser.sleep(600);
 
   this.registerUser = function() {

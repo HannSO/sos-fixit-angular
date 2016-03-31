@@ -1,6 +1,5 @@
 describe('SOS Fixit Sign In partial', function() {
 
-  var registerUserHelper    = require('./helpers/registerUserHelper.js');
   var signInUserHelper      = require('./helpers/signInUserHelper.js');
   var synchronizationHelper = require('./helpers/synchronizationHelper.js');
 
@@ -25,11 +24,6 @@ describe('SOS Fixit Sign In partial', function() {
   });
 
   describe('Log in', function() {
-
-    beforeEach(function() {
-      registerUserHelper.registerUser();
-      synchronizationHelper.skipSync();
-    });
 
     it('should be able to sign a user in', function() {
       signInUserHelper.signInUser();
