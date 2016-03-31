@@ -1,5 +1,4 @@
 
-
 <section id="inbox" class="section">
 
   <div class="row">
@@ -21,6 +20,16 @@
 
          <div ng-repeat='conv in mailCtrl.conversations'>
            <button class="mega-button" ng-click="mailCtrl.getMessages(conv)"> {{conv.subject}} </button>
+         </div>
+
+         <div class='job-request' ng-show ="mailCtrl.isCurrentUserRequesting" >
+           <button ng-click = "mailCtrl.createJob()">Request Job</button>
+           <input type="text">Time:</input>
+         </div>
+
+         <div class='job-response' ng-hide ="mailCtrl.isCurrentuserRequesting">
+           <button>Accept Job!</button>
+           <button>Decline Job</button>
          </div>
 
       </div>
@@ -50,7 +59,6 @@
      </div>
 
    </div>
-
 
   </div>
 

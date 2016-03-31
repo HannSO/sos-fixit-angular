@@ -58,10 +58,16 @@ var sosFixit =
             // controllerAs: 'SendCtrl'
           })
 
+          .when('/user_profile', {
+            templateUrl: 'views/user_profile/user_profile.html',
+            controller: 'userProfileController'
+
+          })
 
           .otherwise({
             redirectTo: '/'
           });
+
           uiGmapGoogleMapApiProvider.configure({
             key: 'AIzaSyA6Fpwt9hF237J82XzJC73kjinH2jYZ6pU',
             v: '3.22',
@@ -75,17 +81,28 @@ var sosFixit =
       // 		});
       // 	}])
 
-      .run(['$rootScope', '$location', function($rootScope, $location, $cookies) {
+      .run(['$rootScope', '$location', function($rootScope, $location) {
         $rootScope.$on('auth:login-success', function(){
           $location.path('/');
-          alert('Welcome, you have successfully logged in');
+<<<<<<< HEAD
+          // $scope.message = ('Welcome, you have successfully logged in');
+=======
+          // alert('Welcome, you have successfully logged in');
         });
         $rootScope.$on('auth:login-error', function(event, reason){
           alert(reason.errors[0]);
         });
         $rootScope.$on('auth:logout-success', function(ev) {
           alert('You have successfully logged out, goodbye');
+>>>>>>> development
         });
+      //   $rootScope.$on('auth:login-error', function(event, reason){
+      //     $scope.message = (reason.errors[0]);
+      //   });
+      //   // $rootScope.$on('auth:logout-success', function($scope, ev) {
+      //   //   $scope.message = 'You have successfully logged out, goodbye';
+      //   //   $scope.message = '';
+      //   });
 
       }]);
 

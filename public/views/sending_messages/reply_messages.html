@@ -6,7 +6,7 @@
 
       <div ng-controller="replyingMessagesController as replyCtrl" >
         <label>Your Reply:</label><input type="text" ng-model = "replyCtrl.replyBody" placeholder="Enter message">
-        <button class="mega-button" g-click="replyCtrl.sendReply()"> Send your reply </button>
+        <a ng-href="/#/inbox"><button class="mega-button" g-click="replyCtrl.sendReply()"> Send your reply </button></a>
       </div>
 
 

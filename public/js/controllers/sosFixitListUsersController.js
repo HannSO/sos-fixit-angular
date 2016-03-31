@@ -1,4 +1,7 @@
-sosFixit.controller("listController", ['$rootScope','uiGmapGoogleMapApi', 'uiGmapIsReady', 'skillsResourceFactory', 'skillsListService', 'userDistanceCalcFactory', function($rootScope, uiGmapGoogleMapApi, uiGmapIsReady, skillsResourceFactory, skillsListService, userDistanceCalcFactory){
+sosFixit.controller("listController", ['$rootScope','uiGmapGoogleMapApi', 'uiGmapIsReady', 'skillsResourceFactory',
+'skillsListService', 'userDistanceCalcFactory', 'savingUserIdService', 'savingUserService',
+ function($rootScope, uiGmapGoogleMapApi, uiGmapIsReady, skillsResourceFactory, skillsListService, userDistanceCalcFactory,
+    savingUserIdService, savingUserService){
 
   var self = this;
 
@@ -28,22 +31,28 @@ sosFixit.controller("listController", ['$rootScope','uiGmapGoogleMapApi', 'uiGma
             "name": allSkillUsers[i].user.name,
             "location": allSkillUsers[i].user.location,
             "distance": distToMiles,
-            "image": allSkillUsers[i].user.image
+            "image": allSkillUsers[i].user.image,
+            "id": allSkillUsers[i].user.id
             });
           }
         }
-
         self.loaded = true;
-
     });
   });
 
   });
 
-  self.saveUserId = function(userId) {
-    console.log("ng-click works a bit");
-    sendingMessageService.setData(userId);
+(self.saveUserId = function(user) {
+    console.log("Saving user id");
+    userId = user.id;
     console.log(userId);
+    savingUserIdService.setData(userId);
+  });
+
+  self.saveUser = function(user){
+    console.log('saving user');
+    savingUserService.setData(user);
+    console.log(savingUserService.getData());
   };
 
   self.orderByDistance = function(user){
