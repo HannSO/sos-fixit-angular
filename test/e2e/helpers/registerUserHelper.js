@@ -1,17 +1,24 @@
-var testEmail;
-var testPassword;
-
 var registerUserHelper = function() {
 
-  testEmail    = 'test@test.com';
-  testPassword = 'testpassword';
+  var emailField                = element(by.css('[type="email"]'));
+  var passwordField             = element(by.model('UserCtrl.registrationForm.password'));
+  var passwordConfirmationField = element(by.model('UserCtrl.registrationForm.password_confirmation'));
+  var locationPicker            = element(by.css('[placeholder="Location Search"]'));
+  var submitButton              = element(by.css('[type="submit"]'));
+  var testEmail                 = 'test@test.com';
+  var testPassword              = 'testpassword';
+  var testLocation              = 'London';
+  var waitForProtractor         = browser.sleep(600);
 
   this.registerUser = function() {
     browser.get('/#/register');
-    element(by.css('[type="email"]')).sendKeys(testEmail);
-    element(by.model('registrationForm.password')).sendKeys(testPassword);
-    element(by.model('registrationForm.password_confirmation')).sendKeys(testPassword);
-    element(by.css('[type="submit"]')).click();
+    emailField.sendKeys(testEmail);
+    passwordField.sendKeys(testPassword);
+    passwordConfirmationField.sendKeys(testPassword);
+    locationPicker.sendKeys(testLocation);
+    waitForProtractor;
+    submitButton.click();
+    waitForProtractor;
   };
 };
 
