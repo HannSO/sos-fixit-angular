@@ -1,3 +1,6 @@
+.angular-google-map-container {
+  height: 400px; }
+
 #content {
   min-height: 80vh;
   display: flex; }

@@ -4,7 +4,11 @@ sosFixit.factory('registrationLocationFactory', ['uiGmapGoogleMapApi', function(
 
     var self = this;
 
-    self.map = { center: { latitude: 51.5285, longitude: 0.0847 }, zoom: 12 };
+    self.map = {
+      center: { latitude: 51.5285, longitude: 0.0847 },
+      zoom: 12,
+      options: { mapTypeControl: false }
+     };
 
     var events = {
       places_changed: function (searchBox) {
