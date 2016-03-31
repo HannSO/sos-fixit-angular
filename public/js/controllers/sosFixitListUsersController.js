@@ -1,4 +1,7 @@
-sosFixit.controller("listController", ['$rootScope','uiGmapGoogleMapApi', 'uiGmapIsReady', 'skillsResourceFactory', 'skillsListService', 'userDistanceCalcFactory', 'sendingMessageService', function($rootScope, uiGmapGoogleMapApi, uiGmapIsReady, skillsResourceFactory, skillsListService, userDistanceCalcFactory, sendingMessageService){
+sosFixit.controller("listController", ['$rootScope','uiGmapGoogleMapApi', 'uiGmapIsReady', 'skillsResourceFactory',
+'skillsListService', 'userDistanceCalcFactory', 'savingUserIdService',
+ function($rootScope, uiGmapGoogleMapApi, uiGmapIsReady, skillsResourceFactory, skillsListService, userDistanceCalcFactory,
+    savingUserIdService){
 
   var self = this;
 
@@ -40,8 +43,6 @@ sosFixit.controller("listController", ['$rootScope','uiGmapGoogleMapApi', 'uiGma
   });
 
   self.saveUserId = function(userId) {
-    console.log("ng-click works a bit");
-    sendingMessageService.setData(userId);
-    console.log(userId);
+    savingUserIdService.setData(userId);
   };
 }]);

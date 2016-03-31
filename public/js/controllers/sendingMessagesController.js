@@ -1,4 +1,4 @@
-sosFixit.controller('sendingMessagesController', ['sendingMessageService', '$http',  function(sendingMessageService, $http) {
+sosFixit.controller('sendingMessagesController', ['savingUserIdService', '$http',  function(savingUserIdService, $http) {
   var self = this;
  self.messageBody = '';
  self.messageSubject = '';
@@ -6,7 +6,7 @@ sosFixit.controller('sendingMessagesController', ['sendingMessageService', '$htt
   self.sendMessage = function() {
     var postPath = "http://localhost:3000/messages";
     var recipientId = sendingMessageService.getData();
-    sendingMessageService.resetData();
+    savingUserIdService.resetData();
     var json = {recipient: recipientId ,message: {body: self.messageBody, subject: self.messageSubject}};
     $http.post(postPath, json);
     self.messageBody = '';
