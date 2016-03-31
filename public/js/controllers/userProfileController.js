@@ -4,15 +4,11 @@ var self = this;
 
 self.userObject = {};
 
-  self.getUserObject = function(){
-    console.log(savingUsingUserService.getData());
-    console.log(savingUsingUserService.getData.email);
-    var userProfileObj = savingUsingUserService.getData;
+getUserObject = function(){
 
-    self.userObject  = savingUsingUserService.getData;
+    return savingUserService.getData();
+
   };
-
-  self.getUserObject();
 
 
 }]);
