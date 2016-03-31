@@ -17,8 +17,8 @@
 
     <h3>Job history: </h3>
       <section ng-repeat="job in userCtrl.userJobs">
-      <p> This job was for: {{job.job.recipient_id}} </p>
-      <p> Feedback: {{job.job.review}} </p>
+      <p> This job was for: {{job.job.recipient_username}} </p>
+      <p> Thank you message: {{job.job.review}} </p>
       <p> Rating: {{job.job.rating}} </p>
       </section>
   </div>
