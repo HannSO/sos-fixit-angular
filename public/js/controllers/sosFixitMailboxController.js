@@ -43,7 +43,7 @@ sosFixit.controller('mailboxController', ['mailboxFactory', 'mailboxService','re
     .then(function(json) {
       console.log(json);
       self.didTheyinitiateTheConversation(json);
-
+      console.log(isCurrentUserRequesting);
 
       for (var i = 0; i < json.data.conversation.mailboxer_receipts.length; i ++){
         console.log(json);

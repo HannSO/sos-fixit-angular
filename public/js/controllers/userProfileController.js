@@ -1,12 +1,14 @@
-sosFixit.controller('userProfileController', ['savingUserIdService', 'userInfoFactory', '$http',  function(savingUserIdService, userInfoFactory, $http) {
+sosFixit.controller('userProfileController', ['savingUserService', function(savingUserService) {
 
 var self = this;
 
-  getUserObject = function(){
-    var userId = savingUserIdService.getData();
-    console.log(userId);
-    var userObject = userInfoFactory.getOneUserInfo(userId);
-    console.log(userObject);
+self.userObject = {};
+
+self.getUserObject = function(){
+    console.log("getting user object");
+    self.userObject = savingUserService.getData();
+    console.log(self.userObject);
   };
+
 
 }]);

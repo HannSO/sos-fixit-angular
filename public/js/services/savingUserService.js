@@ -1,15 +1,15 @@
 sosFixit.factory('savingUserService', function () {
-    var userId = "";
+    var user = [];
 
     return {
         getData: function () {
-            return userId;
+            return user;
         },
         setData: function (newFormData) {
-            userId = newFormData;
+            user = newFormData;
         },
         resetData: function () {
-            userId = "";
+            user = "";
         }
     };
 });

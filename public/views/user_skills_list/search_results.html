@@ -18,9 +18,9 @@
       {{user.distance}} miles from you
     </p>
 
-    <a ng-href="/#/send-message" ng-click = "ListCtrl.saveUserId(user.id)">  <button> Message {{user.name}} </button> </a>
+    <a ng-href="/#/send-message" >  <button ng-click = "ListCtrl.saveUserId(user)"> Message {{user.name}} </button> </a>
 
-    <a ng-href="/#/user_profile" ng-click = "ListCtrl.saveUserId"> <button> {{user.name}}'s Profile </button> </a>
+    <a ng-href="/#/user_profile" ng-click = "ListCtrl.saveUser(user)"> <button> {{user.name}}'s Profile </button> </a>
 
   </li>
 </ul>
