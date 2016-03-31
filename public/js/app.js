@@ -84,10 +84,8 @@ var sosFixit =
       .run(['$rootScope', '$location', function($rootScope, $location) {
         $rootScope.$on('auth:login-success', function(){
           $location.path('/');
-
           // $scope.message = ('Welcome, you have successfully logged in');
         });
-
       //   $rootScope.$on('auth:login-error', function(event, reason){
       //     $scope.message = (reason.errors[0]);
       //   });

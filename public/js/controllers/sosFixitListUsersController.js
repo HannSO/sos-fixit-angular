@@ -12,9 +12,6 @@ sosFixit.controller("listController", ['$rootScope','uiGmapGoogleMapApi', 'uiGma
 
     uiGmapGoogleMapApi.then(function(maps) {
 
-      console.log(skillsListService.getData());
-
-
     skillsResourceFactory.getUserList(skillsListService.getData())
       .then(function(response) {
         var currentUserID = $rootScope.user.id;
@@ -44,20 +41,15 @@ sosFixit.controller("listController", ['$rootScope','uiGmapGoogleMapApi', 'uiGma
   });
 
 (self.saveUserId = function(user) {
-    console.log("Saving user id");
     userId = user.id;
-    console.log(userId);
     savingUserIdService.setData(userId);
   });
 
   self.saveUser = function(user){
-    console.log('saving user');
     savingUserService.setData(user);
-    console.log(savingUserService.getData());
   };
 
   self.saveUser = function(user){
-    console.log('saving user');
     savingUserService.setData(user);
   };
 }]);

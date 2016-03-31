@@ -7,7 +7,7 @@ sosFixit.controller('mailboxController', ['mailboxFactory', 'mailboxService','re
   self.conversationId = 'hello';
   self.myMessage = false;
   self.true = false;
-  self.isCurrentUserRequesting = false;
+  self.isCurrentUserRequesting = '';
   self.senderId = null;
   self.recipientId = null;
   self.fixerId = null;
@@ -54,8 +54,9 @@ sosFixit.controller('mailboxController', ['mailboxFactory', 'mailboxService','re
 
   self.didTheyinitiateTheConversation = function(json){
     var object = json;
-    var firstSenderId = json.data.conversation.mailboxer_receipts[0].mailboxer_receipt.message.user.id;
-    // console.log(firstSenderId);
+    console.log(json);
+    var firstSenderId = json.data.conversation.mailboxer_receipts[0].mailboxer_receipt.id;
+    console.log(firstSenderId);
     if ($rootScope.user.id === firstSenderId) {
       self.isCurrentUserRequesting = true;
     } else {
@@ -72,7 +73,6 @@ sosFixit.controller('mailboxController', ['mailboxFactory', 'mailboxService','re
       for (var i = 0; i < json.data.conversation.mailboxer_receipts.length; i++){
         var inboxMessages = (json.data.conversation.mailboxer_receipts[i].mailboxer_receipt.mailbox_type == 'inbox');
         if (json.data.conversation.mailboxer_receipts[i].mailboxer_receipt.mailbox_type == 'inbox'){
-          console.log(inboxMessages);
           self.recipientId = json.data.conversation.mailboxer_receipts[1].mailboxer_receipt.message.user.id;
           if (self.recipientId !== $rootScope.user.id){
             self.senderId = self.recipientId;
