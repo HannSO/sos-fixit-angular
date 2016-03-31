@@ -23,15 +23,16 @@ sosFixit.factory('registrationLocationFactory', ['uiGmapGoogleMapApi', function(
                 },
             zoom:10
         };
-        // self.marker = {
-        //   idKey: '0',
-        //   coords: {
-        //     latitude: place[0].geometry.location.lat(),
-        //     longitude: place[0].geometry.location.lng()
-        //   },
-        //   options: {
-        //   }
-        // }
+        self.marker = {
+          idKey: '0',
+          coords: {
+            latitude: place[0].geometry.location.lat(),
+            longitude: place[0].geometry.location.lng()
+          },
+          options: {
+            icon: '../../../images/pin.png'
+          }
+        }
       }
     };
     self.searchbox = { template: 'searchbox.tpl.html', events: events };
