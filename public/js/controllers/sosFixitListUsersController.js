@@ -55,4 +55,9 @@ sosFixit.controller("listController", ['$rootScope','uiGmapGoogleMapApi', 'uiGma
     savingUserService.setData(user);
     console.log(savingUserService.getData());
   };
+
+  self.saveUser = function(user){
+    console.log('saving user');
+    savingUserService.setData(user);
+  };
 }]);
