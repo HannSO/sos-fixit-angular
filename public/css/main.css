@@ -1,6 +1,7 @@
 .angular-google-map-container {
   height: 400px; }
 
+<<<<<<< HEAD
 #content {
   min-height: 80vh;
   display: flex; }
@@ -250,4 +251,6 @@ footer#colophon {
   background: #555;
   border-top: 2px solid #fff; }
 
+=======
+>>>>>>> development
 /*# sourceMappingURL=main.css.map */

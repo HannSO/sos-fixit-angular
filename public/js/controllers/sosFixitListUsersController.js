@@ -58,4 +58,8 @@ sosFixit.controller("listController", ['$rootScope','uiGmapGoogleMapApi', 'uiGma
   self.orderByDistance = function(user){
     return parseFloat(user.distance);
   };
+  self.saveUser = function(user){
+    console.log('saving user');
+    savingUserService.setData(user);
+  };
 }]);

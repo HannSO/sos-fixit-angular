@@ -85,14 +85,6 @@ var sosFixit =
         $rootScope.$on('auth:login-success', function(){
           $location.path('/');
         });
-      //   $rootScope.$on('auth:login-error', function(event, reason){
-      //     $scope.message = (reason.errors[0]);
-      //   });
-      //   // $rootScope.$on('auth:logout-success', function($scope, ev) {
-      //   //   $scope.message = 'You have successfully logged out, goodbye';
-      //   //   $scope.message = '';
-      //   });
-
       }]);
 
       sosFixit.filter('dateToISO', function() {
