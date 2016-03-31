@@ -8,6 +8,7 @@ sosFixit.controller('replyingMessagesController', ['mailboxService', '$http',  f
     conversationPath = "http://localhost:3000/conversations/" + conversationId + "/reply";
     $http.post(conversationPath, {body: self.replyBody});
     console.log("conversation id");
+    self.replyBody = '';
   };
 
 
