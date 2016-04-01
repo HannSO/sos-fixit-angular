@@ -30,6 +30,24 @@ a.mega-button, button.mega-button {
     background: #555;
     color: #fff; }
 
+a.humble-button, button.humble-button {
+  border: 2px solid #fff;
+  border-radius: 5px;
+  padding: 1em;
+  text-transform: uppercase;
+  font-family: "brandon-grotesque";
+  background: #FFE181;
+  position: relative;
+  display: inline-block;
+  font-weight: 400;
+  transition: all 300ms ease;
+  color: #555;
+  font-size: 0.75em; }
+  a.humble-button:hover, a.humble-button:focus, button.humble-button:hover, button.humble-button:focus {
+    outline: none;
+    background: #555;
+    color: #fff; }
+
 .submit-button {
   margin-top: 2em; }
 

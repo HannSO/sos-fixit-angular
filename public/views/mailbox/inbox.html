@@ -23,13 +23,13 @@
          </div>
 
          <div class='job-request' ng-show ="mailCtrl.isCurrentUserRequesting" >
-           <button ng-click = "mailCtrl.createJob()">Request Job</button>
+           <button class="job-button mega-button" ng-click = "mailCtrl.createJob()">Request Job</button>
            <input type="text">Time:</input>
          </div>
 
          <div class='job-response' ng-hide ="mailCtrl.isCurrentuserRequesting">
-           <button>Accept Job!</button>
-           <button>Decline Job</button>
+           <button class="humble-button">Accept Job</button>
+           <button class="humble-button">Decline Job</button>
          </div>
 
       </div>
@@ -50,7 +50,7 @@
               <p>Sent by {{ message.user.name }} on {{ message.created_at | dateToISO | date:'medium' }}</p>
             </div>
 
-            <a class="mega-button" ng-hide="mailCtrl.isMyMessage(message.user.id)" ng-href="/#/message-reply" ng-click="mailCtrl.setConversationId()">Reply to message</a>
+            <a class="humble-button" ng-hide="mailCtrl.isMyMessage(message.user.id)" ng-href="/#/message-reply" ng-click="mailCtrl.setConversationId()">Reply to message</a>
 
          </div>
 

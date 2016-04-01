@@ -44,6 +44,11 @@ a.mega-button, button.mega-button {
   @include mega-button;
 }
 
+a.humble-button, button.humble-button {
+  @include mega-button;
+  font-size: 0.75em;
+}
+
 .submit-button {
   margin-top: 2em;
 }

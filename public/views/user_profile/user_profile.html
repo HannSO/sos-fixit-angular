@@ -1,27 +1,50 @@
 
-<section ng-controller ="userProfileController as userCtrl">
-  <h1> {{userCtrl.userObject.name}} </h1>
-  <h5> Location: {{userCtrl.userObject.location}}</h5>
-  <h5> Contact: {{userCtrl.userObject.email}}</h5>
-  <h3> {{userCtrl.userObject.name}} has undertaken {{userCtrl.jobsCount}} jobs! </h3>
-  <h3> {{userCtrl.userObject.name}} has received {{userCtrl.receivedJobsCount}} jobs. </h3>
+<section id="user-profile" class="section" ng-controller ="userProfileController as userCtrl">
 
-  <h3> Skills: </h3>
-  <section ng-repeat="skill in userCtrl.userSkills">
-    <p> {{skill.skill.name}} </p>
-  </section>
-
-  <h3>Job history: </h3>
-  <section ng-repeat="job in userCtrl.userJobs">
-    <p> This job was for: {{job.job.recipient_username}} </p>
-    <p> Thank you message: {{job.job.review}} </p>
-    <p> Rating: {{job.job.rating}} </p>
-  </section>
-
-  <section ng-controller ="userProfileController as userCtrl" ng-init="userCtrl.getUserObject()">
-    <div>
-      <h1> User name: {{userCtrl.userObject.name}}</h1>
-      <h1> User email: </h1>
+  <div class="row">
+    <div class="small-12 medium-8 medium-centered columns">
+      <div class="image-container">
+        <img src="{{userCtrl.userObject.image}}" />
+      </div>
+      <h2> {{userCtrl.userObject.name}}'s Profile</h2>
     </div>
-  </section>
+  </div>
+
+  <div class="row">
+    <div class="small-12 medium-10 medium-centered columns">
+      <h4> Location: {{userCtrl.userObject.location}}</h4>
+      <h4> Contact: {{userCtrl.userObject.email}}</h4>
+      <p> {{userCtrl.userObject.name}} has undertaken {{userCtrl.jobsCount}} jobs and received {{userCtrl.receivedJobsCount}} jobs so far</p>
+    </div>
+    <!-- /.small-12 medium-10 medium-centered columns -->
+  </div>
+  <!-- /.row -->
+
+  <div class="row">
+    <div class="small-12 medium-10 medium-centered columns">
+      <h3> Skills: </h3>
+      <div class="skill-list" ng-repeat="skill in userCtrl.userSkills">
+        <p> {{skill.skill.name}} </p>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="small-12 medium-10 medium-centered columns">
+      <h3>Job history: </h3>
+      <div class="row">
+      <div class="job-list" ng-repeat="job in userCtrl.userJobs">
+        <div class="small-12 medium-6 end columns">
+          <p> This job was for: {{job.job.recipient_username}} </p>
+          <p> Thank you message: {{job.job.review}} </p>
+          <p> Rating: {{job.job.rating}} </p>
+        </div>
+      </div>
+    </div>
+    </div>
+  </div>
+
+
+
+
+
 </section>
