@@ -44,7 +44,7 @@ var sosFixit =
           })
           .when('/inbox', {
             templateUrl: 'views/mailbox/inbox.html',
-            controller: 'mailboxController'
+            controller: 'mailboxController',
           })
 
           .when('/send-message',{
