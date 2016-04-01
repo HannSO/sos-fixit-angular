@@ -1,54 +1,59 @@
-<div ng-controller="mailboxController as mailCtrl" ng-init="mailCtrl.getMailbox()">
+<div ng-controller="mailboxController as mailCtrl" ng-init="mailCtrl.getMailbox()" >
 
-   <section ng-repeat='conv in mailCtrl.conversations'>
-     <button ng-click="mailCtrl.getMessages(conv)"> {{conv.subject}} </button>
-   </section>
+    <section ng-repeat='conv in mailCtrl.conversations'>
+      <button ng-click="mailCtrl.getMessages(conv)"> {{conv.subject}} </button>
+    </section>
 
-   <div>
-     <section class='job-request' ng-show ="mailCtrl.isCurrentUserRequesting" >
-       <button ng-click = "mailCtrl.createJob()"> Request Job </button>
-       <input type="text"> Time: </input>
-     </section>
+    <div>
+      <section class='job-request' ng-show ="mailCtrl.isCurrentUserRequesting" >
+        <input type="text" ng-model = "mailCtrl.nameOfJob" placeholder="Enter job type"> </input>
+        <button ng-click = "mailCtrl.createJob()"> Request Job </button>
 
-     <section class='job-response' ng-hide ="mailCtrl.isCurrentuserRequesting">
-       <button> Accept Job! </button>
-       <button> Decline Job </button>
-     </section>
-
-   <section ng-repeat="message in mailCtrl.messages">
-     <div class="meta">
-       {{ message.user.name }}:
-     </div>
-
-     <div class="message">
-       <p>
-         Subject:
-          {{ message.subject }}
-       </p>
-       <p>
-         Message:
-          {{ message.body }}
-
-       </p>
-
-      <div class="meta">
-
-        {{ message.created_at | dateToISO | date:'medium' }}
-      </div>
-
-
-     </div>
-
-
-     <a ng-hide="mailCtrl.isMyMessage(message.user.id)" ng-href="/#/message-reply"> <button ng-click="mailCtrl.setConversationId()">Reply to message</button></a>
-
-
-   </section>
- </div>
+      </section>
 
 
 
+      <section ng-repeat="message in mailCtrl.messages">
+        <div class="meta">
+          {{ message.user.name }}:
+        </div>
+
+        <div class="message">
+          <p>
+            Subject:
+            {{ message.subject }}
+          </p>
+          <p>
+            Message:
+            {{ message.body }}
+
+          </p>
+
+          <div class="meta">
+
+            {{ message.created_at | dateToISO | date:'medium' }}
+          </div>
 
 
+        </div>
 
+
+        <a ng-hide="mailCtrl.isMyMessage(message.user.id)" ng-href="/#/message-reply"> <button ng-click="mailCtrl.setConversationId()">Reply to message</button></a>
+
+
+      </section>
+
+    </div>
+
+    <h3> Look at your job requests: <button ng-click ="mailCtrl.getJobRequests()"> Jobs </button></h3>
+    <div ng-show ="mailCtrl.showJobs">
+      <section  ng-repeat="job in mailCtrl.inactiveJobs">
+        <p> Request from:  {{job.recipient_username}} </p>
+        <p> Job: {{job.name}} </p>
+        <a> <button ng-click = "mailCtrl.acceptJob(job)"> Accept</button> </a>
+      </section>
+    </div>
+    <div ng-show = "mailCtrl.noJobs">
+      <p> No jobs requests to show! </p>
+    </div>
 </div>
