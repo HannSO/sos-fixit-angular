@@ -4,7 +4,7 @@
     <div class="small-12 medium-8 medium-centered columns">
 
     <div ng-controller="sendingMessagesController as SendCtrl" >
-      <h2>Send a message to {{ SendCtrl.recipientId }}</h2>
+      <h2>Send a message</h2>
       <label>Subject:</label><input type="text" ng-model="SendCtrl.messageSubject" placeholder="Enter subject">
       <label>Your Message:</label><input  type="text" ng-model="SendCtrl.messageBody" placeholder="Enter message">
       <a ng-href="/#/inbox"><button class="mega-button" ng-click="SendCtrl.sendMessage()"> Send your message </button></a>

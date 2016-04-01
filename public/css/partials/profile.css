@@ -1,21 +1,21 @@
 /*
 Error: Undefined variable: "$colour_one".
-        on line 21 of public/scss/partials/profile.scss
+        on line 27 of public/scss/partials/profile.scss
 
-16:     display: inline-block;
-17:     p {
-18:       margin-right: 5px;
-19:       &:after {
-20:         content: " | ";
-21:         color: $colour_one;
-22:       }
-23:     }
-24:       &:last-child p {
-25:         &:after {
-26:           content: "";
+22:     display: inline-block;
+23:     p {
+24:       margin-right: 5px;
+25:       &:after {
+26:         content: " | ";
+27:         color: $colour_one;
+28:       }
+29:     }
+30:       &:last-child p {
+31:         &:after {
+32:           content: "";
 
 Backtrace:
-public/scss/partials/profile.scss:21
+public/scss/partials/profile.scss:27
 /Users/seanhawkridge/.rvm/gems/ruby-2.1.5/gems/sass-3.4.21/lib/sass/script/tree/variable.rb:49:in `_perform'
 /Users/seanhawkridge/.rvm/gems/ruby-2.1.5/gems/sass-3.4.21/lib/sass/script/tree/node.rb:50:in `perform'
 /Users/seanhawkridge/.rvm/gems/ruby-2.1.5/gems/sass-3.4.21/lib/sass/tree/visitors/perform.rb:395:in `visit_prop'
@@ -101,4 +101,4 @@ public/scss/partials/profile.scss:21
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Error: Undefined variable: \"$colour_one\".\A         on line 21 of public/scss/partials/profile.scss\A \A 16:     display: inline-block;\A 17:     p {\A 18:       margin-right: 5px;\A 19:       &:after {\A 20:         content: \" | \";\A 21:         color: $colour_one;\A 22:       }\A 23:     }\A 24:       &:last-child p {\A 25:         &:after {\A 26:           content: \"\";"; }
+  content: "Error: Undefined variable: \"$colour_one\".\A         on line 27 of public/scss/partials/profile.scss\A \A 22:     display: inline-block;\A 23:     p {\A 24:       margin-right: 5px;\A 25:       &:after {\A 26:         content: \" | \";\A 27:         color: $colour_one;\A 28:       }\A 29:     }\A 30:       &:last-child p {\A 31:         &:after {\A 32:           content: \"\";"; }

@@ -275,6 +275,10 @@ section#user-profile.section .image-container {
   section#user-profile.section .image-container img {
     height: 100%;
     width: auto; }
+section#user-profile.section .skills {
+  margin-top: 3em; }
+  section#user-profile.section .skills h2 {
+    margin-bottom: 0.5em; }
 section#user-profile.section .skill-list {
   display: inline-block; }
   section#user-profile.section .skill-list p {
@@ -284,10 +288,22 @@ section#user-profile.section .skill-list {
       color: #FFE181; }
   section#user-profile.section .skill-list:last-child p:after {
     content: ""; }
+section#user-profile.section .jobs {
+  margin-top: 3em; }
+  section#user-profile.section .jobs .job-list .job {
+    position: relative;
+    margin-bottom: 1em;
+    padding: 1em; }
+    section#user-profile.section .jobs .job-list .job:after {
+      content: "";
+      position: absolute;
+      width: 50%;
+      left: 25%;
+      bottom: 0;
+      background: #FFE181;
+      height: 2px; }
 
 footer#colophon {
   padding: 3em 0;
   background: #555;
   border-top: 2px solid #fff; }
-
-/*# sourceMappingURL=main.css.map */

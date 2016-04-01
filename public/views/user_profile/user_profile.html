@@ -22,26 +22,33 @@
 
   <div class="row">
     <div class="small-12 medium-10 medium-centered columns">
+      <div class="skills">
       <h3> Skills: </h3>
       <div class="skill-list" ng-repeat="skill in userCtrl.userSkills">
         <p> {{skill.skill.name}} </p>
       </div>
     </div>
   </div>
+  </div>
   <div class="row">
     <div class="small-12 medium-10 medium-centered columns">
+      <div class="jobs">
       <h3>Job history: </h3>
       <div class="row">
       <div class="job-list" ng-repeat="job in userCtrl.userJobs">
         <div class="small-12 medium-6 end columns">
-          <p> This job was for: {{job.job.recipient_username}} </p>
-          <p> Thank you message: {{job.job.review}} </p>
-          <p> Rating: {{job.job.rating}} </p>
+          <div class="job">
+          <h4> {{job.job.name}} </h4>
+            <p>for {{job.job.recipient_username}}</p>
+          <p class="review">"{{job.job.review}}"</p>
+          <p class="rating"> Rating: {{job.job.rating}}/5 </p>
         </div>
       </div>
     </div>
     </div>
+    </div>
   </div>
+</div>
 
 
 
