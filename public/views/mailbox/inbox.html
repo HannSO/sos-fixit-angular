@@ -1,51 +1,60 @@
 <div ng-controller="mailboxController as mailCtrl" ng-init="mailCtrl.getMailbox()">
 
-   <section ng-repeat='conv in mailCtrl.conversations'>
-     <button ng-click="mailCtrl.getMessages(conv)"> {{conv.subject}} </button>
-   </section>
+  <section ng-repeat='conv in mailCtrl.conversations'>
+    <button ng-click="mailCtrl.getMessages(conv)"> {{conv.subject}} </button>
+  </section>
 
-   <div>
-     <section class='job-request' ng-show ="mailCtrl.isCurrentUserRequesting" >
-       <button ng-click = "mailCtrl.createJob()"> Request Job </button>
-       <input type="text"> Name: </input>
-     </section>
+  <div>
+    <section class='job-request' ng-show ="mailCtrl.isCurrentUserRequesting" >
+      <button ng-click = "mailCtrl.createJob()"> Request Job </button>
+      <input type="text"> Name: </input>
+    </section>
 
 
 
-   <section ng-repeat="message in mailCtrl.messages">
-     <div class="meta">
-       {{ message.user.name }}:
-     </div>
+    <section ng-repeat="message in mailCtrl.messages">
+      <div class="meta">
+        {{ message.user.name }}:
+      </div>
 
-     <div class="message">
-       <p>
-         Subject:
+      <div class="message">
+        <p>
+          Subject:
           {{ message.subject }}
-       </p>
-       <p>
-         Message:
+        </p>
+        <p>
+          Message:
           {{ message.body }}
 
-       </p>
+        </p>
 
-      <div class="meta">
+        <div class="meta">
 
-        {{ message.created_at | dateToISO | date:'medium' }}
+          {{ message.created_at | dateToISO | date:'medium' }}
+        </div>
+
+
       </div>
 
 
-     </div>
+      <a ng-hide="mailCtrl.isMyMessage(message.user.id)" ng-href="/#/message-reply"> <button ng-click="mailCtrl.setConversationId()">Reply to message</button></a>
 
 
-     <a ng-hide="mailCtrl.isMyMessage(message.user.id)" ng-href="/#/message-reply"> <button ng-click="mailCtrl.setConversationId()">Reply to message</button></a>
+    </section>
+  </div>
 
 
-   </section>
- </div>
-
-
+  [
 
 
 
+</div>
+
+<div ng-controller="respondToJobRequestController as respondCtrl" ng-init "respondCtrl.getJobRequests()">
+  <h3> You have the following Job Requests: </h3>
+  <section ng-repeat="request in respondCtrl.inactiveJobs">
+    <p> Request from:  {{request.recipient_username}} </p>
+    <a> <button ng-click = "respondCtrl.acceptJob(job)"> Accept </button> </a>
+  </section>
 
 </div>

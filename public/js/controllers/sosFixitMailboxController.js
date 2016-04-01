@@ -11,7 +11,7 @@ sosFixit.controller('mailboxController', ['mailboxFactory', 'mailboxService','re
   self.senderId = null;
   self.recipientId = null;
   self.fixerId = null;
-
+  
   self.isMyMessage = function(senderId) {
 
     currentUser = $rootScope.user.id;
