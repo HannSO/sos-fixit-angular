@@ -7,9 +7,10 @@
   </div><!-- /.row -->
 
 
-  <div class="row">
 
     <div ng-controller="mailboxController as mailCtrl" ng-init="mailCtrl.getMailbox()">
+
+      <div class="row">
 
       <div class="small-12 medium-4 columns">
         <div class="conversations">
@@ -20,7 +21,7 @@
 
            <div class='job-request' ng-show="mailCtrl.isCurrentUserRequesting" >
              <input type="text" ng-model="mailCtrl.nameOfJob" placeholder="Enter job type"> </input>
-             <button ng-click="mailCtrl.createJob()">Request Job</button>
+             <button class="humble-button" ng-click="mailCtrl.createJob()">Request Job</button>
            </div>
 
         </div><!-- conversations -->
@@ -36,30 +37,43 @@
                 <div class="meta">
                   <p>Sent by {{ message.user.name }} on {{ message.created_at | dateToISO | date:'medium' }}</p>
                 </div>
+                <a class="humble-button" ng-hide="mailCtrl.isMyMessage(message.user.id)" ng-href="/#/message-reply" ng-click="mailCtrl.setConversationId()">Reply to message</a>
              </div><!-- message-content -->
-            <a class="humble-button" ng-hide="mailCtrl.isMyMessage(message.user.id)" ng-href="/#/message-reply" ng-click="mailCtrl.setConversationId()">Reply to message</a>
            </div><!-- ng-repeat? -->
 
          </div><!-- messages -->
 
        </div><!-- .small-12 -->
 
-        <div class="job-responses">
-          <h3> View your job requests: <button ng-click ="mailCtrl.getJobRequests()"> Jobs </button></h3>
+     </div><!-- .row -->
+
+     <div class="row">
+      <div class="small-12 medium-12 columns">
+
+        <div class="job-responses" ng-init="mailCtrl.getJobRequests()">
+          <h3>Your Job Requests</h3>
+          <!-- <button class="mega-button" ng-click ="mailCtrl.getJobRequests()">View your job requests</button> -->
           <div ng-show="mailCtrl.showJobs">
-            <section  ng-repeat="job in mailCtrl.inactiveJobs">
-              <p> Request from:  {{job.recipient_username}} </p>
-              <p> Job: {{job.name}} </p>
-              <a> <button ng-click = "mailCtrl.acceptJob(job)"> Accept</button> </a>
-            </section>
+            <div class="row">
+              <div ng-repeat="job in mailCtrl.inactiveJobs">
+                <div class="small-12 medium-4 columns">
+                <p> Request from: {{job.recipient_username}} </p>
+                <p> Job: {{job.name}} </p>
+                <button class="humble-button" ng-click="mailCtrl.acceptJob(job)">Accept</button>
+                </div>
+              </div>
+            </div>
           </div>
           <div ng-show = "mailCtrl.noJobs">
             <p> No jobs requests to show! </p>
           </div>
         </div><!-- job-repsonses -->
 
-      </div><!-- controller -->
+      </div><!-- .small-12 -->
 
-    </div><!-- .row -->
+      </div><!-- .row -->
+
+    </div><!-- controller -->
+
 
 </section>

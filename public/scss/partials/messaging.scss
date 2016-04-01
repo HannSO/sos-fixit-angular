@@ -36,8 +36,17 @@ section#inbox.section {
     }
   }
 
-  .mail-button.mega-button {
+  .humble-button {
     font-size: 0.75em;
+  }
+
+  .job-responses {
+    margin-top: 3em;
+    h3 {
+      margin-bottom: 2em;
+    }
+    .humble-button {
+    }
   }
 }
 
