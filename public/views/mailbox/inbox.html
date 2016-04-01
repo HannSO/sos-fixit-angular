@@ -1,67 +1,65 @@
-
 <section id="inbox" class="section">
 
   <div class="row">
     <div class="small-12 medium-8 medium-centered columns">
       <h2>Your current conversations</h2>
-    </div>
-    <!-- /.small-12 medium-8 medium-centered columns -->
-  </div>
-  <!-- /.row -->
+    </div><!-- /.small-12 medium-8 medium-centered columns -->
+  </div><!-- /.row -->
 
 
   <div class="row">
 
-  <div ng-controller="mailboxController as mailCtrl" ng-init="mailCtrl.getMailbox()">
+    <div ng-controller="mailboxController as mailCtrl" ng-init="mailCtrl.getMailbox()">
 
-    <div class="small-12 medium-4 columns">
+      <div class="small-12 medium-4 columns">
+        <div class="conversations">
 
-      <div class="conversations">
+           <div ng-repeat='conv in mailCtrl.conversations'>
+             <button class="mega-button" ng-click="mailCtrl.getMessages(conv)"> {{conv.subject}} </button>
+           </div>
 
-         <div ng-repeat='conv in mailCtrl.conversations'>
-           <button class="mega-button" ng-click="mailCtrl.getMessages(conv)"> {{conv.subject}} </button>
-         </div>
+           <div class='job-request' ng-show="mailCtrl.isCurrentUserRequesting" >
+             <input type="text" ng-model="mailCtrl.nameOfJob" placeholder="Enter job type"> </input>
+             <button ng-click="mailCtrl.createJob()">Request Job</button>
+           </div>
 
-         <div class='job-request' ng-show ="mailCtrl.isCurrentUserRequesting" >
-           <button class="job-button mega-button" ng-click = "mailCtrl.createJob()">Request Job</button>
-           <input type="text">Time:</input>
-         </div>
+        </div><!-- conversations -->
 
-         <div class='job-response' ng-hide ="mailCtrl.isCurrentuserRequesting">
-           <button class="humble-button">Accept Job</button>
-           <button class="humble-button">Decline Job</button>
-         </div>
+      </div><!-- .small-12 -->
 
-      </div>
+      <div class="small-12 medium-8 columns">
+        <div class="messages">
 
-    </div>
-
-    <div class="small-12 medium-8 columns">
-
-      <div class="messages">
-
-       <div ng-repeat="message in mailCtrl.messages">
-
-         <div class="message-content">
-
-            <p>{{ message.body }}</p>
-
-            <div class="meta">
-              <p>Sent by {{ message.user.name }} on {{ message.created_at | dateToISO | date:'medium' }}</p>
-            </div>
-
+           <div ng-repeat="message in mailCtrl.messages">
+             <div class="message-content">
+                <p>{{ message.body }}</p>
+                <div class="meta">
+                  <p>Sent by {{ message.user.name }} on {{ message.created_at | dateToISO | date:'medium' }}</p>
+                </div>
+             </div><!-- message-content -->
             <a class="humble-button" ng-hide="mailCtrl.isMyMessage(message.user.id)" ng-href="/#/message-reply" ng-click="mailCtrl.setConversationId()">Reply to message</a>
+           </div><!-- ng-repeat? -->
 
-         </div>
+         </div><!-- messages -->
 
-       </div>
+       </div><!-- .small-12 -->
 
-     </div>
+        <div class="job-responses">
+          <h3> View your job requests: <button ng-click ="mailCtrl.getJobRequests()"> Jobs </button></h3>
+          <div ng-show="mailCtrl.showJobs">
+            <section  ng-repeat="job in mailCtrl.inactiveJobs">
+              <p> Request from:  {{job.recipient_username}} </p>
+              <p> Job: {{job.name}} </p>
+              <a> <button ng-click = "mailCtrl.acceptJob(job)"> Accept</button> </a>
+            </section>
+          </div>
+          <div ng-show = "mailCtrl.noJobs">
+            <p> No jobs requests to show! </p>
+          </div>
+        </div><!-- job-repsonses -->
 
-   </div>
+      </div><!-- controller -->
 
-  </div>
-
-  </div>
+    </div><!-- .row -->
 
 </section>

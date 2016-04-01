@@ -43,23 +43,18 @@ sosFixit.controller("listController", ['$rootScope','uiGmapGoogleMapApi', 'uiGma
   });
 
 (self.saveUserId = function(user) {
-    console.log("Saving user id");
     userId = user.id;
-    console.log(userId);
     savingUserIdService.setData(userId);
   });
 
   self.saveUser = function(user){
-    console.log('saving user');
     savingUserService.setData(user);
-    console.log(savingUserService.getData());
   };
 
   self.orderByDistance = function(user){
     return parseFloat(user.distance);
   };
   self.saveUser = function(user){
-    console.log('saving user');
     savingUserService.setData(user);
   };
 }]);

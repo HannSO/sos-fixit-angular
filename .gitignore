@@ -2,3 +2,5 @@ bower_components
 public/bower_components/*
 !public/bower_components/ng-token-auth
 node_modules
+config.codekit
+public/js/min
