@@ -1,0 +1,38 @@
+
+header#masthead {
+  background-color: $colour_one;
+  padding: 1em 0;
+  border-bottom: 3px solid #fff;
+
+  #site-title {
+    float: left;
+    width: 25%;
+    h2 a {
+      color: $colour_two;
+    }
+  }
+
+  nav#main-nav {
+    float: right;
+    width: 75%;
+    margin-top: 0.5em;
+    text-align: right;
+    div {
+      display: inline-block;
+      a {
+        font-size: 0.75em;
+      }
+    }
+    #user-info {
+      display: inline-block;
+      margin-right: 1em;
+      font-family: "brandon-grotesque";
+      // text-transform: uppercase;
+      color: $colour_three;
+      p {
+        font-size: 1em;
+      }
+    }
+  }
+
+}

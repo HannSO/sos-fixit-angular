@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>SOS Fixit</title>
+    <title>SOSFixIt.</title>
 
     <script src="bower_components/jquery/dist/jquery.js"></script>
     <script src="bower_components/angular/angular.js"></script>
@@ -45,32 +45,57 @@
     <script src="./js/services/registrationLocationService.js"></script>
     <script src="./js/services/savingUserService.js"></script>
 
-    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <script src="https://use.typekit.net/tqk1faz.js"></script>
+    <script>try{Typekit.load({ async: true });}catch(e){}</script>
+
+    <link rel="stylesheet" type="text/css" href="css/foundation.css">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+
 
     <!-- <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false&v=3&libraries=geometry"></script> -->
-
 
   </head>
 
   <body id="sosFixitBody" ng-app ="SosFixit">
+    <header id="masthead">
+      <div class="row">
+        <div class="small-12 columns">
+          <div id="site-title">
+            <h2><a ng-href="/#/">SOSFixit.</a></h2>
+          </div>
+          <nav id="main-nav">
+            <div id="user-info">
+              <p ng-show="user.id">Signed in as {{user.name}}</p>
+            </div>
+            <div id="user-actions">
+              <div class="user-link" id="signInLink" ng-hide="user.id">
+                <a class="mega-button" ng-href="/#/sign_in">Sign in</a>
+              </div>
+              <div class="user-link" id="signOutLink" ng-show="user.id">
+                <a class="mega-button" ng-click="signOut()" ng-href="/#/">Sign out</a>
+              </div>
+              <div class="user-link" id='registerLink' ng-hide="user.id">
+                <a class="mega-button" ng-href="/#/register">Register</a>
+              </div>
+              <div class="user-link" id='profileLink' ng-controller="indexLinkToProfileController as profileCtrl" ng-show="user.id">
+                <a class="mega-button" ng-href='/#/user_profile' ng-click="profileCtrl.saveCurrentUser()">Your profile!</a>
+              </div>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </header>
 
-
-    <p ng-show="user.id">
-      <a ng-click="signOut()" ng-href="/#/">Sign out</a>
-    </p>
-
-
-    <section ng-controller="indexLinkToProfileController as profileCtrl" ng-show="user.id">
-      <a ng-href='/#/user_profile'> <button ng-click="profileCtrl.saveCurrentUser()">  Your profile! </button></a>
-    </section>
-
-    <div ng-view>
+    <div ng-view autoscroll id="content">
 
     </div>
 
-    <!-- <div ng-show="">
-      {{ message }}
-    </div> -->
+    <footer id="colophon">
+      <div class="row">
+        <div class="small-12 columns">
+        </div>
+      </div>
+    </footer>
 
   </body>
 

@@ -1,26 +1,51 @@
-<p ng-show="user.id">
-  <a ng-href="/#/">Take me home!</a>
-</p>
 
-<ul ng-controller="listController as ListCtrl" ng-init="ListCtrl.getUsersSkills()">
-  <li class="users-list" ng-repeat="user in ListCtrl.users | orderBy :'distance'">
+<section id="search-results" class="section search">
 
-    <p class="user-email">
-      {{user.email}}
-    </p>
-    <p class="user-name">
-      {{user.name}}
-    </p>
-    <p class="user-location">
-      {{user.location}}
-    </p>
-    <p class="user-distance">
-      {{user.distance}} miles from you
-    </p>
+  <div class="row">
 
-    <a ng-href="/#/send-message" >  <button ng-click = "ListCtrl.saveUserId(user)"> Message {{user.name}} </button> </a>
+      <div ng-controller="listController as ListCtrl" ng-init="ListCtrl.getUsersSkills()">
 
-    <a ng-href="/#/user_profile" ng-click = "ListCtrl.saveUser(user)"> <button> {{user.name}}'s Profile </button> </a>
+        <div class="small-12 medium-10 medium-centered columns">
 
-  </li>
-</ul>
+          <h2>Good news! There are {{ ListCtrl.users.length }} people near you who might be able to help:</h2>
+
+        </div>
+
+        <div class="small-12 medium-10 medium-centered columns">
+
+          <div class="row">
+
+            <div class="users-list" ng-repeat="user in ListCtrl.users | orderBy : ListCtrl.orderByDistance">
+
+              <div class="user small-12 medium-6 columns">
+
+                <div class="image-container">
+                  <img src="{{user.image}}"/>
+                </div>
+                <div class="user-name">
+                  <h3>{{user.name}}</h3>
+                </div>
+                <div class="user-location">
+                  <h4>{{user.location}}</h4>
+                </div>
+                <div class="user-distance">
+                  <h4>{{user.distance}} miles from you</h4>
+                </div>
+
+                <a class="humble-button" ng-href="/#/send-message" ng-click = "ListCtrl.saveUserId(user.id)">Send {{user.name}} a message</a>
+                <a class="humble-button" ng-href="/#/user_profile" ng-click = "ListCtrl.saveUser(user)">View {{user.name}}'s Profile</a>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+    <!-- /.small-12 medium-10 medium-centered columns -->
+  </div>
+  <!-- /.row -->
+
+</section>

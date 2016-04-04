@@ -25,11 +25,13 @@ sosFixit.controller("listController", ['$rootScope','uiGmapGoogleMapApi', 'uiGma
           userLocation = new google.maps.LatLng(userLat, userLng);
           userDistanceCalcFactory.userDistance(currentUserLocation, userLocation);
           if (allSkillUsers[i].user.id != currentUserID) {
+            console.log(allSkillUsers[i].user.image)
           self.users.push({
             "email": allSkillUsers[i].user.email,
             "name": allSkillUsers[i].user.name,
             "location": allSkillUsers[i].user.location,
             "distance": distToMiles,
+            "image": allSkillUsers[i].user.image,
             "id": allSkillUsers[i].user.id
             });
           }
@@ -49,6 +51,9 @@ sosFixit.controller("listController", ['$rootScope','uiGmapGoogleMapApi', 'uiGma
     savingUserService.setData(user);
   };
 
+  self.orderByDistance = function(user){
+    return parseFloat(user.distance);
+  };
   self.saveUser = function(user){
     savingUserService.setData(user);
   };

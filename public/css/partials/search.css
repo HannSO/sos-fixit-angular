@@ -1,0 +1,23 @@
+section.search h2 {
+  margin-bottom: 1.5em; }
+section.search .users-list {
+  display: block;
+  overflow: visible;
+  margin: 2em 0;
+  text-align: center; }
+  section.search .users-list .user {
+    margin-bottom: 4em; }
+  section.search .users-list a.humble-button {
+    margin-top: 1em;
+    display: inline-block; }
+  section.search .users-list .image-container {
+    display: inline-block;
+    height: 150px;
+    width: 150px;
+    border-radius: 100%;
+    overflow: hidden; }
+    section.search .users-list .image-container img {
+      height: 100%;
+      width: auto; }
+
+/*# sourceMappingURL=search.css.map */

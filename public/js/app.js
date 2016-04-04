@@ -9,7 +9,7 @@ var sosFixit =
           'ngRoute',
           'ipCookie',
           'uiGmapgoogle-maps',
-          'ngGeolocation'
+          'ngGeolocation',
       ])
       .config(['$routeProvider', '$locationProvider', 'uiGmapGoogleMapApiProvider', function($routeProvider, $locationProvider, uiGmapGoogleMapApiProvider) {
         $routeProvider
@@ -84,16 +84,7 @@ var sosFixit =
       .run(['$rootScope', '$location', function($rootScope, $location) {
         $rootScope.$on('auth:login-success', function(){
           $location.path('/');
-          // $scope.message = ('Welcome, you have successfully logged in');
         });
-      //   $rootScope.$on('auth:login-error', function(event, reason){
-      //     $scope.message = (reason.errors[0]);
-      //   });
-      //   // $rootScope.$on('auth:logout-success', function($scope, ev) {
-      //   //   $scope.message = 'You have successfully logged out, goodbye';
-      //   //   $scope.message = '';
-      //   });
-
       }]);
 
       sosFixit.filter('dateToISO', function() {

@@ -1,0 +1,55 @@
+
+section#user-profile.section {
+  .image-container {
+    display: inline-block;
+    height: 150px;
+    width: 150px;
+    border-radius: 100%;
+    overflow: hidden;
+    margin-bottom: 1.5em;
+    img {
+      height: 100%;
+      width: auto;
+    }
+  }
+  .skills {
+    margin-top: 3em;
+    h2 {
+      margin-bottom: 0.5em;
+    }
+  }
+  .skill-list {
+    display: inline-block;
+    p {
+      margin-right: 5px;
+      &:after {
+        content: " | ";
+        color: $colour_one;
+      }
+    }
+      &:last-child p {
+        &:after {
+          content: "";
+        }
+    }
+  }
+  .jobs {
+    margin-top: 3em;
+    .job-list {
+      .job {
+        position: relative;
+        margin-bottom: 1em;
+        padding: 1em;
+        &:after {
+          content: "";
+          position: absolute;
+          width: 50%;
+          left: 25%;
+          bottom: 0;
+          background: $colour_one;
+          height: 2px;
+        }
+      }
+    }
+  }
+}
