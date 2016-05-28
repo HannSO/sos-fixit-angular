@@ -1,4 +1,8 @@
-# sos-fixit-rails-api
+# sos-fixit-front-end
+
+* For a demo of our app, please view https://youtu.be/m5uixjr55oo
+
+* To use the app, please clone this repo and our sos-fixit API: https://github.com/HannSO/sos-fixit-rails-api
 
 ## User Stories:
 
